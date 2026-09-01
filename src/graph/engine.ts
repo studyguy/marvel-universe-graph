@@ -240,6 +240,7 @@ export class GraphEngine {
   /* ============ 投影构建 ============ */
 
   refresh(animate = true) {
+    this.idleRun = 0;
     const s = this.cb.snapshot();
     const idx = this.cb.getIndex();
     if (!idx) return;
@@ -606,6 +607,7 @@ export class GraphEngine {
   }
 
   private onPointerDown = (ev: PointerEvent) => {
+    this.idleRun = 0;
     try { this.cv.setPointerCapture(ev.pointerId); } catch { /* 合成事件或已释放 */ }
     this.pointers.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
     if (this.pointers.size === 2) {
@@ -629,6 +631,7 @@ export class GraphEngine {
   };
 
   private onPointerMove = (ev: PointerEvent) => {
+    this.idleRun = 0;
     if (this.pointers.has(ev.pointerId)) this.pointers.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
     if (this.pointers.size === 2) {
       const [a, b] = [...this.pointers.values()];
@@ -751,6 +754,7 @@ export class GraphEngine {
   }
 
   private onWheel = (ev: WheelEvent) => {
+    this.idleRun = 0;
     ev.preventDefault();
     const rect = this.cv.getBoundingClientRect();
     this.zoomAt(ev.clientX - rect.left, ev.clientY - rect.top, Math.exp(-ev.deltaY * 0.0016));
@@ -789,14 +793,37 @@ export class GraphEngine {
     this.bg = c;
   }
 
+  private idleRun = 0;
+  private drawAcc = 0;
+
+  /** 场景是否已静止（virtual 模式：相机到位、节点透明度/hover 稳定） */
+  private isIdle(): boolean {
+    if (this.camT.x !== this.cam.x || this.camT.y !== this.cam.y || this.camT.scale !== this.cam.scale) return false;
+    for (const rn of this.nodes.values()) {
+      if (rn.alpha !== rn.targetAlpha || rn.hover > 0.02) return false;
+    }
+    return true;
+  }
+
   private loop = (t: number) => {
     if (this.destroyed) return;
     const dt = Math.min(48, t - this.lastT);
     this.lastT = t;
+    const virtual = this.projection?.center == null;
+    if (virtual && this.isIdle() && ++this.idleRun > 30) {
+      // 静止的类型环/全景：跳过 step+draw，仅保留 rAF 心跳（省 CPU/电量）
+      this.raf = requestAnimationFrame(this.loop);
+      return;
+    }
+    this.idleRun = 0;
     this.time += dt;
     this.step(dt);
-    this.draw();
-    if (this.mm) this.drawMinimap();
+    // 普通放射图有中心脉冲动画：限 30fps 足够平滑（半速渲染省一半 GPU）
+    if (virtual || (this.drawAcc += dt) >= 30) {
+      this.drawAcc = 0;
+      this.draw();
+      if (this.mm) this.drawMinimap();
+    }
     this.raf = requestAnimationFrame(this.loop);
   };
 

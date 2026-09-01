@@ -44,7 +44,10 @@ export function Controls({ engineRef, mobile }: { engineRef: React.MutableRefObj
             navigate('/');
           }}
         >
-          ⌂
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 11l8-7 8 7" />
+    <path d="M6 9.5V20h12V9.5" />
+  </svg>
         </button>
         <button
           className={`ctl-btn ctl-detail ${rightOpen ? 'on' : ''}`}
@@ -59,8 +62,20 @@ export function Controls({ engineRef, mobile }: { engineRef: React.MutableRefObj
     <path d="M8.4 17.8l1.6 1.6 2.8-3" />
   </svg>
         </button>
-        <button className="ctl-btn" title={t('back', lang)} onClick={goBack} disabled={history.length < 2}>↩</button>
-        <button className="ctl-btn" title={t('resetView', lang)} onClick={() => engineRef.current?.resetView()}>⛶</button>
+        <button className="ctl-btn" title={t('back', lang)} onClick={goBack} disabled={history.length < 2}>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 14L4 9l5-5" />
+    <path d="M4 9h10a6 6 0 0 1 6 6v4" />
+  </svg>
+        </button>
+        <button className="ctl-btn" title={t('resetView', lang)} onClick={() => engineRef.current?.resetView()}>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 9V4h5" />
+    <path d="M15 4h5v5" />
+    <path d="M20 15v5h-5" />
+    <path d="M9 20H4v-5" />
+  </svg>
+        </button>
       </div>
     </div>
   );
