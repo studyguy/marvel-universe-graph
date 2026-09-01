@@ -415,3 +415,42 @@ E('ch-wong', 'wk-doctor-strange1', 'appears-in', { role: SUP, actor: L2('本尼�
 E('ch-ancient-one', 'wk-doctor-strange1', 'appears-in', { role: SUP, actor: L2('蒂尔达·斯文顿', 'Tilda Swinton') });
 E('ch-karl-mordo', 'wk-doctor-strange1', 'appears-in', { role: SUP, actor: L2('奇维托·艾杰福', 'Chiwetel Ejiofor') });
 E('ch-america-chavez', 'uni-earth-838', 'traveled-to', { status: PAST });
+
+/* ---------- P2 团队关系补全：组织网（team↔team）+ 组织出场作品（team↔work） ---------- */
+/* 组织间关系 */
+E('team-shield', 'team-ssr', 'split-from', { status: PAST });           // 神盾局由 S.S.R. 演变
+E('team-hydra', 'team-shield', 'rival-org', { status: PAST });          // 九头蛇 vs 神盾局
+E('team-hydra', 'team-red-room', 'affiliated-with', { status: PAST });  // 红房曾与九头蛇合作
+E('team-avengers', 'team-shield', 'affiliated-with', { status: NOW });  // 复仇者隶属神盾局体系
+E('team-avengers', 'team-xmen', 'affiliated-with', { status: NOW });    // 两大团队联动
+E('team-xmen', 'team-brotherhood', 'rival-org', { status: NOW });       // X战警 vs 兄弟会
+E('team-gotg', 'team-ravagers', 'affiliated-with', { status: PAST });   // 星爵与掠夺者渊源
+E('team-kree-empire', 'team-nova-corps', 'rival-org', { status: NOW }); // 克里 vs 山达尔
+E('team-kree-empire', 'team-sovereign', 'rival-org', { status: PAST }); // 至高族反克里
+E('team-wakandan-royal', 'team-dora-milaje', 'subordinate-org', { status: NOW }); // 亲卫队隶属王室
+E('team-wakandan-royal', 'team-talokan', 'rival-org', { status: PAST }); // 瓦坎达 vs 塔洛坎
+E('team-fantastic-four-828', 'team-illuminati-838', 'affiliated-with', { status: NOW }); // 838 光照会成员
+E('team-kamar-taj', 'team-master-of-mystic', 'subordinate-org', { status: NOW }); // 法师团隶属卡玛泰姬
+/* 组织出场作品（debut/stars-in/appears-in） */
+E('team-avengers', 'wk-avengers1', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-avengers', 'wk-avengers2', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-avengers', 'wk-infinity-war', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-avengers', 'wk-endgame', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-avengers', 'wk-civil-war-comic', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-gotg', 'wk-gotg1', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-gotg', 'wk-gotg2', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-gotg', 'wk-gotg3', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-xmen', 'wk-uncanny-xmen', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-shield', 'wk-aos', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-shield', 'wk-ca-tws', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });
+E('team-ssr', 'wk-ca-tfa', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });
+E('team-ssr', 'wk-agent-carter', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-ten-rings', 'wk-shang-chi', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-tva', 'wk-loki', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-thunderbolts', 'wk-thunderbolts', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-defenders', 'wk-defenders-show', 'stars-in', { role: L2('主角', 'Lead'), status: NOW });
+E('team-midnight-sons', 'wk-moon-knight-comic', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });
+E('team-sinister-six', 'wk-amazing-spider-man', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });
+E('team-kree-empire', 'wk-captain-marvel1', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });
+E('team-kree-empire', 'wk-the-marvels', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });
+E('team-black-order', 'wk-infinity-war', 'appears-in', { role: L2('重要配角', 'Supporting'), status: NOW });

@@ -11,3 +11,4 @@ import './bios-core';
 import './bios-mcu';
 import './bios-comics';
 import './bios-mantles';
+import './bios-teams';
