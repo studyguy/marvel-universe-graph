@@ -258,7 +258,7 @@ export class GraphEngine {
     }
   }
 
-  /** 全景虚拟聚类投影：cluster:root → 类型星团；cluster:<type> → 该类 top 节点 */
+  /** 全景虚拟聚类投影：cluster:root → 类型星团；cluster:<type> → 该类全部节点（点状环布 + 互相关联边） */
   private buildVirtualProjection(idx: GraphIndex, s: EngineSnapshot, cap: number): Projection {
     const empty: Projection = { center: null, neighbors: [], edges: [], truncated: false };
     if (s.centerId === 'cluster:root') {
@@ -282,17 +282,24 @@ export class GraphEngine {
     if (!tdef) return empty;
     this.virtualCenterLabel = tdef.label[s.lang];
     const list = idx.byType.get(type) ?? [];
-    const PAGE = 20;
-    if (this.indexPageKey !== s.centerId) {
-      this.indexPageKey = s.centerId;
-      this.indexPage = 0;
-    }
-    const total = list.length;
-    const start = total ? (this.indexPage * PAGE) % total : 0;
-    const picked: GraphNode[] = [];
-    for (let k = 0; k < Math.min(PAGE, total); k++) picked.push(list[(start + k) % total]);
+    this.indexPageKey = s.centerId;
+    this.indexPage = 0;
+    // 全量显示该类型节点（角色 93 / 场景 50 / 事件 35 / 宇宙 28，均在单帧无压力范围）
+    const picked: GraphNode[] = list.filter((n) => !s.hiddenNodeTypes.includes(n.type));
+    const pickedIds = new Set(picked.map((n) => n.id));
     const neighbors: ProjectedNode[] = picked.map((n) => ({ node: n, weight: 1, viaEdgeIds: [] }));
-    return { center: null, neighbors, edges: [], truncated: total > PAGE };
+    // 诱导边：两端都在 picked 集内的关系（如名号间的盟敌/师徒）→ "以该类型为核心"的关联网
+    const edges: GraphEdge[] = [];
+    const edgeSeen = new Set<string>();
+    for (const n of picked) {
+      for (const { edge } of idx.adj.get(n.id) ?? []) {
+        if (!pickedIds.has(edge.s) || !pickedIds.has(edge.t)) continue;
+        if (edgeSeen.has(edge.id)) continue;
+        edgeSeen.add(edge.id);
+        edges.push(edge);
+      }
+    }
+    return { center: null, neighbors, edges, truncated: false };
   }
 
   private virtualClusters: { type: string; count: number; rep: GraphNode }[] = [];

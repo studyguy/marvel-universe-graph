@@ -138,9 +138,18 @@ E('ch-heimdall', 'ch-thanos', 'victim-of', { status: PAST });
 E('ch-thanos', 'ch-heimdall', 'killed', { when: L2('复仇者联盟3：无限战争 开场', 'Infinity War opening') });
 
 /* ---------- 复仇者核心 ---------- */
-for (const m of ['ch-tony-stark', 'ch-steve-rogers', 'ch-thor', 'ch-bruce-banner', 'ch-natasha-romanoff', 'ch-clint-barton']) {
+const AVENGERS_FOUNDERS = ['ch-tony-stark', 'ch-steve-rogers', 'ch-thor', 'ch-bruce-banner', 'ch-natasha-romanoff', 'ch-clint-barton'];
+for (const m of AVENGERS_FOUNDERS) {
   E(m, 'team-avengers', 'member-of', { role: L2('创始成员', 'Founding member'), status: NOW });
 }
+/* 创始六人组两两盟友（改道后为名号↔名号关系，如 钢铁侠↔美国队长） */
+for (let i = 0; i < AVENGERS_FOUNDERS.length; i++) {
+  for (let j = i + 1; j < AVENGERS_FOUNDERS.length; j++) {
+    E(AVENGERS_FOUNDERS[i], AVENGERS_FOUNDERS[j], 'ally', { status: NOW });
+  }
+}
+/* 内战撕裂：铁人与美队的对立（已和解，历史宿敌） */
+E('ch-tony-stark', 'ch-steve-rogers', 'nemesis', { since: L2('美国队长3：内战', 'Civil War'), status: PAST });
 E('ch-wanda-maximoff', 'team-avengers', 'member-of', { status: PAST });
 E('ch-vision', 'team-avengers', 'member-of', { status: PAST });
 E('ch-peter-quill', 'team-avengers', 'affiliated-with', { status: NOW });

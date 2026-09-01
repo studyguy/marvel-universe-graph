@@ -507,36 +507,12 @@ export const VIEW_MODES: ViewModeDef[] = [
     hint: L2('以角色（名号）为主角：钢铁侠、美国队长、蜘蛛侠…及其担任者网络', 'Role-centric: Iron Man, Captain America, Spider-Man… and their holders'),
   },
   {
-    key: 'team',
-    label: L2('团队', 'Teams'),
-    primary: ['team'],
-    catWeights: { org: 3, geo: 2, participation: 2 },
-    defaultCats: ['org', 'geo', 'participation', 'combat'],
-    hint: L2('以团队组织为主角，突出成员、隶属、盟敌与总部', 'Team-centric: membership, hierarchy, allies & enemies'),
-  },
-  {
     key: 'location',
     label: L2('场景', 'Locations'),
     primary: ['location'],
     catWeights: { geo: 3, participation: 2, cosmos: 2 },
     defaultCats: ['geo', 'participation', 'cosmos', 'component'],
     hint: L2('以地点为主角，突出出生地、居住地、统治、总部与战场', 'Location-centric: birthplaces, thrones, HQs and battlefields'),
-  },
-  {
-    key: 'work',
-    label: L2('作品', 'Works'),
-    primary: ['work'],
-    catWeights: { appearance: 3, 'work-rel': 3, media: 3, cosmos: 2 },
-    defaultCats: ['appearance', 'work-rel', 'media', 'cosmos'],
-    hint: L2('以作品为主角，突出登场角色、续作衍生、所属频道与设定宇宙', 'Work-centric: cast, sequels, channels and settings'),
-  },
-  {
-    key: 'item',
-    label: L2('物品', 'Items'),
-    primary: ['item'],
-    catWeights: { possession: 3, component: 3, creation: 2 },
-    defaultCats: ['possession', 'component', 'creation', 'cosmos'],
-    hint: L2('以物品为主角，突出持有者、制造者、组件与锻造地', 'Item-centric: wielders, makers, components and origins'),
   },
   {
     key: 'event',
@@ -553,14 +529,6 @@ export const VIEW_MODES: ViewModeDef[] = [
     catWeights: { 'universe-rel': 3, cosmos: 3 },
     defaultCats: ['universe-rel', 'cosmos'],
     hint: L2('以宇宙为主角，突出平行、分支、碰撞与归属', 'Universe-centric: parallels, branches, collisions'),
-  },
-  {
-    key: 'channel',
-    label: L2('频道', 'Channels'),
-    primary: ['channel'],
-    catWeights: { media: 3, appearance: 2, 'work-rel': 2 },
-    defaultCats: ['media', 'appearance', 'work-rel'],
-    hint: L2('以媒体频道为主角，突出作品归属、角色跨频道登场与改编差异', 'Channel-centric: media ownership, cross-channel roles, adaptations'),
   },
 ];
 

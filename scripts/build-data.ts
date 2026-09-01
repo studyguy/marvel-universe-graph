@@ -157,6 +157,58 @@ for (const e of edgeSeeds) {
   }
 }
 
+/* ---------- 社会类边改道：角色（名号）为核心 ----------
+ * 英雄身份之间的关系（盟敌/战斗/师徒/创造/组织/事件/武器/能力）
+ * 挂在有名号的人物上时自动改道到其主名号；人的亲缘/情感/变体/地理事实保留人物层。 */
+const MANTLE_RELS = new Set([
+  // social
+  'ally', 'nemesis', 'best-friend', 'rival', 'idolizes', 'distrusts',
+  // combat
+  'killed', 'defeated', 'betrayed', 'rescued', 'sacrificed-for',
+  // mentorship / creation
+  'mentor-of', 'creator-of', 'resurrected', 'converted', 'mind-controlled',
+  // org
+  'member-of', 'leader-of', 'undercover-in', 'founded-org', 'affiliated-with',
+  // participation
+  'initiated', 'participated', 'victim-of', 'prevented', 'witnessed',
+  // possession / lineage
+  'wields', 'empowered-by', 'has-ability',
+]);
+let socialRerouted = 0;
+for (const e of edgeSeeds) {
+  if (!MANTLE_RELS.has(e.r)) continue;
+  if (e.s.startsWith('ch-') && personPrime.has(e.s)) {
+    e.s = personPrime.get(e.s)!;
+    socialRerouted++;
+  }
+  if (e.t.startsWith('ch-') && personPrime.has(e.t)) {
+    e.t = personPrime.get(e.t)!;
+    socialRerouted++;
+  }
+}
+/* 改道后清理：同主名号人物互相关系产生的自环丢弃；完全相同的边（含 props）合并 */
+let selfLoopsDropped = 0;
+let dupMerged = 0;
+{
+  const seen = new Set<string>();
+  const kept: typeof edgeSeeds = [];
+  for (const e of edgeSeeds) {
+    if (e.s === e.t) {
+      selfLoopsDropped++;
+      continue;
+    }
+    const key = `${e.s}|${e.t}|${e.r}|${JSON.stringify(e.props ?? null)}`;
+    if (seen.has(key)) {
+      dupMerged++;
+      continue;
+    }
+    seen.add(key);
+    kept.push(e);
+  }
+  edgeSeeds.length = 0;
+  edgeSeeds.push(...kept);
+}
+
 /* 校验：作品出场边不得直接连"有角色的人物"（防返祖） */
 for (const e of edgeSeeds) {
   if (!APPEARANCE_RELS.has(e.r)) continue;
@@ -166,7 +218,18 @@ for (const e of edgeSeeds) {
     }
   }
 }
-console.log(`重构：人物改名 ${renamed.length} 个 · 作品边改道角色 ${rerouted} 条 · 有名号人物 ${personPrime.size} 人`);
+/* 校验：社会类关系不得直接连"有角色的人物"（角色核心防返祖） */
+for (const e of edgeSeeds) {
+  if (!MANTLE_RELS.has(e.r)) continue;
+  for (const end of [e.s, e.t]) {
+    if (end.startsWith('ch-') && personPrime.has(end)) {
+      errors.push(`回归错误：社会关系 ${e.s} -${e.r}-> ${e.t} 直连有名号的人物 ${end}（应改道名号）`);
+    }
+  }
+}
+console.log(
+  `重构：人物改名 ${renamed.length} 个 · 作品边改道角色 ${rerouted} 条 · 社会边改道名号 ${socialRerouted} 端 · 去重合并 ${dupMerged} 条 · 自环丢弃 ${selfLoopsDropped} 条 · 有名号人物 ${personPrime.size} 人`,
+);
 
 /* ---------- 汇编 ---------- */
 const byType: Record<string, number> = {};

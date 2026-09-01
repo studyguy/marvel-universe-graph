@@ -50,12 +50,12 @@ describe('data:build 全量校验（黑盒）', () => {
     }
   });
 
-  it('关系两端存在、类型合法、无重复（同一角色对允许多演员出演边）', () => {
+  it('关系两端存在、类型合法、无重复（允许 props 不同的同名号对多边，如多宇宙宿敌/双演员）', () => {
     runBuild();
     const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
     const ids = new Set(g.nodes.map((n: any) => n.id));
     const keys = new Set(RELATION_TYPES.map((r) => r.key));
-    // 同一 s|t|r 允许多条仅当它们缀属不同演员（如雷神4：锤哥与娜塔莉同饰 mnt-thor）
+    // 与 build-data 去重逻辑对齐：s|t|r|JSON(props) 完全一致才视为重复
     const dupGroups = new Map<string, any[]>();
     for (const e of g.edges) {
       expect(ids.has(e.s), `边 ${e.id} 源不存在 ${e.s}`).toBe(true);
@@ -66,14 +66,8 @@ describe('data:build 全量校验（黑盒）', () => {
       dupGroups.get(dup)!.push(e);
     }
     for (const [dup, list] of dupGroups) {
-      if (list.length <= 1) continue;
-      // 每组 <=1? 否则必须靠 actor 子属性区分
-      expect(list.length > 1, `重复关系 ${dup}（多条）`).toBe(true);
-      const actors = list.map((e: any) => JSON.stringify(e.props?.actor ?? e.props?.actress ?? null));
-      const distinct = new Set(actors);
-      expect(distinct.size, `重复关系 ${dup} 无法按演员属性区分`).toBe(list.length);
-      for (const e of list) expect(e.props?.actor != null, `重复关系 ${dup} 缺 actor 标注`).toBe(true);
-      void dup;
+      const sigs = list.map((e: any) => JSON.stringify(e.props ?? null));
+      expect(new Set(sigs).size, `重复关系 ${dup}（${list.length} 条 props 完全相同）`).toBe(list.length);
     }
   });
 
@@ -146,6 +140,49 @@ describe('data:build 全量校验（黑盒）', () => {
         expect(p.trim().length, `${n.id} 存在过短段落`).toBeGreaterThanOrEqual(10);
       }
     }
+  });
+
+  /** 作品出场 + 社会类（应改道名号层）的关系清单，需与 build-data.ts 的 MANTLE_RELS 保持一致 */
+  const MANTLE_RELS = new Set([
+    'ally', 'nemesis', 'best-friend', 'rival', 'idolizes', 'distrusts',
+    'killed', 'defeated', 'betrayed', 'rescued', 'sacrificed-for',
+    'mentor-of', 'creator-of', 'resurrected', 'converted', 'mind-controlled',
+    'member-of', 'leader-of', 'undercover-in', 'founded-org', 'affiliated-with',
+    'initiated', 'participated', 'victim-of', 'prevented', 'witnessed',
+    'wields', 'empowered-by', 'has-ability',
+  ]);
+
+  it('角色核心：社会类关系不直连有名号的人物（防返祖 generalized）', () => {
+    runBuild();
+    const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
+    const prime = new Map<string, string>();
+    for (const e of g.edges) {
+      if (e.r === 'held-mantle' && e.s.startsWith('ch-') && !prime.has(e.s)) prime.set(e.s, e.t);
+    }
+    for (const e of g.edges) {
+      if (!MANTLE_RELS.has(e.r)) continue;
+      for (const end of [e.s, e.t]) {
+        if (end.startsWith('ch-') && prime.has(end)) {
+          throw new Error(`回归：社会关系 ${e.s}-${e.r}->${e.t} 直连有名号人物 ${end}（应改道名号）`);
+        }
+      }
+    }
+  });
+
+  it('角色核心：名号层关系已成网（mnt↔mnt ≥ 60 条，mnt 端参与边 ≥ 400）', () => {
+    runBuild();
+    const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
+    const mntMnt = g.edges.filter((e: any) => e.s.startsWith('mnt-') && e.t.startsWith('mnt-'));
+    expect(mntMnt.length, '名号↔名号关系过少').toBeGreaterThanOrEqual(60);
+    const mntAny = g.edges.filter((e: any) => e.s.startsWith('mnt-') || e.t.startsWith('mnt-'));
+    expect(mntAny.length, '名号端参与的边过少').toBeGreaterThanOrEqual(400);
+  });
+
+  it('图健康：全图无自环边', () => {
+    runBuild();
+    const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
+    const loops = g.edges.filter((e: any) => e.s === e.t);
+    expect(loops, `存在自环 ${loops.map((e: any) => e.s).join(', ')}`).toHaveLength(0);
   });
 
   it('人物介绍未混入 props（关键属性区不受污染）', () => {

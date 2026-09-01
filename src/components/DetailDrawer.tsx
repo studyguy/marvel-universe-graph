@@ -20,6 +20,12 @@ function propText(v: unknown, lang: 'zh' | 'en', index?: { nodeById: Map<string,
   }
   if (Array.isArray(v)) return v.map((x) => propText(x, lang, index)).join(' / ');
   if (typeof v === 'object' && 'zh' in (v as any)) return (v as any)[lang] ?? (v as any).zh;
+  if (typeof v === 'object') {
+    // 嵌套形状（如 mantle 节点的 { status: '永续传承' }）：取首个字符串值
+    const first = Object.values(v as Record<string, unknown>).find((x) => typeof x === 'string');
+    if (first) return first as string;
+    return Object.values(v as Record<string, unknown>).map((x) => propText(x, lang, index)).filter(Boolean).join(' / ');
+  }
   return String(v);
 }
 
