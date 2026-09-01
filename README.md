@@ -2,6 +2,8 @@
 
 以"节点 + 关系"知识图谱的形式，交互式浏览漫威全内容生态（漫画 / 电影 / 剧集 / 动漫 / 游戏）中一切事物的关联。中心放射 + 逐层下钻，中英双语，**断网完整可用**。
 
+**🌐 在线访问 / Live Demo**：[studyguy.github.io/marvel-universe-graph](https://studyguy.github.io/marvel-universe-graph/)
+
 ![技术栈](https://img.shields.io/badge/Vite%205%20·%20React%2018%20·%20TypeScript%20·%20Canvas%202D-图谱引擎-e62429)
 
 ---
@@ -104,8 +106,14 @@ MCU 全部电影与剧集、福克斯 X 战警系、索尼 SSU、经典剧集、
 
 ## 许可与致谢
 
-本项目为**学习 / 粉丝用途**。数据与图片参考并致谢：
-- [Marvel Database](https://marvel.fandom.com/wiki/Marvel_Database)（CC BY-SA 3.0）
-- [Marvel Cinematic Universe Wiki](https://marvelcinematicuniverse.fandom.com/wiki/Marvel_Cinematic_Universe_Wiki)（CC BY-SA 3.0）
+本项目代码与原创内容（图谱引擎、数据结构、汇编数据、双语整理）**版权归作者所有**，采用自定义许可（详见 [LICENSE.md](./LICENSE.md)）：
 
-漫威及全部角色内容版权归 Marvel 与 Disney 所有。
+- ✅ 允许：在线浏览、个人学习、GitHub 平台内 Fork 与 Pull Request；
+- ❌ 禁止：未经作者事先书面许可，复制 / 再分发、修改后发布，或用于任何**商业用途**。授权与合作请提 [Issue](https://github.com/studyguy/marvel-universe-graph/issues)。
+
+### 第三方内容致谢
+
+本项目为**非官方、非商业的学习 / 粉丝用途**作品：
+
+- 漫威及全部角色内容的著作权归 **Marvel 与 Disney** 所有；
+- 数据与图片参考并致谢：[Marvel Database](https://marvel.fandom.com/wiki/Marvel_Database)（CC BY-SA 3.0）、[Marvel Cinematic Universe Wiki](https://marvelcinematicuniverse.fandom.com/wiki/Marvel_Cinematic_Universe_Wiki)（CC BY-SA 3.0），相应衍生内容依 CC BY-SA 3.0 共享并注明出处。
