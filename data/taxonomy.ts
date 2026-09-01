@@ -423,7 +423,7 @@ export const RELATION_TYPES: RelationTypeDef[] = [
     [{ key: 'phase', label: L2('阶段', 'Phase'), kind: 'text' }]),
   // M 宇宙归属
   rel('native-of', 'cosmos', '原生宇宙', 'Native Universe', true, [CH2R, ['universe']], 3, []),
-  rel('set-in', 'cosmos', '设定于', 'Set In', true, [['work', 'event'], ['universe']], 3, []),
+  rel('set-in', 'cosmos', '设定于', 'Set In', true, [['work', 'event'], ['universe', 'location']], 3, []),
   rel('traveled-to', 'cosmos', '穿越至', 'Traveled To', true, [CH2R, ['universe']], 2, []),
   rel('variant-exists-in', 'cosmos', '变体存在于', 'Variant Exists In', true, [CH2R, ['universe']], 2, []),
   rel('erased-in', 'cosmos', '被抹除于', 'Erased In', true, [CH2R, ['universe']], 1, []),
