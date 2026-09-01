@@ -106,7 +106,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 .brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
 .brand-logo {
-  height: 24px; width: auto;
+  height: 24px;
+  width: auto;
+  aspect-ratio: 1247 / 509; /* 官方 logo 比例，禁止拉伸 */
+  object-fit: contain;
   border-radius: 3px;
   box-shadow: 0 2px 10px rgba(230, 36, 41, 0.4);
   flex: none;
