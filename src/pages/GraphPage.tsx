@@ -118,12 +118,8 @@ export function GraphPage() {
     const primary = viewMap.get(curView)?.primary[0];
     if (!primary) return;
     const ring = `cluster:${primary}`;
-    // 非 overview 视图首页一律落在类型环；已在环内/正查看该类型节点时不打扰
-    if (curCenter === ring) return;
-    const node = idx.nodeById.get(curCenter);
-    if (curCenter.startsWith('cluster:') || !node || node.type !== primary) {
-      st.setCenter(ring);
-    }
+    // 切 tab 即进入该类型的类型环首页（即使当前正看着该类型的某个具体节点）
+    if (curCenter !== ring) st.setCenter(ring);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, index]);
 

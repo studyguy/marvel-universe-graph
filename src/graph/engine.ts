@@ -136,6 +136,8 @@ export interface EngineCallbacks {
 interface RNode {
   id: string;
   node: GraphNode | null;
+  /** 类型环散射布局：诱导子图内的枢纽节点（度数高，名称常显） */
+  hub?: boolean;
   cluster?: { type: string; count: number; label: string; rootLevel?: boolean };
   moreCount?: number;
   isCenter: boolean;
@@ -314,15 +316,18 @@ export class GraphEngine {
     const isClusterRoot = s.centerId === 'cluster:root';
     const isClusterType = s.centerId.startsWith('cluster:') && !isClusterRoot;
 
-    next.set('::center', {
-      id: '::center',
-      node: p.center,
-      isCenter: true,
-      pseudoRoot: !p.center,
-      x: 0, y: 0, tx: 0, ty: 0,
-      baseR: p.center ? 44 : 26, r: 0,
-      alpha: 1, targetAlpha: 1, hover: 0,
-    });
+    // 类型环（cluster:<type>）不创建中心伪节点：中心区域留给枢纽节点
+    if (!isClusterType) {
+      next.set('::center', {
+        id: '::center',
+        node: p.center,
+        isCenter: true,
+        pseudoRoot: !p.center,
+        x: 0, y: 0, tx: 0, ty: 0,
+        baseR: p.center ? 44 : 26, r: 0,
+        alpha: 1, targetAlpha: 1, hover: 0,
+      });
+    }
 
     const neighbors = p.neighbors;
     const n = neighbors.length;
@@ -346,26 +351,44 @@ export class GraphEngine {
         });
       });
     } else if (isClusterType) {
-      // 分类索引视图：椭圆放射环（环状结构是核心范式，不可破坏）
-      // 环径随节点数自适应：93 个名号时扩大椭圆，避免标签互相覆盖
+      // 类型全景：度数向心的伞状散射（Vogel 螺旋）——
+      // 关联多的枢纽节点聚在中心，关联少的自然散在外围，替代机械的圆弧排布。
+      // 1) 诱导子图内连接度
+      const deg = new Map<string, number>();
+      for (const nb of neighbors) deg.set(nb.node.id, 0);
+      for (const e of p.edges) {
+        deg.set(e.s, (deg.get(e.s) ?? 0) + 1);
+        deg.set(e.t, (deg.get(e.t) ?? 0) + 1);
+      }
+      // 2) 度数降序（同度按 id 稳定排序，保证每次进入形态一致）
+      const ordered = [...neighbors].sort(
+        (a, b) => deg.get(b.node.id)! - deg.get(a.node.id)! || a.node.id.localeCompare(b.node.id),
+      );
+      // 3) 黄金角 + √ 累进半径：中心密、外围疏，天然均匀无重叠
       const spread = Math.max(1, Math.sqrt(n / 40));
-      const A = 860 * spread;
-      const B = 540 * spread;
-      this.gridDims = { w: 2 * A + 180, h: 2 * B + 180 };
-      neighbors.forEach((nb, i) => {
-        const ang = -Math.PI / 2 + (TAU * i) / Math.max(n, 1);
+      const rHub = 70;
+      const rMax = 760 * spread;
+      const GOLDEN = 2.39996; // 137.508°
+      ordered.forEach((nb, i) => {
+        const t = n <= 1 ? 0 : i / (n - 1);
+        const rr = rHub + (rMax - rHub) * Math.sqrt(t);
+        const ang = i * GOLDEN;
+        const d = deg.get(nb.node.id) ?? 0;
+        const hub = d >= 4;
         next.set(nb.node.id, {
           id: nb.node.id, node: nb.node, isCenter: false,
+          hub,
           x: 0, y: 0,
-          tx: Math.cos(ang) * A, ty: Math.sin(ang) * B,
-          baseR: n > 60 ? 24 : 30, r: 0, alpha: 1, targetAlpha: 1, hover: 0,
+          tx: Math.cos(ang) * rr, ty: Math.sin(ang) * rr,
+          baseR: hub ? 30 : n > 60 ? 22 : 27, r: 0, alpha: 1, targetAlpha: 1, hover: 0,
         });
       });
+      this.gridDims = { w: 2 * (rMax + 90), h: 2 * (rMax + 90) };
       if (p.truncated) {
         next.set('::more', {
           id: '::more', node: null, isCenter: false,
           moreCount: Math.max(0, (idx.byType.get(s.centerId.slice(8))?.length ?? 0) - n),
-          x: 0, y: 0, tx: 0, ty: B + 132,
+          x: 0, y: 0, tx: 0, ty: rMax * 0.7 + 132,
           baseR: 24, r: 0, alpha: 1, targetAlpha: 1, hover: 0,
         });
       }
@@ -1035,6 +1058,7 @@ export class GraphEngine {
       const denseVirtual = this.virtual && this.nodes.size > 48;
       const showText =
         rn.isCenter ||
+        rn.hub ||
         this.cam.scale > (denseVirtual ? 1.15 : 0.2) ||
         rn.hover > 0.3 ||
         !!rn.cluster ||
