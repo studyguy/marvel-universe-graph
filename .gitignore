@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.zcode/
+.tmp-bing/
+*.tsbuildinfo
+*.log
+.DS_Store
+*.js
+*.d.ts

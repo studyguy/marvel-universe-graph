@@ -1,0 +1,177 @@
+{
+ "mnt-black-widow": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-black-panther": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-ghost": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 4,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-spectrum": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-ms-marvel": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-echo": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 3,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-iron-fist": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-us-agent": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 2,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-prowler": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-scorpion": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-lizard": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-kraven": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-purple-man": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-human-torch": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-gambit": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-iceman": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-nova": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-blue-marvel": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-wiccan": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 3,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-iron-lad": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "钢铁小子",
+  "thumb": "https://img1.baidu.com/it/u=1136057653,2969376105&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=759",
+  "status": "ok"
+ },
+ "mnt-morbius": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 5,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-war-machine": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 1,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "mnt-vision": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 4,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "ch-vision": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 4,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ },
+ "ch-james-rhodes": {
+  "src": "baidu-image-search(thumb, no proxy, human QC)",
+  "pick": 0,
+  "title": "",
+  "thumb": "",
+  "status": "ok"
+ }
+}
