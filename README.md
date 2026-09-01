@@ -32,11 +32,11 @@ npm run data:build   # 校验 + 汇编 → public/data/graph.json
 
 ### 人物介绍（Fandom 式详情）
 
-`data/source/bios.ts` 集中登记**选填**的人物介绍（`bio('ch-bruce-banner', [{ zh, en }, …])`），详情抽屉内渲染为"信息卡 + 介绍摘要"，点"阅读完整介绍"弹出全文大弹窗：
+`data/source/bios.ts`（按 bios-core / bios-mcu / bios-comics 分文件）集中登记**选填**的人物介绍（`bio('ch-bruce-banner', [{ zh, en }, …])`），详情抽屉内渲染为"信息卡 + 介绍摘要"，点"阅读完整介绍"弹出全文大弹窗：
 
 - 叙事模板与 Fandom 人物页一致：① 身份与起源 ② 主要经历/故事线 ③ 能力与弱点 ④ 现状与结局（4-6 段、双语）；
 - 信息卡（名号/出生地/能力/所属）**直接汇总自关系边**（held-mantle / born-in / has-ability / member-of），不重复存储；
-- 采集参考：萌娘百科（CC BY-NC-SA）/ Marvel Database（CC BY-SA）作事实核对，正文为本站改写（非逐句复制）；待补名单在 bios.ts 尾部注释；
+- **事实来源：Marvel Database（marvel.fandom.com）**——本机需要通过代理访问（Clash mixed-port 7897 等）+ 真实浏览器过 Cloudflare 挑战（curl 直抓会被 403 拦截）；抓取流程见 `scripts/fetch-moegirl-bios.py`（旧萌娘通道）与浏览器内采集脚本（可按需重新执行）；中文正文为本站改写（CC BY-SA 3.0，非商业粉丝用途），待补名单在 bios-comics.ts 尾部注释；
 - 缺 bio 的人物只显示信息卡，不报错、不影响零警告验收。
 
 ## 真实图片（可选增强）/ Real Images (Optional)
