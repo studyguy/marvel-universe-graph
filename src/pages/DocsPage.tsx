@@ -15,7 +15,7 @@ export function DocsPage() {
       <header className="topbar">
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="brand">
-            <div className="brand-logo">MARVEL</div>
+            <img className="brand-logo" src="assets/marvel-logo.png" alt="MARVEL" draggable={false} />
             <div>
               <div className="brand-title">{t('docsTitle', lang)}</div>
               <div className="brand-sub">{t('appTitle', lang)}</div>

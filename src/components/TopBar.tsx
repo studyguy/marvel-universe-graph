@@ -18,7 +18,7 @@ export function TopBar({ mobile }: { mobile: boolean }) {
     <header className="topbar">
       <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div className="brand">
-          <div className="brand-logo">MARVEL</div>
+          <img className="brand-logo" src="assets/marvel-logo.png" alt="MARVEL" draggable={false} />
           <div>
             <div className="brand-title">{t('appTitle', lang)}</div>
             <div className="brand-sub">{t('appSub', lang)}</div>
