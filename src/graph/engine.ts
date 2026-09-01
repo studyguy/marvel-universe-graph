@@ -4,11 +4,115 @@
  */
 import type { GraphEdge, GraphNode } from '../../data/schema';
 import { RELATION_CATEGORIES, relationCatMap, relationMap, nodeTypeMap, NODE_TYPES } from '../../data/taxonomy';
-import type { GraphIndex, Lang } from '../store/useStore';
+import type { GraphIndex, Lang, Theme } from '../store/useStore';
 import { project, type Projection, type ProjectedNode } from '../store/useStore';
 import { imageFor } from './avatar';
 
+
+/** 画布主题色：夜间（深空）与日间（纸白 + 漫威红）双套，随 snapshot.theme 切换 */
+const CANVAS_THEMES: Record<Theme, {
+  bg: [string, string, string];
+  grid: string;
+  star: (a: number) => string;
+  edgeLabelBg: string;
+  edgeLabelBgFocus: string;
+  edgeLabelShadow: string;
+  edgeLabelText: string;
+  edgeLabelTextFocus: string;
+  discFill: string;
+  discEmpty: string;
+  nodeShadow: string;
+  centerShadow: string;
+  centerGlow: [string, string, string];
+  ray: [string, string];
+  centerRing: string;
+  centerRing2: string;
+  breatheRing: string;
+  breatheFill: string;
+  clusterCount: string;
+  clusterCountShadow: string;
+  ringDefault: string;
+  moreRing: string;
+  moreText: string;
+  moreSubText: string;
+  nameShadow: string;
+  nameText: string;
+  subText: string;
+  mmBg: string;
+  mmEdge: string;
+  mmNode: string;
+  mmViewport: string;
+}> = {
+  dark: {
+    bg: ['#0c1322', '#080d18', '#05070d'],
+    grid: 'rgba(120,150,200,0.05)',
+    star: (a) => `rgba(190,215,255,${a})`,
+    edgeLabelBg: 'rgba(238,244,255,0.92)',
+    edgeLabelBgFocus: '#ffffff',
+    edgeLabelShadow: 'rgba(0,0,0,0.5)',
+    edgeLabelText: '#2c3546',
+    edgeLabelTextFocus: '#101726',
+    discFill: '#0d1420',
+    discEmpty: '#1a2333',
+    nodeShadow: 'rgba(0,0,0,0.55)',
+    centerShadow: 'rgba(255,170,50,0.65)',
+    centerGlow: ['rgba(255,176,64,0.4)', 'rgba(255,150,40,0.13)', 'rgba(255,140,30,0)'],
+    ray: ['rgba(255,190,90,0.5)', 'rgba(255,190,90,0)'],
+    centerRing: '#ffb547',
+    centerRing2: 'rgba(255,181,71,0.32)',
+    breatheRing: 'rgba(255,181,71,0.5)',
+    breatheFill: 'rgba(255,181,71,0.12)',
+    clusterCount: '#eef4ff',
+    clusterCountShadow: 'rgba(0,0,0,0.7)',
+    ringDefault: 'rgba(235,242,252,0.85)',
+    moreRing: 'rgba(190,210,240,0.7)',
+    moreText: '#eef4ff',
+    moreSubText: 'rgba(200,215,235,0.92)',
+    nameShadow: 'rgba(0,0,0,0.85)',
+    nameText: '#eef4ff',
+    subText: 'rgba(160,180,205,0.95)',
+    mmBg: 'rgba(8,12,22,0.88)',
+    mmEdge: 'rgba(150,180,220,0.25)',
+    mmNode: 'rgba(180,205,240,0.9)',
+    mmViewport: 'rgba(255,181,71,0.9)',
+  },
+  light: {
+    bg: ['#ffffff', '#f5f7fb', '#e9edf5'],
+    grid: 'rgba(40,60,100,0.055)',
+    star: (a) => `rgba(130,150,190,${a * 0.45})`,
+    edgeLabelBg: 'rgba(255,255,255,0.96)',
+    edgeLabelBgFocus: '#e62429',
+    edgeLabelShadow: 'rgba(40,50,80,0.22)',
+    edgeLabelText: '#33415c',
+    edgeLabelTextFocus: '#ffffff',
+    discFill: '#ffffff',
+    discEmpty: '#eef1f7',
+    nodeShadow: 'rgba(50,60,90,0.3)',
+    centerShadow: 'rgba(230,36,41,0.45)',
+    centerGlow: ['rgba(230,36,41,0.22)', 'rgba(230,36,41,0.07)', 'rgba(230,36,41,0)'],
+    ray: ['rgba(230,36,41,0.38)', 'rgba(230,36,41,0)'],
+    centerRing: '#e62429',
+    centerRing2: 'rgba(230,36,41,0.26)',
+    breatheRing: 'rgba(230,36,41,0.42)',
+    breatheFill: 'rgba(230,36,41,0.07)',
+    clusterCount: '#243046',
+    clusterCountShadow: 'rgba(255,255,255,0.85)',
+    ringDefault: 'rgba(50,65,95,0.5)',
+    moreRing: 'rgba(80,100,140,0.6)',
+    moreText: '#243046',
+    moreSubText: 'rgba(80,95,125,0.92)',
+    nameShadow: 'rgba(255,255,255,0.9)',
+    nameText: '#1c2534',
+    subText: 'rgba(90,105,130,0.95)',
+    mmBg: 'rgba(255,255,255,0.92)',
+    mmEdge: 'rgba(80,100,140,0.28)',
+    mmNode: 'rgba(70,90,130,0.85)',
+    mmViewport: 'rgba(230,36,41,0.85)',
+  },
+};
+
 export interface EngineSnapshot {
+  theme: Theme;
   centerId: string;
   view: string;
   lang: Lang;
@@ -71,6 +175,8 @@ export class GraphEngine {
   private time = 0;
   private lastT = 0;
   private bg: HTMLCanvasElement | null = null;
+  private bgTheme: Theme | null = null;
+  private T = CANVAS_THEMES.dark;
   private hoveredId: string | null = null;
   private hoveredEdge: string | null = null;
   private dragNode: RNode | null = null;
@@ -620,19 +726,22 @@ export class GraphEngine {
 
   /* ============ 渲染 ============ */
 
-  private ensureBg() {
-    if (this.bg) return;
+  private ensureBg(theme: Theme) {
+    if (this.bg && this.bgTheme === theme) return;
+    this.bgTheme = theme;
+    this.bg = null;
+    const T = CANVAS_THEMES[theme] ?? CANVAS_THEMES.dark;
     const c = document.createElement('canvas');
     c.width = this.w;
     c.height = this.h;
     const x = c.getContext('2d')!;
     const g = x.createRadialGradient(this.w / 2, this.h * 0.42, 40, this.w / 2, this.h / 2, Math.max(this.w, this.h) * 0.75);
-    g.addColorStop(0, '#0c1322');
-    g.addColorStop(0.55, '#080d18');
-    g.addColorStop(1, '#05070d');
+    g.addColorStop(0, T.bg[0]);
+    g.addColorStop(0.55, T.bg[1]);
+    g.addColorStop(1, T.bg[2]);
     x.fillStyle = g;
     x.fillRect(0, 0, this.w, this.h);
-    x.strokeStyle = 'rgba(120,150,200,0.05)';
+    x.strokeStyle = T.grid;
     x.lineWidth = 1;
     const step = 56;
     for (let gx = 0; gx < this.w; gx += step) { x.beginPath(); x.moveTo(gx, 0); x.lineTo(gx, this.h); x.stroke(); }
@@ -640,7 +749,7 @@ export class GraphEngine {
     let seed = 42;
     const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
     for (let i = 0; i < 150; i++) {
-      x.fillStyle = `rgba(190,215,255,${0.1 + rnd() * 0.5})`;
+      x.fillStyle = T.star(0.1 + rnd() * 0.5);
       x.beginPath();
       x.arc(rnd() * this.w, rnd() * this.h, rnd() * 1.4 + 0.3, 0, TAU);
       x.fill();
@@ -685,10 +794,11 @@ export class GraphEngine {
   private draw() {
     const ctx = this.ctx;
     const s = this.cb.snapshot();
+    const T = (this.T = CANVAS_THEMES[s.theme] ?? CANVAS_THEMES.dark);
     ctx.save();
     ctx.scale(this.dpr, this.dpr);
     ctx.clearRect(0, 0, this.w, this.h);
-    this.ensureBg();
+    this.ensureBg(s.theme);
     if (this.bg) ctx.drawImage(this.bg, 0, 0);
     if (!this.projection) { ctx.restore(); return; }
     const lang = s.lang;
@@ -749,12 +859,12 @@ export class GraphEngine {
         const ly = my + (dx / len) * off;
         ctx.globalAlpha = alpha;
         roundRect(ctx, lx - tw / 2 - pad, ly - 9, tw + pad * 2, 18, 9);
-        ctx.fillStyle = isFocus ? '#ffffff' : 'rgba(238,244,255,0.92)';
-        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.fillStyle = isFocus ? T.edgeLabelBgFocus : T.edgeLabelBg;
+        ctx.shadowColor = T.edgeLabelShadow;
         ctx.shadowBlur = isFocus ? 14 : 5;
         ctx.fill();
         ctx.shadowBlur = 0;
-        ctx.fillStyle = isFocus ? '#101726' : '#2c3546';
+        ctx.fillStyle = isFocus ? T.edgeLabelTextFocus : T.edgeLabelText;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(label, lx, ly + 0.5);
@@ -774,9 +884,9 @@ export class GraphEngine {
           // 发光中心（参考图太阳效果）
           const pulse = 1 + Math.sin(this.time / 900) * 0.05;
           const glow = ctx.createRadialGradient(sx, sy, rr * 0.4, sx, sy, rr * 3.4 * pulse);
-          glow.addColorStop(0, 'rgba(255,176,64,0.4)');
-          glow.addColorStop(0.5, 'rgba(255,150,40,0.13)');
-          glow.addColorStop(1, 'rgba(255,140,30,0)');
+          glow.addColorStop(0, T.centerGlow[0]);
+          glow.addColorStop(0.5, T.centerGlow[1]);
+          glow.addColorStop(1, T.centerGlow[2]);
           ctx.fillStyle = glow;
           ctx.beginPath();
           ctx.arc(sx, sy, rr * 3.4 * pulse, 0, TAU);
@@ -787,8 +897,8 @@ export class GraphEngine {
           for (let i = 0; i < 14; i++) {
             ctx.rotate(TAU / 14);
             const rg = ctx.createLinearGradient(rr * 1.1, 0, rr * 2.7, 0);
-            rg.addColorStop(0, 'rgba(255,190,90,0.5)');
-            rg.addColorStop(1, 'rgba(255,190,90,0)');
+            rg.addColorStop(0, T.ray[0]);
+            rg.addColorStop(1, T.ray[1]);
             ctx.strokeStyle = rg;
             ctx.lineWidth = 1.6;
             ctx.beginPath();
@@ -800,12 +910,12 @@ export class GraphEngine {
         } else {
           // 虚拟中心：呼吸圆环
           const pulse = 1 + Math.sin(this.time / 700) * 0.08;
-          ctx.strokeStyle = 'rgba(255,181,71,0.5)';
+          ctx.strokeStyle = T.breatheRing;
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(sx, sy, (rr + 6) * pulse, 0, TAU);
           ctx.stroke();
-          ctx.fillStyle = 'rgba(255,181,71,0.12)';
+          ctx.fillStyle = T.breatheFill;
           ctx.beginPath();
           ctx.arc(sx, sy, rr * pulse, 0, TAU);
           ctx.fill();
@@ -819,9 +929,9 @@ export class GraphEngine {
       ctx.arc(sx, sy, rr, 0, TAU);
       ctx.closePath();
       if (img && img.complete && img.naturalWidth > 0) {
-        ctx.shadowColor = rn.isCenter ? 'rgba(255,170,50,0.65)' : 'rgba(0,0,0,0.55)';
+        ctx.shadowColor = rn.isCenter ? T.centerShadow : T.nodeShadow;
         ctx.shadowBlur = rn.isCenter ? 26 : 10;
-        ctx.fillStyle = '#0d1420';
+        ctx.fillStyle = T.discFill;
         ctx.fill();
         ctx.shadowBlur = 0;
         ctx.clip();
@@ -843,7 +953,7 @@ export class GraphEngine {
         }
         ctx.drawImage(img, cx0, cy0, sw, sh, sx - rr, sy - rr, rr * 2, rr * 2);
       } else {
-        ctx.fillStyle = '#1a2333';
+        ctx.fillStyle = T.discEmpty;
         ctx.fill();
       }
       ctx.restore();
@@ -852,12 +962,12 @@ export class GraphEngine {
       const type = rn.node ? nodeTypeMap.get(rn.node.type) : rn.cluster ? nodeTypeMap.get(rn.cluster.type) : null;
       const accent = type?.color ?? '#9fb3d1';
       if (rn.isCenter && rn.node) {
-        ctx.strokeStyle = '#ffb547';
+        ctx.strokeStyle = T.centerRing;
         ctx.lineWidth = 3.2;
         ctx.beginPath();
         ctx.arc(sx, sy, rr + 2.4, 0, TAU);
         ctx.stroke();
-        ctx.strokeStyle = 'rgba(255,181,71,0.32)';
+        ctx.strokeStyle = T.centerRing2;
         ctx.lineWidth = 7;
         ctx.beginPath();
         ctx.arc(sx, sy, rr + 7, 0, TAU);
@@ -871,17 +981,17 @@ export class GraphEngine {
         ctx.stroke();
         ctx.setLineDash([]);
         // 星团数量
-        ctx.fillStyle = '#eef4ff';
+        ctx.fillStyle = T.clusterCount;
         ctx.font = `700 ${Math.round(rr * 0.66)}px "Segoe UI", sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.shadowColor = 'rgba(0,0,0,0.7)';
+        ctx.shadowColor = T.clusterCountShadow;
         ctx.shadowBlur = 6;
         ctx.fillText(String(rn.cluster.count), sx, sy);
         ctx.shadowBlur = 0;
       } else if (!rn.moreCount) {
         const isSelected = sel === rn.node?.id;
-        ctx.strokeStyle = isSelected ? accent : 'rgba(235,242,252,0.85)';
+        ctx.strokeStyle = isSelected ? accent : T.ringDefault;
         ctx.lineWidth = isSelected ? 3 : 1.6;
         ctx.beginPath();
         ctx.arc(sx, sy, rr + 1.6, 0, TAU);
@@ -897,14 +1007,14 @@ export class GraphEngine {
         }
       }
       if (rn.moreCount) {
-        ctx.strokeStyle = 'rgba(190,210,240,0.7)';
+        ctx.strokeStyle = T.moreRing;
         ctx.setLineDash([4, 4]);
         ctx.lineWidth = 1.8;
         ctx.beginPath();
         ctx.arc(sx, sy, rr + 1.5, 0, TAU);
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = '#eef4ff';
+        ctx.fillStyle = T.moreText;
         ctx.font = `700 ${Math.round(rr * 0.62)}px "Segoe UI", sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -918,31 +1028,31 @@ export class GraphEngine {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
         const nameY = sy + rr + 7;
-        ctx.shadowColor = 'rgba(0,0,0,0.85)';
+        ctx.shadowColor = T.nameShadow;
         ctx.shadowBlur = 6;
         if (rn.node) {
           const typeDef = nodeTypeMap.get(rn.node.type);
           const maxLen = this.virtual ? 7 : 18;
           ctx.font = `600 ${rn.isCenter ? 15 : this.virtual ? 12 : 12.5}px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif`;
-          ctx.fillStyle = '#eef4ff';
+          ctx.fillStyle = T.nameText;
           ctx.fillText(truncate(rn.node.name[lang], maxLen), sx, nameY);
           if (!rn.isCenter && typeDef) {
             ctx.font = '400 10.5px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif';
-            ctx.fillStyle = 'rgba(160,180,205,0.95)';
+            ctx.fillStyle = T.subText;
             ctx.fillText(truncate(typeDef.label[lang], 20), sx, nameY + 17);
           }
         } else if (rn.cluster) {
           ctx.font = '600 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif';
-          ctx.fillStyle = '#eef4ff';
+          ctx.fillStyle = T.nameText;
           ctx.fillText(rn.cluster.label, sx, nameY);
           if (rn.cluster.rootLevel) {
             ctx.font = '400 10.5px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif';
-            ctx.fillStyle = 'rgba(160,180,205,0.95)';
+            ctx.fillStyle = T.subText;
             ctx.fillText(lang === 'zh' ? '单击进入关系图谱' : 'Click to open the graph', sx, nameY + 17);
           }
         } else if (rn.moreCount) {
           ctx.font = '600 11px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif';
-          ctx.fillStyle = 'rgba(200,215,235,0.92)';
+          ctx.fillStyle = T.moreSubText;
           ctx.fillText(lang === 'zh' ? '更多关系' : 'More relations', sx, nameY);
         }
         ctx.shadowBlur = 0;
@@ -971,7 +1081,7 @@ export class GraphEngine {
     ctx.clearRect(0, 0, W, H);
     // 圆角底框（内容裁剪进框内）
     roundRect(ctx, 0.5, 0.5, W - 1, H - 1, 8);
-    ctx.fillStyle = 'rgba(8,12,22,0.88)';
+    ctx.fillStyle = this.T.mmBg;
     ctx.fill();
     ctx.clip();
     if (!this.nodes.size) { ctx.restore(); return; }
@@ -991,7 +1101,7 @@ export class GraphEngine {
       const a = this.nodes.get(re.a);
       const b = this.nodes.get(re.b);
       if (!a || !b) continue;
-      ctx.strokeStyle = 'rgba(150,180,220,0.25)';
+      ctx.strokeStyle = this.T.mmEdge;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(sx(a.x), sy(a.y));
@@ -999,7 +1109,7 @@ export class GraphEngine {
       ctx.stroke();
     }
     for (const rn of this.nodes.values()) {
-      ctx.fillStyle = rn.isCenter ? '#ffb547' : 'rgba(180,205,240,0.9)';
+      ctx.fillStyle = rn.isCenter ? this.T.centerRing : this.T.mmNode;
       ctx.beginPath();
       ctx.arc(clampXY(sx(rn.x), PAD, W - PAD), clampXY(sy(rn.y), PAD, H - PAD), rn.isCenter ? 3.6 : 2, 0, TAU);
       ctx.fill();
@@ -1009,7 +1119,7 @@ export class GraphEngine {
     const vy0 = clampXY(sy(this.cam.y - this.h / 2 / this.cam.scale), PAD, H - PAD);
     const vx1 = clampXY(sx(this.cam.x + this.w / 2 / this.cam.scale), PAD, W - PAD);
     const vy1 = clampXY(sy(this.cam.y + this.h / 2 / this.cam.scale), PAD, H - PAD);
-    ctx.strokeStyle = 'rgba(255,181,71,0.9)';
+    ctx.strokeStyle = this.T.mmViewport;
     ctx.lineWidth = 1;
     ctx.strokeRect(vx0, vy0, Math.max(10, vx1 - vx0), Math.max(10, vy1 - vy0));
     ctx.restore();

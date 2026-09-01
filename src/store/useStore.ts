@@ -4,6 +4,7 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import type { GraphData, GraphNode, GraphEdge } from '../../data/schema';
 
 export type Lang = 'zh' | 'en';
+export type Theme = 'dark' | 'light';
 export type Status = 'loading' | 'ready' | 'error';
 
 export interface GraphIndex {
@@ -18,6 +19,7 @@ export interface GraphIndex {
 
 export interface UiState {
   lang: Lang;
+  theme: Theme;
   view: string;
   centerId: string;
   selectedId: string | null;
@@ -36,6 +38,7 @@ export interface StoreState extends UiState {
   status: Status;
   index: GraphIndex | null;
   setLang: (l: Lang) => void;
+  setTheme: (t: Theme) => void;
   setView: (v: string) => void;
   setCenter: (id: string, pushHistory?: boolean) => void;
   /** 焦点切换 + 自动展开详情面板（单击节点/搜索直达/面板跳转的统一入口） */
@@ -97,6 +100,7 @@ export const useStore = create<StoreState>()(
       status: 'loading',
       index: null,
       lang: 'zh',
+      theme: 'dark',
       view: 'overview',
       centerId: DEFAULT_CENTER,
       selectedId: null,
@@ -111,6 +115,7 @@ export const useStore = create<StoreState>()(
       mobileFiltersOpen: false,
 
       setLang: (lang) => set({ lang }),
+      setTheme: (theme) => set({ theme }),
       setView: (view) => set({ view, selectedId: null, focusEdge: null }),
       setCenter: (id, pushHistory = true) => {
         const { centerId, history } = get();

@@ -15,7 +15,7 @@ export function DocsPage() {
       <header className="topbar">
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className="brand">
-            <div className="brand-logo">M</div>
+            <div className="brand-logo">MARVEL</div>
             <div>
               <div className="brand-title">{t('docsTitle', lang)}</div>
               <div className="brand-sub">{t('appTitle', lang)}</div>
@@ -39,7 +39,7 @@ export function DocsPage() {
   );
 }
 
-const cell: React.CSSProperties = { padding: '8px 10px', borderBottom: '1px solid rgba(122,152,200,0.12)', fontSize: 12.5, verticalAlign: 'top' };
+const cell: React.CSSProperties = { padding: '8px 10px', borderBottom: '1px solid var(--panel-border)', fontSize: 12.5, verticalAlign: 'top' };
 
 function SchemaDoc({ lang, index }: { lang: 'zh' | 'en'; index: ReturnType<typeof useStore.getState>['index'] }) {
   return (

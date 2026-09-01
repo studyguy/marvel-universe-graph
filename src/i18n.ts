@@ -57,6 +57,7 @@ const S = {
   aboutText: L2('本项目为学习/粉丝用途。数据与图片参考 Marvel Database 与 Marvel Cinematic Universe Wiki（CC BY-SA 3.0），内容版权归原作者及 Marvel 所有。', 'A fan/learning project. Data and imagery reference the Marvel Database and MCU Wiki (CC BY-SA 3.0); all content belongs to its rights holders and Marvel.'),
   dataStats: L2('节点', 'nodes'),
   langSwitch: L2('EN', '中文'),
+  themeToggle: L2('切换日间 / 夜间模式', 'Toggle light / dark theme'),
   poweredBy: L2('数据来源', 'Data sources'),
   doubleClickHint: L2('双击设为中心', 'Double-click to focus'),
   dragHint: L2('拖拽 / 滚轮缩放 / 双击空白复位', 'Drag / scroll to zoom / double-click blank to reset'),

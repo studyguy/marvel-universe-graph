@@ -52,7 +52,7 @@ export function FilterPanel({ collapsed }: { collapsed: boolean }) {
             );
           })}
         </div>
-        <button className={`filter-row ${legendOpen ? '' : 'off'}`} onClick={() => setLegendOpen(!legendOpen)} style={{ marginTop: 10, background: 'rgba(255,255,255,0.05)' }}>
+        <button className={`filter-row ${legendOpen ? '' : 'off'}`} onClick={() => setLegendOpen(!legendOpen)} style={{ marginTop: 10, background: 'var(--input-bg)' }}>
           <span>❐</span>
           <span className="nm">{t('legend', lang)}</span>
         </button>

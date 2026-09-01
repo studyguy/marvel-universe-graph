@@ -1,4 +1,4 @@
-/** 顶栏：品牌、视图切换、搜索、语言、引导、文档入口 */
+/** 顶栏：品牌、视图切换、搜索、语言、主题切换、文档入口 */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStore } from '../store/useStore';
@@ -6,8 +6,10 @@ import { VIEW_MODES, nodeTypeMap } from '../../data/taxonomy';
 import { imageUrlFor } from '../graph/avatar';
 import { t, type StringKey } from '../i18n';
 
-export function TopBar({ onOpenGuide, mobile }: { onOpenGuide: () => void; mobile: boolean }) {
+export function TopBar({ mobile }: { mobile: boolean }) {
   const lang = useStore((s) => s.lang);
+  const theme = useStore((s) => s.theme);
+  const setTheme = useStore((s) => s.setTheme);
   const view = useStore((s) => s.view);
   const setView = useStore((s) => s.setView);
   const setLang = useStore((s) => s.setLang);
@@ -16,7 +18,7 @@ export function TopBar({ onOpenGuide, mobile }: { onOpenGuide: () => void; mobil
     <header className="topbar">
       <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div className="brand">
-          <div className="brand-logo">M</div>
+          <div className="brand-logo">MARVEL</div>
           <div>
             <div className="brand-title">{t('appTitle', lang)}</div>
             <div className="brand-sub">{t('appSub', lang)}</div>
@@ -32,10 +34,17 @@ export function TopBar({ onOpenGuide, mobile }: { onOpenGuide: () => void; mobil
       </div>
       <div className="spacer" />
       <SearchBox mobile={mobile} />
+      <button
+        className="icon-btn"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        title={t('themeToggle', lang)}
+        aria-label={t('themeToggle', lang)}
+      >
+        {theme === 'dark' ? '☀️' : '🌙'}
+      </button>
       <button className="icon-btn" onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')} title="Language">
         {lang === 'zh' ? 'EN' : '中文'}
       </button>
-      <button className="icon-btn" onClick={onOpenGuide} title={t('guideTitle', lang)}>?</button>
       <Link to="/docs/schema" style={{ textDecoration: 'none' }}>
         <button className="icon-btn" title={t('docsTitle', lang)}>{mobile ? '📖' : t('docs', lang)}</button>
       </Link>

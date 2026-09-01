@@ -120,7 +120,7 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
                   {ref ? (
                     <a
                       href="#"
-                      style={{ color: '#7fa8e0' }}
+                      style={{ color: 'var(--link)' }}
                       onClick={(e) => {
                         e.preventDefault();
                         focusNode(ref.id);

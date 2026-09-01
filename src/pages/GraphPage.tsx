@@ -52,6 +52,7 @@ export function GraphPage() {
     if (!canvasRef.current || !index || engineRef.current) return;
     const engine = new GraphEngine(canvasRef.current, document.getElementById('minimap') as HTMLCanvasElement, {
       snapshot: () => ({
+        theme: useStore.getState().theme,
         centerId: useStore.getState().centerId,
         view: useStore.getState().view,
         lang: useStore.getState().lang,
@@ -145,7 +146,7 @@ export function GraphPage() {
 
   return (
     <div className="app">
-      <TopBar onOpenGuide={() => setGuideOpen(true)} mobile={mobile} />
+      <TopBar mobile={mobile} />
       <div className="main">
         <FilterPanel collapsed={mobile ? !store.mobileFiltersOpen : !leftOpen} />
         <div className="canvas-wrap">
