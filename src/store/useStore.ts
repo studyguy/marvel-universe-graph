@@ -182,6 +182,8 @@ export const useStore = create<StoreState>()(
           const data = (await res.json()) as GraphData;
           const index = buildIndex(data);
           set({ status: 'ready', index });
+          // 旧持久化 view 可能是已删除的视图 key：回落全景
+          if (!viewMap.has(get().view)) set({ view: 'overview' });
           const c = get().centerId;
           const valid = c.startsWith('cluster:root') || (c.startsWith('cluster:') && index.byType.has(c.slice(8))) || index.nodeById.has(c);
           if (!valid) set({ centerId: index.byType.get('character')?.[0]?.id ?? data.nodes[0].id });

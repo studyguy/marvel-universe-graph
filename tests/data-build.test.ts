@@ -185,6 +185,37 @@ describe('data:build 全量校验（黑盒）', () => {
     expect(loops, `存在自环 ${loops.map((e: any) => e.s).join(', ')}`).toHaveLength(0);
   });
 
+  it('名号核心：社会类关系不直连有名号人物（防返祖 generalized）', () => {
+    runBuild();
+    const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
+    const prime = new Map<string, string>();
+    for (const e of g.edges as any[]) {
+      if (e.r === 'held-mantle' && e.s.startsWith('ch-') && !prime.has(e.s)) prime.set(e.s, e.t);
+    }
+    const MANTLE_RELS = new Set([
+      'ally', 'nemesis', 'best-friend', 'rival', 'idolizes', 'distrusts',
+      'killed', 'defeated', 'betrayed', 'rescued', 'sacrificed-for',
+      'mentor-of', 'creator-of', 'resurrected', 'converted', 'mind-controlled',
+      'member-of', 'leader-of', 'undercover-in', 'founded-org', 'affiliated-with',
+      'initiated', 'participated', 'victim-of', 'prevented', 'witnessed',
+      'wields', 'empowered-by', 'has-ability',
+    ]);
+    let mntMantle = 0;
+    for (const e of g.edges as any[]) {
+      if (e.s === e.t, false) continue;
+      if (MANTLE_RELS.has(e.r)) {
+        for (const end of [e.s, e.t]) {
+          if (String(end).startsWith('ch-') && prime.has(end)) {
+            throw new Error(`回归错误：社会关系 ${e.s}-${e.r}->${e.t} 直连有名号人物 ${end}`);
+          }
+        }
+      }
+      if (String(e.s).startsWith('mnt-') && String(e.t).startsWith('mnt-')) mntMantle++;
+    }
+    expect(mntMantle, '名号间关系边应形成网络').toBeGreaterThanOrEqual(60);
+    expect(g.edges.filter((e: any) => e.s === e.t).length, '全图不应有自环').toBe(0);
+  });
+
   it('人物介绍未混入 props（关键属性区不受污染）', () => {
     runBuild();
     const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));

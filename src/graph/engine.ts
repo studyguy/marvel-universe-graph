@@ -347,8 +347,10 @@ export class GraphEngine {
       });
     } else if (isClusterType) {
       // 分类索引视图：椭圆放射环（环状结构是核心范式，不可破坏）
-      const A = 860;
-      const B = 540;
+      // 环径随节点数自适应：93 个名号时扩大椭圆，避免标签互相覆盖
+      const spread = Math.max(1, Math.sqrt(n / 40));
+      const A = 860 * spread;
+      const B = 540 * spread;
       this.gridDims = { w: 2 * A + 180, h: 2 * B + 180 };
       neighbors.forEach((nb, i) => {
         const ang = -Math.PI / 2 + (TAU * i) / Math.max(n, 1);
@@ -356,7 +358,7 @@ export class GraphEngine {
           id: nb.node.id, node: nb.node, isCenter: false,
           x: 0, y: 0,
           tx: Math.cos(ang) * A, ty: Math.sin(ang) * B,
-          baseR: 30, r: 0, alpha: 1, targetAlpha: 1, hover: 0,
+          baseR: n > 60 ? 24 : 30, r: 0, alpha: 1, targetAlpha: 1, hover: 0,
         });
       });
       if (p.truncated) {
@@ -1029,7 +1031,15 @@ export class GraphEngine {
       }
 
       // 名称 / 副标题（LOD）
-      const showText = rn.isCenter || this.cam.scale > 0.2 || rn.hover > 0.3 || !!rn.cluster || !!rn.moreCount || this.virtual;
+      // virtual 类型环节点很多时降低文字 LOD：只显示 hover / 缩放到足够近的标签
+      const denseVirtual = this.virtual && this.nodes.size > 48;
+      const showText =
+        rn.isCenter ||
+        this.cam.scale > (denseVirtual ? 1.15 : 0.2) ||
+        rn.hover > 0.3 ||
+        !!rn.cluster ||
+        !!rn.moreCount ||
+        (this.virtual && this.nodes.size <= 48);
       if (showText) {
         ctx.globalAlpha = rn.alpha * clamp((this.cam.scale - 0.22) * 3 + 0.6, 0.6, 1);
         ctx.textAlign = 'center';

@@ -6,7 +6,7 @@ import { t } from '../i18n';
 const STEPS: { icon: string; title: Record<'zh' | 'en', string>; desc: Record<'zh' | 'en', string> }[] = [
   { icon: '👆', title: { zh: '点选节点', en: 'Click a node' }, desc: { zh: '单击画布中的任意节点，右侧会打开它的详情面板：属性、别名与按大类分组的全部关系。', en: 'Click any node on the canvas — its detail panel opens with attributes and all relations grouped by category.' } },
   { icon: '🎯', title: { zh: '双击下钻', en: 'Double-click to drill' }, desc: { zh: '双击（移动端双触）任意节点，图谱会以它为中心重新展开一层关系；左下路径可随时回退。', en: 'Double-click (or double-tap) any node to re-center the graph; the breadcrumb walks you back.' } },
-  { icon: '🔭', title: { zh: '切换视图', en: 'Switch views' }, desc: { zh: '顶部可切换全景 / 角色 / 作品等九种投影，左侧筛选可隐藏类别与关系；中英双语一键切换。', en: 'Switch among nine projections; filter categories on the left; toggle Chinese/English anytime.' } },
+  { icon: '🔭', title: { zh: '切换视图', en: 'Switch views' }, desc: { zh: '顶部可切换全景 / 角色 / 作品等五大视图，左侧筛选可隐藏类别与关系；中英双语一键切换。', en: 'Switch among five projections; filter categories on the left; toggle Chinese/English anytime.' } },
 ];
 
 export function Guide({ onClose }: { onClose: () => void }) {

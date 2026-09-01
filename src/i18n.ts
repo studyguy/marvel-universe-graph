@@ -46,7 +46,7 @@ const S = {
   guide2t: L2('双击下钻', 'Double-click to drill'),
   guide2d: L2('以该节点为中心重新展开一层关系', 'Re-center the graph on that node'),
   guide3t: L2('切换视图', 'Switch views'),
-  guide3d: L2('全景 / 角色 / 作品…九种投影随你切换', 'Overview / Characters / Works… nine projections'),
+  guide3d: L2('全景 / 角色 / 场景 / 事件 / 宇宙：五张视图随你切换', 'Overview / Roles / Locations / Events / Universes: five projections'),
   start: L2('开始探索', 'Start Exploring'),
   skip: L2('跳过', 'Skip'),
   next: L2('下一步', 'Next'),

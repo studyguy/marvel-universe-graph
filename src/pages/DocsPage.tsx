@@ -71,7 +71,7 @@ function SchemaDoc({ lang, index }: { lang: 'zh' | 'en'; index: ReturnType<typeo
         </tbody>
       </table>
 
-      <h2 style={{ fontSize: 17, margin: '30px 0 8px' }}>{lang === 'zh' ? '视图模式（同一张图的九种投影）' : 'View Modes (nine projections of one graph)'}</h2>
+      <h2 style={{ fontSize: 17, margin: '30px 0 8px' }}>{lang === 'zh' ? '视图模式（同一张图的五大视图）' : 'View Modes (five projections of one graph)'}</h2>
       <table style={{ width: '100%', borderCollapse: 'collapse', background: 'var(--panel)', borderRadius: 12, overflow: 'hidden' }}>
         <tbody>
           {VIEW_MODES.map((v) => (

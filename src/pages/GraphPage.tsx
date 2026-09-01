@@ -77,15 +77,10 @@ export function GraphPage() {
         navigate(id.startsWith('cluster:') ? '/' : `/node/${id}`);
       },
       onClusterDrill: (type) => {
+        // 全景星团单击 → 进入该类型的类型环首页（先总览后下钻）
         const st = useStore.getState();
-        const top = st.index?.byType.get(type)?.[0];
-        if (top) {
-          st.setCenter(top.id);
-          navigate(`/node/${top.id}`);
-        } else {
-          st.setCenter(`cluster:${type}`);
-          navigate('/');
-        }
+        st.setCenter(`cluster:${type}`);
+        navigate('/');
       },
       onEdgeFocus: (eid) => useStore.getState().setFocusEdge(eid),
     });
@@ -105,9 +100,10 @@ export function GraphPage() {
     engineRef.current?.refresh();
   }, [centerId, view, hiddenNodeTypes, hiddenEdgeCats, selectedId, focusEdge, lang, index, mobile]);
 
-  // 切换视图 = 换一张投影：跳到该视图主角类型的关系图谱（带连线的焦点视图）。
+  // 切换视图 = 进入该类型的"类型环"首页：全部同类节点点状环布 + 互相关联，
+  // 方便一进来就找到目标；单击任意节点再进入其单中心放射图。
   // 仅在 view/index 变化时执行；内部用 store.getState() 取最新状态，
-  // 避免用户单击节点切换焦点时被本 effect 弹回视图主角。
+  // 避免用户单击节点切换焦点时被本 effect 弹回类型环。
   useEffect(() => {
     const st = useStore.getState();
     const idx = st.index;
@@ -121,19 +117,12 @@ export function GraphPage() {
     }
     const primary = viewMap.get(curView)?.primary[0];
     if (!primary) return;
-    const top = idx.byType.get(primary)?.[0]; // 该类型度数最高节点（byType 已按度数排序）
-    if (curCenter.startsWith('cluster:')) {
-      if (curCenter === `cluster:${primary}`) return; // 已在对应列表环
-      if (top) st.setCenter(top.id);
-      else st.setCenter(`cluster:${primary}`);
-      return;
-    }
+    const ring = `cluster:${primary}`;
+    // 非 overview 视图首页一律落在类型环；已在环内/正查看该类型节点时不打扰
+    if (curCenter === ring) return;
     const node = idx.nodeById.get(curCenter);
-    if (node && node.type !== primary) {
-      // "角色"视图：直接落在角色列表环（钢侠/美队/绿巨人…，单击任一角进入其图谱）
-      if (primary === 'mantle') st.setCenter('cluster:mantle');
-      else if (top) st.setCenter(top.id);
-      else st.setCenter(`cluster:${primary}`);
+    if (curCenter.startsWith('cluster:') || !node || node.type !== primary) {
+      st.setCenter(ring);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, index]);
