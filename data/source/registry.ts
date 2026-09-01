@@ -74,3 +74,25 @@ export const ab = (id: string, sub: string, zh: string, en: string, dz: string, 
 export const E = (s: string, t: string, r: string, props?: Record<string, any>) => {
   edgeSeeds.push({ s, t, r, props });
 };
+
+/* ---------- 人物介绍（可选增强） ---------- */
+
+/** 双语段落：zh/en 各自成段，按叙事模板 4-6 段 */
+export type BioSegments = { zh: string; en: string }[];
+
+const bioMap = new Map<string, { zh: string[]; en: string[] }>();
+
+/** 登记一个人物介绍；id 为完整节点 id（如 'ch-bruce-banner'） */
+export const bio = (id: string, segments: BioSegments) => {
+  const zh: string[] = [];
+  const en: string[] = [];
+  for (const s of segments) {
+    const z = s.zh.trim();
+    const e = s.en.trim();
+    if (z) zh.push(z);
+    if (e) en.push(e);
+  }
+  bioMap.set(id, { zh, en });
+};
+
+export const bios = bioMap;

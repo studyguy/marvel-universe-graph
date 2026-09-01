@@ -1,10 +1,12 @@
 /** 右侧详情抽屉（PC）/ 底部弹层（移动端）：节点信息 + 分类关系列表 + 来源 */
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useStore } from '../store/useStore';
 import { nodeTypeMap, relationCatMap, relationMap, RELATION_CATEGORIES } from '../../data/taxonomy';
 import type { GraphEdge } from '../../data/schema';
 import { t } from '../i18n';
 import { imageUrlFor, avatarFor } from '../graph/avatar';
+import { CharacterInfoCard } from './CharacterInfoCard';
+import { BioModal } from './BioModal';
 
 const ID_RE = /^(ch|team|loc|item|wk|ev|uni|chan|race|ab)-[\w-]+$/;
 function propText(v: unknown, lang: 'zh' | 'en', index?: { nodeById: Map<string, { name: { zh: string; en: string } }> }): string {
@@ -29,6 +31,7 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
   const setRightOpen = useStore((s) => s.setRightOpen);
   const setFocusEdge = useStore((s) => s.setFocusEdge);
   const focusNode = useStore((s) => s.focusNode);
+  const [bioOpen, setBioOpen] = useState(false);
 
   const id = centerId.startsWith('cluster:') ? null : centerId;
   const node = id ? index?.nodeById.get(id) ?? null : null;
@@ -134,6 +137,26 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
           })}
         </div>
 
+        {node.type === 'character' && <CharacterInfoCard node={node} lang={lang} />}
+
+        {node.bio && (
+          <div className="bio-sec">
+            <div className="sec-title">
+              {t('bioSec', lang)}
+              <span className="ln" />
+            </div>
+            <p className="bio-teaser">
+              {(() => {
+                const para = (lang === 'zh' ? node.bio!.zh : node.bio!.en)[0] ?? '';
+                return para.length > 200 ? para.slice(0, 200) + '…' : para;
+              })()}
+            </p>
+            <button className="read-bio-btn" onClick={() => setBioOpen(true)}>
+              {t('readFullBio', lang)} ⋯
+            </button>
+          </div>
+        )}
+
         <div className="sec-title">
           {t('relations', lang)} · {index.adj.get(node.id)?.length ?? 0}
           <span className="ln" />
@@ -197,6 +220,7 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
         )}
 
       </div>
+      {bioOpen && node.bio && <BioModal node={node} lang={lang} onClose={() => setBioOpen(false)} />}
     </aside>
   );
 }

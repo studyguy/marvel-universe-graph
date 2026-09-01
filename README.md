@@ -30,6 +30,15 @@ npm run data:build   # 校验 + 汇编 → public/data/graph.json
 - 新增内容：在 `data/source/` 中用 `ch()/wk()/team()/E()` 等构建器登记节点与关系即可；
 - 修改体系：改 `data/taxonomy.ts`（站内 `/docs/schema`、`/docs/relations` 文档页由它直接渲染，永不脱节）。
 
+### 人物介绍（Fandom 式详情）
+
+`data/source/bios.ts` 集中登记**选填**的人物介绍（`bio('ch-bruce-banner', [{ zh, en }, …])`），详情抽屉内渲染为"信息卡 + 介绍摘要"，点"阅读完整介绍"弹出全文大弹窗：
+
+- 叙事模板与 Fandom 人物页一致：① 身份与起源 ② 主要经历/故事线 ③ 能力与弱点 ④ 现状与结局（4-6 段、双语）；
+- 信息卡（名号/出生地/能力/所属）**直接汇总自关系边**（held-mantle / born-in / has-ability / member-of），不重复存储；
+- 采集参考：萌娘百科（CC BY-NC-SA）/ Marvel Database（CC BY-SA）作事实核对，正文为本站改写（非逐句复制）；待补名单在 bios.ts 尾部注释；
+- 缺 bio 的人物只显示信息卡，不报错、不影响零警告验收。
+
 ## 真实图片（可选增强）/ Real Images (Optional)
 
 仓库已内置 **699 张真实图像**（93 个角色节点全部配图 + 人物/作品全覆盖，剩余为能力/宇宙/频道等抽象概念，使用徽章式生成头像），来源：

@@ -130,4 +130,34 @@ describe('data:build 全量校验（黑盒）', () => {
       }
     }
   });
+
+  it('人物介绍（bio）：仅人物节点、双语段落结构完整', () => {
+    runBuild();
+    const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
+    const withBio = g.nodes.filter((n: any) => n.bio);
+    expect(withBio.length).toBeGreaterThanOrEqual(30);
+    for (const n of withBio) {
+      expect(n.type, `${n.id} bio 出现在非人物节点`).toBe('character');
+      const { zh, en } = n.bio;
+      expect(zh.length, `${n.id} 缺中文段落`).toBeGreaterThanOrEqual(1);
+      expect(en.length, `${n.id} 缺英文段落`).toBeGreaterThanOrEqual(1);
+      expect(zh.length, `${n.id} 中英段落数不一致`).toBe(en.length);
+      for (const p of [...zh, ...en]) {
+        expect(p.trim().length, `${n.id} 存在过短段落`).toBeGreaterThanOrEqual(10);
+      }
+    }
+  });
+
+  it('人物介绍未混入 props（关键属性区不受污染）', () => {
+    runBuild();
+    const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
+    for (const n of g.nodes as any[]) {
+      expect(n.props?.['bio'], `${n.id} 不应有 props.bio`).toBeUndefined();
+      const def = NODE_TYPES.find((t) => t.key === n.type);
+      const known = new Set((def?.props ?? []).map((p) => p.key));
+      for (const k of Object.keys(n.props ?? {})) {
+        expect(known.has(k), `${n.id} 出现未声明属性 ${k}`).toBe(true);
+      }
+    }
+  });
 });

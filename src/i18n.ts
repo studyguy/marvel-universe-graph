@@ -68,6 +68,14 @@ const S = {
   expand: L2('展开', 'Expand'),
   minimap: L2('小地图', 'Minimap'),
   selectHint: L2('单击查看详情', 'Click for details'),
+  bioSec: L2('人物介绍', 'Biography'),
+  readFullBio: L2('阅读完整介绍', 'Read the full biography'),
+  bioClose: L2('关闭', 'Close'),
+  infoMantle: L2('名号', 'Mantle'),
+  infoBirth: L2('出生地', 'Birthplace'),
+  infoAbilities: L2('能力', 'Abilities'),
+  infoAffiliation: L2('所属', 'Affiliation'),
+  infoIdentity: L2('身份', 'Identity'),
 };
 
 export type StringKey = keyof typeof S;

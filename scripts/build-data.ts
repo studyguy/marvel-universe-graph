@@ -3,7 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { NODE_TYPES, RELATION_TYPES, nodeTypeMap } from '../data/taxonomy';
-import { seeds, edgeSeeds } from '../data/source/registry';
+import { seeds, edgeSeeds, bios } from '../data/source/registry';
 import { PERSON_NAME_OVERRIDE, normalizePersonName } from './graph-normalize';
 import type { GraphData, GraphNode } from '../data/schema';
 
@@ -24,6 +24,7 @@ import '../data/source/edges-mcu';
 import '../data/source/edges-comics';
 import '../data/source/supplement';
 import '../data/source/mantles';
+import '../data/source/bios';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = path.join(ROOT, 'public', 'data');
@@ -59,7 +60,22 @@ for (const s of seeds) {
   const node: GraphNode = { id: s.id, type: s.type, sub: s.sub, name: s.name, desc: s.desc, props: s.props, sources: s.sources };
   if (s.alias) node.alias = s.alias;
   if (img) node.img = img;
+  const b = bios.get(s.id);
+  if (b) node.bio = b;
   byId.set(s.id, node);
+}
+
+/* ---------- 人物介绍校验（可选增强；有则必须完整） ---------- */
+for (const [id, b] of bios) {
+  if (!byId.has(id)) {
+    errors.push(`人物介绍: 目标节点不存在 ${id}`);
+    continue;
+  }
+  if (!b.zh.length || !b.en.length) errors.push(`人物介绍: ${id} 缺少双语段落`);
+  else if (b.zh.length !== b.en.length) errors.push(`人物介绍: ${id} 中英段落数不一致（${b.zh.length} vs ${b.en.length}）`);
+  for (const para of [...b.zh, ...b.en]) {
+    if (para.length < 10) errors.push(`人物介绍: ${id} 存在过短段落（${para.length} 字）`);
+  }
 }
 
 const relSeen = new Set<string>();
