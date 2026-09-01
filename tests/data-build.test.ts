@@ -125,13 +125,14 @@ describe('data:build 全量校验（黑盒）', () => {
     }
   });
 
-  it('人物介绍（bio）：仅人物节点、双语段落结构完整', () => {
+  it('人物介绍（bio）：多类型节点、双语段落结构完整', () => {
     runBuild();
     const g = JSON.parse(fs.readFileSync(GRAPH, 'utf8'));
     const withBio = g.nodes.filter((n: any) => n.bio);
-    expect(withBio.length).toBeGreaterThanOrEqual(30);
+    // 人物 30 + 名号 93 全覆（P1 里程碑）
+    expect(withBio.length).toBeGreaterThanOrEqual(120);
+    expect(g.nodes.filter((n: any) => n.type === 'mantle' && n.bio).length, '名号 bio 应全覆').toBe(93);
     for (const n of withBio) {
-      expect(n.type, `${n.id} bio 出现在非人物节点`).toBe('character');
       const { zh, en } = n.bio;
       expect(zh.length, `${n.id} 缺中文段落`).toBeGreaterThanOrEqual(1);
       expect(en.length, `${n.id} 缺英文段落`).toBeGreaterThanOrEqual(1);
