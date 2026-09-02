@@ -75,6 +75,21 @@ export const E = (s: string, t: string, r: string, props?: Record<string, any>) 
   edgeSeeds.push({ s, t, r, props });
 };
 
+/* ---------- 节点字段补丁（按 id 向既有节点合并 props / 追加 sources） ---------- */
+
+export interface NodePatch {
+  id: string;
+  props?: Record<string, any>;
+  sources?: string[];
+}
+
+export const nodePatches: NodePatch[] = [];
+
+/** 登记一个字段补丁：id 为完整节点 id；merge 语义，不覆盖原 props 其它键 */
+export const patchProps = (id: string, props: Record<string, any>, sources?: string[]) => {
+  nodePatches.push({ id, props, sources });
+};
+
 /* ---------- 人物介绍（可选增强） ---------- */
 
 /** 双语段落：zh/en 各自成段，按叙事模板 4-6 段 */

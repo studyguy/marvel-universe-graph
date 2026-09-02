@@ -3,7 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { NODE_TYPES, RELATION_TYPES, nodeTypeMap } from '../data/taxonomy';
-import { seeds, edgeSeeds, bios } from '../data/source/registry';
+import { seeds, edgeSeeds, bios, nodePatches } from '../data/source/registry';
 import { PERSON_NAME_OVERRIDE, normalizePersonName } from './graph-normalize';
 import type { GraphData, GraphNode } from '../data/schema';
 
@@ -64,6 +64,19 @@ for (const s of seeds) {
   const b = bios.get(s.id);
   if (b) node.bio = b;
   byId.set(s.id, node);
+}
+
+/* ---------- 节点字段补丁（patchProps：merge props / 追加 sources） ---------- */
+for (const p of nodePatches) {
+  const node = byId.get(p.id);
+  if (!node) {
+    errors.push(`字段补丁: 目标节点不存在 ${p.id}`);
+    continue;
+  }
+  if (p.props) node.props = { ...node.props, ...p.props };
+  if (p.sources?.length) {
+    node.sources = [...new Set([...node.sources, ...p.sources])];
+  }
 }
 
 /* ---------- 人物介绍校验（可选增强；有则必须完整） ---------- */
