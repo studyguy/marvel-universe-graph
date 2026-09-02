@@ -24,3 +24,4 @@ import './bios-char-a1';
 import './bios-char-a2';
 import './bios-char-a3';
 import './bios-char-a4';
+import './powergrid';

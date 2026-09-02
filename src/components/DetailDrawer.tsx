@@ -7,6 +7,7 @@ import { bioTitle, t } from '../i18n';
 import { imageUrlFor, avatarFor } from '../graph/avatar';
 import { CharacterInfoCard } from './CharacterInfoCard';
 import { BioModal } from './BioModal';
+import { PowerGrid } from './PowerGrid';
 
 const ID_RE = /^(ch|team|loc|item|wk|ev|uni|chan|race|ab)-[\w-]+$/;
 function propText(v: unknown, lang: 'zh' | 'en', index?: { nodeById: Map<string, { name: { zh: string; en: string } }> }): string {
@@ -114,6 +115,7 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
         </div>
         <div className="props">
           {type?.props.map((p) => {
+            if (p.key === 'powergrid') return null; // 由 PowerGrid 专用组件渲染
             const v = node.props[p.key];
             if (v == null || v === '') return null;
             const val = propText(v, lang, index);
@@ -142,6 +144,10 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
             );
           })}
         </div>
+
+        {(node.type === 'character' || node.type === 'mantle') && (node.props as any)?.powergrid && (
+          <PowerGrid powergrid={(node.props as any).powergrid} lang={lang} />
+        )}
 
         {node.type === 'character' && <CharacterInfoCard node={node} lang={lang} />}
 

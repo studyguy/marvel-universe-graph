@@ -56,6 +56,7 @@ export const NODE_TYPES: NodeTypeDef[] = [
       { key: 'debut', label: L2('首次登场', 'First Appearance') },
       { key: 'actor', label: L2('演员 / 配音', 'Actor / Voice') },
       { key: 'occupation', label: L2('职业 / 身份', 'Occupation') },
+      { key: 'powergrid', label: L2('官方能力量表', 'Power Grid') },
     ],
   },
   {
@@ -73,6 +74,7 @@ export const NODE_TYPES: NodeTypeDef[] = [
       { key: 'debut', label: L2('起源作品', 'Origin Work') },
       { key: 'status', label: L2('延续状态', 'Status') },
       { key: 'universe', label: L2('所属宇宙', 'Universe') },
+      { key: 'powergrid', label: L2('官方能力量表', 'Power Grid') },
     ],
   },
   {

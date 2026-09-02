@@ -76,6 +76,7 @@ const S = {
   infoAbilities: L2('能力', 'Abilities'),
   infoAffiliation: L2('所属', 'Affiliation'),
   infoIdentity: L2('身份', 'Identity'),
+  pgTitle: L2('官方能力量表', 'Power Grid'),
 };
 
 export type StringKey = keyof typeof S;
