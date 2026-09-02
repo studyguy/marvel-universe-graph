@@ -10,9 +10,111 @@ import { BioModal } from './BioModal';
 import { PowerGrid } from './PowerGrid';
 
 const ID_RE = /^(ch|team|loc|item|wk|ev|uni|chan|race|ab)-[\w-]+$/;
+
+/* ---------- 英文界面下的 props 值翻译（数据层为纯中文字符串的字段） ---------- */
+const CJK = /[\u4e00-\u9fff]/;
+/** 值含「中文…英文」尾注时切出英文（如演员/阶段/年份字段） */
+function embeddedEn(v: string): string | null {
+  const i = v.search(/[A-Za-z]/);
+  if (i <= 0) return null;
+  const tail = v.slice(i);
+  if (CJK.test(tail)) return null;
+  return tail.replace(/[（）()]/g, '').trim() || null;
+}
+/** 作品中文标题 → 英文标题映射（懒构建自图内 work 节点） */
+let workTitles: { zh: string; en: string }[] | null = null;
+function worksOf(index: { nodeById: Map<string, any> }): { zh: string; en: string }[] {
+  if (!workTitles) {
+    workTitles = [];
+    for (const n of index.nodeById.values()) {
+      if (n.type === 'work' && n.name?.zh) workTitles.push({ zh: n.name.zh, en: n.name.en });
+    }
+  }
+  return workTitles;
+}
+/** 兜底：个别无独立作品节点的漫画刊物/系列名前缀 */
+const WK_ALIAS: [string, string][] = [
+  ['神奇蜘蛛侠', 'Amazing Spider-Man'],
+  ['超凡蜘蛛侠', 'The Amazing Spider-Man'],
+  ['神奇四侠', 'Fantastic Four'],
+  ['X战警', 'X-Men'],
+  ['新X战警', 'New X-Men'],
+  ['复仇者', 'Avengers'],
+  ['蜘蛛侠', 'Spider-Man'],
+  ['雷神', 'Thor'],
+  ['奇异博士', 'Doctor Strange'],
+  ['美国队长', 'Captain America'],
+  ['死侍', 'Deadpool'],
+  ['毒液', 'Venom'],
+];
+/** 作品首登场串（如「钢铁侠 (2008)」「X战警 #1 (1963) 彩蛋」）转英文 */
+function workDebutEn(v: string, index: { nodeById: Map<string, any> }): string | null {
+  const t = v.trim();
+  for (const { zh, en } of worksOf(index)) {
+    if (t.startsWith(zh)) {
+      let rest = t.slice(zh.length).trim().replace('彩蛋', 'cameo');
+      rest = rest.replace(/[（]/g, '(').replace(/[）]/g, ')');
+      return en + (rest ? ` ${rest}` : '');
+    }
+  }
+  for (const [zh, en] of WK_ALIAS) {
+    if (t.startsWith(zh)) {
+      let rest = t.slice(zh.length).trim().replace('彩蛋', 'cameo');
+      return en + (rest ? ` ${rest}` : '');
+    }
+  }
+  return null;
+}
+/** 职业（occupation）分词表 —— 词段级英文 */
+const OCC: Record<string, string> = {
+  复仇者: 'Avenger', 初代复仇者: 'Founding Avenger', 科学家: 'Scientist', 学生: 'Student', 少年英雄: 'Teen hero',
+  英雄: 'Hero', 护卫队: 'Guardians', 'X 战警': 'X-Man', 永恒族: 'Eternal', 至尊法师: 'Sorcerer Supreme',
+  生物学家: 'Biologist', 克里军官: 'Kree officer', 罪犯: 'Criminal', 阿斯加德之王: 'King of Asgard',
+  王后: 'Queen', 雷霆特攻队: 'Thunderbolts', 功夫大师: 'Kung-fu master', 法师: 'Sorcerer', 特工: 'Agent',
+  变种人: 'Mutant', 义警: 'Vigilante', 雇佣兵: 'Mercenary', 化身: 'Avatar', 十环之主: 'Master of the Ten Rings',
+  幻象师: 'Illusionist', 政客: 'Politician', 刺客: 'Assassin', 战士: 'Warrior', 摄影师: 'Photographer', 永续传承: 'Legacy continues',
+  企业家: 'Entrepreneur', 反派: 'Villain', 电工: 'Electrician', 超级士兵: 'Super-Soldier', 间谍: 'Spy',
+  守门人: 'Gatekeeper', 屠神者: 'God Butcher', 死亡女神: 'Goddess of Death', 新阿斯加德之王: 'King of New Asgard',
+  时间之神: 'God of Time', 征服者: 'Conqueror', 时间独裁者: 'Time tyrant', 多元旅行者: 'Multiversal traveler',
+  公主: 'Princess', 黑豹: 'Black Panther', 瓦坎达国王: 'King of Wakanda', 瓦坎达将军: 'General of Wakanda',
+  部落首领: 'Tribe leader', 塔罗坎之王: 'King of Talokan', 电气工程师: 'Electrical engineer', 护卫队队长: 'Guardians leader',
+  掠夺者头目: 'Ravager captain', 宇宙征服者: 'Cosmic conqueror', 斯克鲁领袖: 'Skrull leader', 雇佣兵英雄: 'Mercenary hero',
+  律师: 'Lawyer', 社工: 'Social worker', 邪教主: 'Cult leader', 女巫: 'Witch', 保安: 'Security', 裁缝: 'Tailor',
+  '刺客 → 复仇者': 'Assassin → Avenger', '特工 → 守护者': 'Agent → Guardian', '科学家 / 英雄': 'Scientist / Hero',
+  神盾局长: 'Director of S.H.I.E.L.D.', 神盾副局长: 'Deputy Director of S.H.I.E.L.D.', 神盾特工: 'S.H.I.E.L.D. agent',
+  神盾创始人: 'Founder of S.H.I.E.L.D.', 九头蛇首领: 'Head of HYDRA', 战术家: 'Tactician', 掠夺者: 'Ravager',
+  国王: 'King', 领袖: 'Leader', 总统: 'President', 将军: 'General', 空军上校: 'Air Force Colonel',
+  '斯塔克工业 CEO': 'CEO of Stark Industries', '斯塔克工业副主席': 'V.P. of Stark Industries', 安保主管: 'Head of Security',
+  'AIM 创始人': 'Founder of A.I.M.', 掮客: 'Power broker', 指挥官: 'Commander', 红房指挥官: 'Red Room commander',
+  瓦坎达僭主: 'Wakandan usurper', 神王: 'All-Father', 'salvage 商': 'Salvage dealer', 堕落法师: 'Fallen sorcerer',
+  黑暗精灵之王: 'King of the Dark Elves', 法师学徒: 'Sorcerer apprentice', 发明家: 'Inventor', 演员: 'Actor',
+  前神盾局长: 'Former S.H.I.E.L.D. Director', 外交官: 'Diplomat', 时间管理员: 'TVA analyst', 'TVA 分析员': 'TVA analyst',
+};
+function occEn(v: string): string | null {
+  if (OCC[v]) return OCC[v];
+  const parts = v.split(/\s*\/\s*|\s*→\s*/);
+  if (parts.length > 1) {
+    const t = parts.map((p) => OCC[p]).filter(Boolean);
+    if (t.length === parts.length) return t.join(' / ');
+  }
+  return null;
+}
+/** 综合英文回退：成功返回译文，失败返回 null（调用方保留原文） */
+function cjkPropEn(v: string, index: { nodeById: Map<string, any> }): string | null {
+  const e = embeddedEn(v);
+  if (e) return e;
+  const w = workDebutEn(v, index);
+  if (w) return w;
+  return occEn(v);
+}
+
 function propText(v: unknown, lang: 'zh' | 'en', index?: { nodeById: Map<string, { name: { zh: string; en: string } }> }): string {
   if (v == null) return '—';
   if (typeof v === 'string') {
+    if (lang === 'en' && CJK.test(v) && index) {
+      const t = cjkPropEn(v, index as { nodeById: Map<string, any> });
+      if (t) return t;
+    }
     if (index && ID_RE.test(v)) {
       const n = index.nodeById.get(v);
       if (n) return lang === 'zh' ? n.name.zh : n.name.en;
@@ -23,8 +125,14 @@ function propText(v: unknown, lang: 'zh' | 'en', index?: { nodeById: Map<string,
   if (typeof v === 'object' && 'zh' in (v as any)) return (v as any)[lang] ?? (v as any).zh;
   if (typeof v === 'object') {
     // 嵌套形状（如 mantle 节点的 { status: '永续传承' }）：取首个字符串值
-    const first = Object.values(v as Record<string, unknown>).find((x) => typeof x === 'string');
-    if (first) return first as string;
+    const first = Object.values(v as Record<string, unknown>).find((x) => typeof x === 'string') as string | undefined;
+    if (first) {
+      if (lang === 'en' && CJK.test(first) && index) {
+        const t = cjkPropEn(first, index as { nodeById: Map<string, any> });
+        if (t) return t;
+      }
+      return first;
+    }
     return Object.values(v as Record<string, unknown>).map((x) => propText(x, lang, index)).filter(Boolean).join(' / ');
   }
   return String(v);
