@@ -7,6 +7,8 @@ bio('wk-im1', [
   { zh: '《钢铁侠》（2008）是漫威电影宇宙的开山之作：托尼·斯塔克在阿富汗被俘后于山洞打造首套战甲逃出生天，从此从军火商蜕变为超级英雄。', en: 'Iron Man (2008) launched the MCU: Tony Stark, captured in Afghanistan, forges his first suit in a cave and transforms from arms dealer to hero.' },
   { zh: '影片确立了 MCU 的核心公式——凡人智慧加科技对抗超规格威胁，并以彩蛋植入神盾局与复仇者计划的伏笔。', en: 'It set the MCU formula — mortal wit plus tech against super-scale threats — and planted S.H.I.E.L.D./Avengers seeds in post-credits.' },
   { zh: '小罗伯特·唐尼的演绎让斯塔克成为银幕最具魅力的英雄之一，《钢铁侠》的成功直接开启了此后十余年的漫威电影宇宙。', en: 'Robert Downey Jr. made Stark one of the most magnetic screen heroes; its success opened the decade-spanning MCU.' },
+  { zh: '作为 MCU 开山之作，本片以 5.85 亿美元成本撬动全球市场，片尾彩蛋从此成为超英电影标配。', en: 'The MCU\'s launchpad grossed $585M worldwide and made the post-credits scene an industry standard.' },
+  { zh: '影片核心是‘技术救赎’：山洞造甲与‘我是钢铁侠’的公然出柜，奠定小罗伯特·唐尼的影史地位。', en: 'Cave-built armor and the public \'I am Iron Man\' define tech-redemption — and Downey\'s legend.' },
 ]);
 
 bio('wk-hulk', [
@@ -37,6 +39,8 @@ bio('wk-avengers1', [
   { zh: '《复仇者联盟》（2012）是 MCU 第一阶段收官：洛基携齐塔瑞大军入侵纽约，六位英雄首次集结。', en: 'The Avengers (2012) closes Phase One: Loki\'s Chitauri invade New York and six heroes assemble.' },
   { zh: '从磨合冲突到科尔森之死的催化剂，影片呈现\"集结\"从口号到信念的转变。', en: 'From bickering to Coulson\'s fall, \"assemble\" became creed, not slogan.' },
   { zh: '它以纽约之战确立复仇者范式和共享宇宙的商业奇迹，是 MCU 的历史性节点。', en: 'The Battle of New York defined the shared-universe model — a commercial watershed.' },
+  { zh: '首次让多位独立英雄同框，以 15 亿美元成为影史第三卖座片，证明‘共享宇宙’商业模型的可行。', en: 'First team-up grossed $1.5B, third-highest ever — proving the shared-universe model at the box office.' },
+  { zh: '纽约之战确立了 MCU 的‘事件化’叙事：城市级灾难、团队磨合与彩蛋体系从此成为公式。', en: 'The Battle of New York set the MCU\'s event formula: city-scale stakes, team dynamics, credit scenes.' },
 ]);
 
 bio('wk-im3', [
@@ -79,6 +83,8 @@ bio('wk-ca-cw', [
   { zh: '《美国队长3：内战》（2016）让复仇者因索科维亚协议分裂：钢铁侠主张监管、美国队长主张自由。', en: 'Civil War (2016) splits the Avengers over the Accords: Stark for oversight, Rogers for conscience.' },
   { zh: '机场大战集结双方阵营，西伯利亚的真相让斯塔克与巴基/美队彻底决裂。', en: 'The Leipzig airport battle and Siberia\'s reveal shatter Stark\'s trust permanently.' },
   { zh: '影片引入黑豹与蜘蛛侠，并让复仇者名存实亡——直至灭霸降临才被迫重聚。', en: 'It debuts Black Panther and Spider-Man and hollows out the Avengers until Thanos.' },
+  { zh: '以‘索科维亚协议’引爆英雄理念之争，全片动作戏密度与阵营撕裂的戏剧性都达系列巅峰。', en: 'The Sokovia Accords split the heroes — the saga\'s densest action and sharpest ideological fracture.' },
+  { zh: '机场大战让钢铁侠与美队正面决裂，也首次引入黑豹与蜘蛛侠，成为 MCU 转折的枢纽。', en: 'The airport clash fractures Cap and Tony while debuting Black Panther and Spider-Man — a pivotal hinge.' },
 ]);
 
 bio('wk-doctor-strange1', [
@@ -103,18 +109,24 @@ bio('wk-thor3', [
   { zh: '《雷神3：诸神黄昏》（2017）让托尔在萨卡星失去锤子与家园：海拉归来、阿斯加德命悬一线。', en: 'Thor: Ragnarok (2017): Thor loses his hammer and realm — Hela returns and Asgard hangs by a thread.' },
   { zh: '浩克角斗、女武神重拾勇气、洛基选择王冠——影片以喜剧外壳讲末日悲剧。', en: 'Hulk arena fights, Valkyrie\'s courage, Loki\'s choice — comedy shell, doom core.' },
   { zh: '托尔觉醒本源雷霆，以\"阿斯加德是人民\"的信念带幸存者启程——直通无限战争。', en: 'Thor awakens his true lightning and sails off — straight into Infinity War.' },
+  { zh: '以 80 年代喜剧美学重造雷神，票房口碑双丰收，让‘诸神黄昏’成为 MCU 风格转向的标杆。', en: '80s-comedy reinvention revived Thor critically and commercially — Ragnarok the MCU\'s style pivot.' },
+  { zh: '雷神之锤的毁灭与阿斯加德的覆灭逼出角色的成长，证明幽默之下可以藏住真正的失去。', en: 'Losing the hammer and Asgard forces growth — humor masking genuine loss, done right.' },
 ]);
 
 bio('wk-black-panther1', [
   { zh: '《黑豹》（2018）呈现瓦坎达的加冕与抉择：特查拉继位后直面表兄基尔蒙格的篡权挑战。', en: 'Black Panther (2018): T\'Challa\'s coronation faces Killmonger\'s claim and Wakanda\'s isolation question.' },
   { zh: '影片以振金之国为舞台探讨殖民创伤与开放议题，基尔蒙格之死成为深刻注脚。', en: 'Vibranium Wakanda debates colonialism and openness; Killmonger\'s death lands hard.' },
   { zh: '作为首部黑人超级英雄电影，它成为文化事件，并让瓦坎达进入 MCU 主舞台。', en: 'A cultural landmark that put Wakanda at the MCU\'s center.' },
+  { zh: '全球 13.4 亿美元与奥斯卡多项提名，让黑人超级英雄电影第一次成为文化事件而非类型点缀。', en: '$1.34B and Oscar nominations made Black-led superhero cinema a cultural event, not a niche.' },
+  { zh: '克尔芒戈的‘反殖民复仇’让反派成为思想载体，瓦坎达的开放与孤立之争延续到现实议题。', en: 'Killmonger\'s anti-colonial fury carries the film\'s argument — Wakanda\'s openness debate echoes real politics.' },
 ]);
 
 bio('wk-infinity-war', [
   { zh: '《复仇者联盟3：无限战争》（2018）让灭霸集齐六枚宝石：瓦坎达与泰坦两线决战皆是绝望之战。', en: 'Infinity War (2018): Thanos collects all six Stones; Wakanda and Titan are twin defeats.' },
   { zh: '幻视之死、卡魔拉献祭、洛基海姆达尔之殁——灭霸以\"平衡\"之名完成响指。', en: 'Vision falls, Gamora is sacrificed — and the Snap erases half of all life.' },
   { zh: '影片以反派叙事结构颠覆英雄片公式，留下五年的灰烬纪元。', en: 'It upends the hero formula via Thanos\'s arc, leaving five years of dust.' },
+  { zh: '灭霸的‘响指’让一半生命灰飞烟灭，反派首次以‘获胜’姿态结束超英电影，颠覆类型惯例。', en: 'The Snap dusts half of life — a villain winning outright upends superhero convention.' },
+  { zh: '多线叙事将 23 名英雄拧进 149 分钟，泰坦与瓦坎达双战场把‘宇宙级’第一次拍出实感。', en: 'Twenty-three heroes, two battlefields, 149 minutes — cosmic stakes made visceral at last.' },
 ]);
 
 bio('wk-antman2', [
@@ -133,6 +145,8 @@ bio('wk-endgame', [
   { zh: '《复仇者联盟4：终局之战》（2019）让残部复仇者以时间劫持逆转响指：宝石重聚、绿巨人打响逆转之指。', en: 'Endgame (2019): the survivors time-heist the Stones, Hulk reverse-snaps, and the dusted return.' },
   { zh: '灭霸再临的终局之战中，美队举锤、惊奇队长拆舰、托尼最后打响指——\"我是钢铁侠\"成为绝唱。', en: 'Cap lifts Mjolnir, Carol shreds the ship, and Stark\'s final snap closes the saga.' },
   { zh: '影片以三代情感的收束（美队回到过去、娜塔莎沃米尔牺牲、托尼之殁）为无限传奇画下句点。', en: 'It closes the Infinity Saga with Cap\'s dance, Natasha\'s fall and Tony\'s farewell.' },
+  { zh: '以 27.9 亿美元登顶影史票房，用时间劫持、五年前史与‘复仇者集结’为十年旧账收尾。', en: 'The all-time box-office champ at $2.79B closes a decade with time heists and \'Avengers assemble\'.' },
+  { zh: '钢铁侠的响指与美队的老年谢幕构成双重告别，让商业巨制第一次以‘挽歌’作结。', en: 'Tony\'s Snap and Cap\'s farewell turn a blockbuster into an elegy — the saga\'s true finale.' },
 ]);
 
 bio('wk-ffh', [
@@ -165,6 +179,8 @@ bio('wk-nwh', [
   { zh: '《蜘蛛侠：英雄无归》（2021）让彼得求助奇异博士遗忘身份，却撕开多元宇宙裂缝——三代蜘蛛侠同框。', en: 'No Way Home (2021): Peter asks Strange to erase his identity, breaking the multiverse — three Spider-Men unite.' },
   { zh: '章鱼博士、绿魔、电光人等宿敌穿越而来；梅姨之死让彼得以"独自承担"收场。', en: 'Villains cross over; Aunt May\'s death leaves Peter to carry on alone.' },
   { zh: '影片以多元宇宙彩蛋狂欢纪念二十年蜘蛛侠历史，并开启 MCU 魔法侧的新裂缝。', en: 'A multiverse celebration of twenty spider-years, cracking open the MCU\'s mystic side.' },
+  { zh: '三代蜘蛛侠同框的‘多元宇宙’狂欢创下 19 亿美元票房，成为疫情时代影院复苏的最大引擎。', en: 'Three Spider-Men in one film grossed $1.9B — the pandemic-era\'s biggest theater revival engine.' },
+  { zh: '结尾记忆抹除让彼得回归‘友好邻居’起点，把商业娱乐收束成关于责任与孤独的成人礼。', en: 'The memory wipe returns Peter to the friendly neighbor — blockbuster as a coming-of-age on duty and solitude.' },
 ]);
 
 bio('wk-mom', [
@@ -201,6 +217,8 @@ bio('wk-gotg3', [
   { zh: '《银河护卫队3》（2023）揭开火箭浣熊的创生史：至高进化者的实验室地狱与"火箭计划"。', en: 'Vol. 3 (2023) reveals Rocket\'s creation below the High Evolutionary\'s lab-hell.' },
   { zh: '护卫队为救火箭冒险攻入反地球与心灵，最终解放实验动物、送别卡魔拉之变体。', en: 'The team storms Counter-Earth and Orgocorp, freeing test subjects and saying goodbye.' },
   { zh: '作为古恩告别之作，影片让护卫队正式分道扬镳，火箭接任队长。', en: 'Gunn\'s farewell: the Guardians part ways with Rocket taking the lead.' },
+  { zh: '以火箭的身世为轴，本片把太空喜剧翻转为对‘创造与造物主’的沉痛追问。', en: 'Centered on Rocket\'s origin, Vol. 3 turns space comedy into a grief-stricken query on creators and creations.' },
+  { zh: '护卫队各自告别的结局让漫威第一次拍出‘团队解散’的体面，也为角色独立线铺路。', en: 'The Guardians\' dignified disbanding is a Marvel first — seeding their solo futures.' },
 ]);
 
 bio('wk-deadpool-wolverine', [
@@ -243,6 +261,8 @@ bio('wk-logan', [
   { zh: '《金刚狼3：殊死一战》（2017）以暮年罗根护送变种女孩劳拉穿越美墨边境。', en: 'Logan (2017): an aging Wolverine escorts mutant girl Laura across the border.' },
   { zh: '影片以西部片语法讲述X教授之死与罗根的合金之痛，"牢不可破"退化为悲剧。', en: 'Western grammar, Xavier\'s death and adamantium poisoning — the unbreakable one grows fragile.' },
   { zh: '作为休·杰克曼的告别作，它让金刚狼以凡人的方式谢幕。', en: 'Jackman\'s farewell turns Wolverine\'s end into a human one.' },
+  { zh: '以 R 级与西部片语法为金刚狼送终，全球 6.19 亿美元证明‘成人向超英’同样有市场。', en: 'An R-rated, western-flavored farewell that earned $619M — proof adult superhero cinema sells.' },
+  { zh: '劳拉喊出‘爸爸’并摆正十字架的结局，让暴力叙事落点于传承与救赎，成为类型片绝唱。', en: 'Laura\'s \'Daddy\' and the tilted cross land violence on legacy and grace — the genre\'s swan song.' },
 ]);
 
 bio('wk-venom1', [
@@ -285,6 +305,8 @@ bio('wk-wandavision', [
   { zh: '《旺达幻视》（2021）以情景喜剧致敬开场，旺达在西景镇为幻视筑起魔法牢笼，最终直面丧亲之痛。', en: 'WandaVision (2021) opens as sitcom homage: Wanda cages Westview around Vision, then faces her grief.' },
   { zh: '阿加莎·哈克尼斯揭开混沌魔法真相，旺达在告别中成为绯红女巫，双胞胎彩蛋埋下少年复仇者。', en: 'Agatha exposes chaos magic; Wanda becomes the Scarlet Witch in farewell, with twins teasing Young Avengers.' },
   { zh: '影片是 MCU 第四阶段的感情基石，把电视剧集拉到电影级制作，魔法侧由此翻开新页。', en: 'It grounds Phase Four emotionally, lifts TV to film scale, and opens a new mystic page.' },
+  { zh: '以情景喜剧外壳讲悲伤与控制的迷你剧，开创 MCU 流媒体叙事的类型实验先河。', en: 'Sitcom skin over grief and control — the series that launched the MCU\'s streaming genre-lab.' },
+  { zh: '幻视与旺达的爱、阿加莎的阴谋与西景镇结界层层反转，让‘绯红女巫’从配角晋升主角。', en: 'Vision\'s love, Agatha\'s scheme, the Hex\'s reversals — it promotes Scarlet Witch from side to lead.' },
 ]);
 
 bio('wk-falcon-ws', [
@@ -297,6 +319,8 @@ bio('wk-loki', [
   { zh: '《洛基》（2021）从终局的逃逸节点切入：洛基被 TVA 逮捕，在时间管理局见识神圣时间线的真相。', en: 'Loki (2021) dives from the Endgame escape branch: the TVA arrests him and reveals the Sacred Timeline.' },
   { zh: '他与变体西尔维联手寻找遗留之人，最终洛基选择坐上时间王座，成为守护多元宇宙的时间之神。', en: 'Allied with Sylvie, he finds He Who Remains and chooses the time-throne — god of the multiverse.' },
   { zh: '剧集是多元宇宙传奇的发动机，把洛基从诡计之神升格为叙事中心。', en: 'The engine of the Multiverse Saga, elevating Loki from trickster to protagonist.' },
+  { zh: '时间变异管理局与‘神圣时间线’首次点题多元宇宙机制，为整个 MCU 的下一阶段铺设引擎。', en: 'The TVA and sacred timeline name the multiverse rules — powering the MCU\'s next phase.' },
+  { zh: '洛基与希尔维在时间尽头的选择打开多元宇宙，把‘自我救赎’写成一部时空史诗。', en: 'Loki and Sylvie\'s choice at time\'s end unleashes the multiverse — self-redemption as time epic.' },
 ]);
 
 bio('wk-what-if', [
