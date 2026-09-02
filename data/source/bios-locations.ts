@@ -556,3 +556,74 @@ bio('loc-attilan', [
   { zh: '漫画中阿提兰多次迁移（月球/地球），异人族命运多舛。',
     en: 'Attilan moved between Moon and Earth; the Inhumans\' fate is turbulent.' },
 ]);
+
+/* ============ P3 地点：补充（X-Men 系列地点） ============ */
+
+bio('loc-genosha', [
+  { zh: '基诺沙位于非洲东海岸，是X战警故事中"变种人分离主义"的实验场。最初由X教授的旧敌马格尼奥与政府合作，让变种人以隔离的方式生存，但最终沦为政治工具。',
+    en: 'Genosha, off the African coast, was established as a mutant "separation" experiment—where mutants were forced to live apart from humans, later turned political.' },
+  { zh: '该岛的历史极为动荡：从奴役变种人的农场国度，到成为马格尼托的"变种人天堂"，再到被哨兵机器人摧毁，基诺沙承载了变种人史上最深的创伤。',
+    en: 'Genosha\'s history is turbulent: from a mutant-enslaving state to Magneto\'s "mutant paradise," until Sentinels razed it, inflicting the deepest wound in mutant history.' },
+  { zh: '在《E is for Extinction》等故事中，基诺沙的毁灭成为变种人政治叙事的转折点——一个国家的覆灭催生了后来的喀拉喀瓦主权实验。',
+    en: 'Its destruction in "E is for Extinction" became a turning point in mutant political narrative — a nation\'s fall that foreshadowed the later Krakoa experiment.' },
+  { zh: '如今基诺沙的废墟仍是X战警故事中"乌托邦为何失败"的永恒提问，也是马格尼托政策失败的无声见证。',
+    en: 'Today Genosha\'s ruins pose the eternal question "why do utopias fail?" — a silent witness to the failure of Magneto\'s policies.' },
+]);
+
+bio('loc-krakoa', [
+  { zh: '喀拉喀瓦是一座有意识的活体岛屿，作为变种人的主权国家出现于《House of X / Powers of X》(2019)。通过莫拉·莫拉莱斯的时间循环知识与X教授、万磁王的合作，变种人将这座太平洋上的活岛转变为主权国家。',
+    en: 'Krakoa is a living, sentient island that became the sovereign mutant nation in "House of X / Powers of X" (2019), realized through Moira MacTaggert\'s knowledge and the alliance of Xavier and Magneto.' },
+  { zh: '岛上的花粉使变种人获得不朽：通过复活花坛，任何死去的变种人都可以被重生。喀拉喀瓦同时建立了自己的法律（"不可制造奴隶""不可杀死人类"）与流通全球的药物经济。',
+    en: 'The island granted mutants immortality via resurrection lotus gardens, established sovereign laws ("make no more slaves, kill no man"), and built a global drug economy.' },
+  { zh: '喀拉喀瓦代表"乌托邦的代价"：它实现了变种人数十年的建国梦想，却也带来了新的道德困境——谁被邀请、谁被遗忘，以及活岛本身的意志。',
+    en: 'Krakoa represents the cost of utopia: the long-awaited mutant homeland brought new moral dilemmas — who is invited, who is forgotten, and the will of the living island itself.' },
+  { zh: '在《X的陨落》(2024) 中，喀拉喀瓦陷落，变种人再次流亡，但这座活岛的记忆与力量依然是X战警叙事的核心。',
+    en: 'With the fall of Krakoa, mutants were exiled once more, yet the living island remains central to X-Men narratives.' },
+]);
+
+bio('loc-x-mansion', [
+  { zh: '泽维尔学院（X战警大宅）位于纽约州塞勒姆中心，是X战警的训练基地与变种人青少年的学校，由X教授查尔斯·泽维尔建立。',
+    en: 'Xavier\'s School for Gifted Youngsters in Westchester County, New York, is the X-Men\'s base — a school for young mutants founded by Professor X.' },
+  { zh: '大宅地下藏着"危险屋"训练室与脑波增幅器"大脑"（Cerebro），前者模拟战斗训练学生，后者让泽维尔探测全球每一个新生变种人。',
+    en: 'Beneath the mansion lies the Danger Room combat simulator and Cerebro, which allows Xavier to detect every mutant on Earth.' },
+  { zh: '作为场所，它代表"教育的力量"：不仅是战斗训练基地，更是让年轻变种人学会控制力量、接纳自我的家园。',
+    en: 'The mansion is education as refuge: a place where young mutants learn control, acceptance, and belonging.' },
+  { zh: '大宅屡次被摧毁又重建，在《Dark Phoenix》《Days of Future Past》等关键故事中扮演核心角色。',
+    en: 'Destroyed and rebuilt repeatedly, the mansion played pivotal roles in "Dark Phoenix" and "Days of Future Past."' },
+]);
+
+bio('loc-hala', [
+  { zh: '哈拉星是克里帝国的首都：位于大麦哲伦云的蓝色星球，克里文明的政治与军事中枢。',
+    en: 'Hala is the capital of the Kree Empire: the blue-skinned militaristic civilization\'s political and military heart.' },
+  { zh: '星球上有"至高智慧"（Supreme Intelligence）——一个由历代克里最伟大头脑合成的人工智能体，统治着整个帝国。',
+    en: 'Hala hosts the Supreme Intelligence, an artificial ruler composed of the greatest Kree minds.' },
+  { zh: '哈拉象征"帝国的铁幕"：军国主义、征服文化以及对个体自由的压制——克里文明的黑暗面。',
+    en: 'Hala embodies imperial tyranny: militarism, expansionism, and suppression of individual freedom.' },
+  { zh: '在《惊奇队长》的故事中，卡罗尔·丹弗斯正是意识到哈拉的侵略本质，才转而反抗至高智慧。',
+    en: 'Carol Danvers\'s realization of Hala\'s侵略性 drove her rebellion against the Supreme Intelligence.' },
+]);
+
+bio('loc-attilan', [
+  { zh: '阿提兰是异人族（Inhumans）的都城：最初位于大西洋，后迁至喜马拉雅，最终移至月球蓝区。',
+    en: 'Attilan is the capital of the Inhumans: a mobile city first in the Atlantic, later moved to the Blue Area of the Moon.' },
+  { zh: '城市由黑蝠王家族统治，居民通过泰瑞根迷雾获得超能力，形成了严格的种姓制度社会。',
+    en: 'Ruled by Black Bolt\'s royal family, Attilan society is structured by Terrigen mist transformation and genetic castes.' },
+  { zh: '城市象征"隔离的文明"：封闭、等级森严、与外界隔绝——异人族社会的优越与脆弱并存。',
+    en: 'Attilan is an isolationist civilization: genetic caste system, royal intrigue, and cultural isolation.' },
+  { zh: '在《异人族 vs X战警》等故事中，阿提兰的命运与整个异人族种族的存续紧密相连。',
+    en: 'Attilan\'s fate is tied to the Inhuman royal family\'s trials across Marvel\'s cosmic narratives.' },
+]);
+
+
+
+bio('loc-titan', [
+  { zh: '泰坦星是土星卫星，也是灭霸的故乡：曾经的永恒族殖民地，最终因人口过剩与资源枯竭而毁灭。',
+    en: 'Titan, moon of Saturn and Thanos\'s homeworld, was a thriving Eternal colony destroyed by overpopulation and collapse.' },
+  { zh: '灭霸亲眼目睹母星因资源枯竭而崩坏，这段经历塑造了他"宇宙一半生命必须消亡以拯救另一半"的极端哲学。',
+    en: 'Watching his homeworld collapse convinced Thanos that random half-erasure could save existence itself.' },
+  { zh: '星球象征"灾难的预言者"：泰坦的毁灭成为灭霸无尽屠杀的"合理化"根源。',
+    en: 'Titan is the birthplace of Thanos\'s obsession: a survivor\'s guilt twisted into galactic genocide.' },
+  { zh: '《无限战争》泰坦之战中，钢铁侠、奇异博士与蜘蛛侠在此与灭霸正面交锋。',
+    en: 'The Battle of Titan in Infinity War marked a pivotal confrontation between Thanos and Earth\'s heroes.' },
+]);
+

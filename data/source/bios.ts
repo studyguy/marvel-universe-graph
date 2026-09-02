@@ -13,3 +13,4 @@ import './bios-comics';
 import './bios-mantles';
 import './bios-teams';
 import './bios-locations';
+import './bios-events';
