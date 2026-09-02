@@ -16,3 +16,7 @@ import './bios-locations';
 import './bios-events';
 import './bios-items';
 import './bios-works';
+import './bios-universes';
+import './bios-channels';
+import './bios-races';
+import './bios-abilities';
