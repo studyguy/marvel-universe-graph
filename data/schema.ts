@@ -11,7 +11,7 @@ export interface GraphNode {
   desc: L;
   props: Record<string, string | string[] | L>;
   img?: true; // 存在真实图片 /assets/images/<id>.jpg
-  bio?: { zh: string[]; en: string[] }; // 人物介绍（可选增强）：双语段落数组，bios.ts 登记
+  bio?: { zh: string[]; en: string[] }; // 介绍（可选增强）：双语段落数组，bios.ts 登记
   sources: string[];
 }
 

@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { useStore } from '../store/useStore';
 import { nodeTypeMap, relationCatMap, relationMap, RELATION_CATEGORIES } from '../../data/taxonomy';
 import type { GraphEdge } from '../../data/schema';
-import { t } from '../i18n';
+import { bioTitle, t } from '../i18n';
 import { imageUrlFor, avatarFor } from '../graph/avatar';
 import { CharacterInfoCard } from './CharacterInfoCard';
 import { BioModal } from './BioModal';
@@ -148,7 +148,7 @@ export function DetailDrawer({ collapsed, mobile }: { collapsed: boolean; mobile
         {node.bio && (
           <div className="bio-sec">
             <div className="sec-title">
-              {t('bioSec', lang)}
+              {bioTitle(node.type, lang)}
               <span className="ln" />
             </div>
             <p className="bio-teaser">

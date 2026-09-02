@@ -69,7 +69,6 @@ const S = {
   expand: L2('展开', 'Expand'),
   minimap: L2('小地图', 'Minimap'),
   selectHint: L2('单击查看详情', 'Click for details'),
-  bioSec: L2('人物介绍', 'Biography'),
   readFullBio: L2('阅读完整介绍', 'Read the full biography'),
   bioClose: L2('关闭', 'Close'),
   infoMantle: L2('名号', 'Mantle'),
@@ -83,4 +82,23 @@ export type StringKey = keyof typeof S;
 export const strings = S;
 export function t(key: StringKey, lang: Lang): string {
   return S[key][lang];
+}
+
+/** 介绍区块标题：随节点类型取词（人物→人物介绍、角色→角色介绍…）；
+ *  英文侧统一用 Biography。未登记的类型回退为"人物介绍"。 */
+const BIO_TITLE_ZH: Record<string, string> = {
+  character: '人物介绍',
+  mantle: '角色介绍',
+  team: '团队介绍',
+  location: '地点介绍',
+  item: '物品介绍',
+  work: '作品介绍',
+  event: '事件介绍',
+  universe: '宇宙介绍',
+  channel: '频道介绍',
+  race: '种族介绍',
+  ability: '能力介绍',
+};
+export function bioTitle(type: string, lang: Lang): string {
+  return lang === 'zh' ? (BIO_TITLE_ZH[type] ?? '人物介绍') : 'Biography';
 }

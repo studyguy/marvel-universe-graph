@@ -389,13 +389,13 @@ button { font-family: inherit; cursor: pointer; }
 .ichip .lvl { font-style: normal; font-size: 10px; color: var(--text-dim); }
 .ichip .lvl:not(:empty)::before { content: '·'; margin-right: 3px; color: var(--text-dim); }
 
-/* ---------- 人物介绍摘要（bio teaser） ---------- */
+/* ---------- 介绍摘要（bio teaser） ---------- */
 .bio-sec { margin: 2px 0 6px; }
 .bio-teaser { font-size: 12.5px; line-height: 1.85; color: var(--text); margin: 4px 2px 6px; }
 .read-bio-btn { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--link); background: transparent; border: 1px solid var(--link-border); border-radius: 999px; padding: 4px 13px; cursor: pointer; transition: background 0.15s; }
 .read-bio-btn:hover { background: var(--link-soft); }
 
-/* ---------- 人物介绍大弹窗（BioModal） ---------- */
+/* ---------- 介绍大弹窗（BioModal） ---------- */
 .bio-overlay { position: fixed; inset: 0; background: var(--overlay); backdrop-filter: blur(5px); z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 16px; animation: bio-fade 0.18s ease; }
 @keyframes bio-fade { from { opacity: 0; } to { opacity: 1; } }
 .bio-modal { width: min(680px, 94vw); max-height: 84vh; display: flex; flex-direction: column; background: var(--panel-solid); border: 1px solid var(--panel-border); border-radius: 14px; box-shadow: var(--shadow-float); overflow: hidden; animation: bio-in 0.22s cubic-bezier(0.2, 0.9, 0.3, 1); }

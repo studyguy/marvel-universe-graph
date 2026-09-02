@@ -1,8 +1,10 @@
-/** 人物介绍大弹窗：完整分段双语正文（Fandom 式详情）；
- *  遮罩/Esc/关闭按钮均可关闭；移动端自适应。 */
+/** 介绍大弹窗：完整分段双语正文（Fandom 式详情）；
+ *  通过 Portal 挂到 <body>，避免被详情抽屉的层叠上下文/transform 约束，
+ *  确保遮罩铺满视口、盖过右下控制条与预览图；Esc / 遮罩 / 关闭按钮均可关闭。 */
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import type { GraphNode } from '../../data/schema';
-import { t, type Lang } from '../i18n';
+import { bioTitle, t, type Lang } from '../i18n';
 
 export function BioModal({ node, lang, onClose }: { node: GraphNode; lang: Lang; onClose: () => void }) {
   useEffect(() => {
@@ -20,13 +22,13 @@ export function BioModal({ node, lang, onClose }: { node: GraphNode; lang: Lang;
   if (!node.bio) return null;
   const paras = lang === 'zh' ? node.bio.zh : node.bio.en;
 
-  return (
+  return createPortal(
     <div className="bio-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="bio-modal" onClick={(e) => e.stopPropagation()}>
         <div className="bio-head">
           <div className="bio-title">
             <span className="bio-nm">{lang === 'zh' ? node.name.zh : node.name.en}</span>
-            <span className="bio-sub">{t('bioSec', lang)}</span>
+            <span className="bio-sub">{bioTitle(node.type, lang)}</span>
           </div>
           <button className="bio-x" onClick={onClose} aria-label={t('bioClose', lang)}>✕</button>
         </div>
@@ -36,6 +38,7 @@ export function BioModal({ node, lang, onClose }: { node: GraphNode; lang: Lang;
           ))}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
