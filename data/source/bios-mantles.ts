@@ -110,6 +110,9 @@ bio('mnt-quicksilver', [
     en: 'The mantle is speed itself: supersonic running, reflexes, vibration advantage — velocity as weapon.' },
   { zh: '多元宇宙的变体（如《旺达幻视》的假快银与福克斯版）让这一名号在漫威各线持续活跃。',
     en: 'Multiversal variants — WandaVision\'s fake Pietro, Fox\'s Quicksilver — keep the name alive across lines.' },
+  { zh: '快银的超速让时间近乎静止：接子弹、拆炸弹、瞬间疏散人群都是他的日常。', en: 'Quicksilver outruns time itself — catching bullets, defusing bombs, moving crowds in a heartbeat.' },
+  { zh: 'Fox 版厨房营救的名场面把‘快’拍成艺术，MCU 版则在索科维亚为救人而牺牲。', en: 'Fox\'s kitchen rescue makes speed art; the MCU\'s dies saving others in Sokovia.' },
+  { zh: '作为万磁王之子与旺达的兄长，他的立场总在家族与阵营之间摆荡。', en: 'Magneto\'s son and Wanda\'s brother, he forever straddles family and factions.' },
 ]);
 
 bio('mnt-vision', [
@@ -207,6 +210,9 @@ bio('mnt-she-hulk', [
     en: 'The mantle balances mind and muscle: lawyer\'s words plus gamma strength — the fourth-wall-breaking hero.' },
   { zh: 'MCU《女浩克》剧集由塔提阿娜·玛斯拉尼饰演，讲述她作为超级英雄律师的职场喜剧人生。',
     en: 'The MCU\'s She-Hulk series stars Tatiana Maslany, a legal comedy about the super-powered attorney.' },
+  { zh: '珍·沃尔特斯的伽马力量来自班纳的紧急输血，却比表哥更懂‘控制’：她是律师，不是野兽。', en: 'Jennifer got her gamma from Banner\'s transfusion yet controls it better — lawyer first, never the beast.' },
+  { zh: '《女浩克》以律政喜剧解构超英叙事，甚至改写大结局与编剧对话，是 MCU 最‘元’的作品。', en: 'She-Hulk\'s legal comedy deconstructs the genre — rewriting its own finale, the MCU\'s most meta entry.' },
+  { zh: '作为漫威最成功的女性喜剧英雄之一，她证明力量与幽默可以并存。', en: 'Among Marvel\'s best comedic heroines, she proves power and humor coexist.' },
 ]);
 
 /* ============ P1 名号：批 2（16 个） ============ */
@@ -348,6 +354,9 @@ bio('mnt-kingpin', [
     en: 'The mantle is power as mass: superhuman build, master scheming — the shared foe of Spider-Man and Daredevil.' },
   { zh: '《鹰眼》与《重生》中金并回归 MCU 街头线，市长竞选让他的帝国更接近权力核心。',
     en: 'Kingpin returns in Hawkeye and Born Again, his mayoral bid pushing the empire into power\'s core.' },
+  { zh: '金并的可怕在于‘凡人暴君’：西装、权杖与情报网让他统治纽约黑白两道，无需任何超能力。', en: 'Kingpin\'s terror is mortal tyranny — suits, canes, and intel ruling New York\'s two worlds without powers.' },
+  { zh: '他与夜魔侠的宿命对决贯穿漫画与剧集，也常与蜘蛛侠、惩罚者正面角力。', en: 'His feud with Daredevil spans comics and TV, with Spider-Man and the Punisher in the crossfire.' },
+  { zh: '《回声》剧集让玛雅斩断他的控制，也让他从‘不可战胜’走向可被挑战的凡人肉身。', en: 'Echo lets Maya break his hold — the untouchable king revealed as vulnerable flesh.' },
 ]);
 
 bio('mnt-echo', [
@@ -384,6 +393,9 @@ bio('mnt-iron-fist', [
     en: 'The mantle is chi and fist: K\'un-Lun kung fu, the iron punch, healing, decades of discipline.' },
   { zh: '丹尼在后继线中将铁拳传承（如佩佩·梁"胡椒"），名号进入多元传承时代。',
     en: 'Danny later passes the fist onward (to Pei the "Pepper"), opening an era of succession.' },
+  { zh: '铁拳之力源于击败不朽神龙寿老，他的拳能击穿钢铁与魔法屏障，昆仑二十年苦修是前提。', en: 'The Iron Fist, earned by defeating the dragon Shou-Lao, pierces steel and sorcery — twenty years at Kun-Lun behind it.' },
+  { zh: '作为捍卫者联盟成员，丹尼·兰德同时是富豪继承人与街头义警。', en: 'A Defenders mainstay, Danny balances corporate heir and street vigilante.' },
+  { zh: '从漫画到 Netflix，铁拳承载着‘东方武学进入漫威主流’的尝试与争议。', en: 'Comics to Netflix, the Iron Fist carries Marvel\'s long, contested embrace of Eastern martial myth.' },
 ]);
 
 bio('mnt-luke-cage', [
@@ -395,6 +407,9 @@ bio('mnt-luke-cage', [
     en: 'The mantle is steel skin and community heart: bulletproof, super-strong, street-respected.' },
   { zh: '漫画中卢克与杰茜卡·琼斯组建家庭，成为复仇者核心之一；街头线持续活跃。',
     en: 'Luke builds a family with Jessica Jones and serves the Avengers — street and flagship both.' },
+  { zh: '刀枪不入的皮肤与巨力让卢克成为哈莱姆的不倒墙，他的酒吧是街区的中心。', en: 'Bulletproof skin and raw might make Cage Harlem\'s unbreakable wall — his bar the block\'s heart.' },
+  { zh: '作为‘力量人’，他把英雄主义定义为守住街区与普通人，而非拯救世界。', en: 'As Power Man he defines heroism as holding the block for ordinary people, not saving planets.' },
+  { zh: '捍卫者联盟与个人剧集让他成为黑人街头英雄的银幕代表。', en: 'Defenders and his own series make him the screen\'s Black street-hero standard.' },
 ]);
 
 bio('mnt-valkyrie', [
@@ -571,6 +586,9 @@ bio('mnt-green-goblin', [
     en: 'The mantle is madness and genius: glider, pumpkin bombs, enhanced body — Spider-Man\'s archnemesis.' },
   { zh: '奥斯本在漫画中多次起落（包括执掌神锤局），绿魔之名历久不衰。',
     en: 'Osborn rises and falls across comics (even running H.A.M.M.E.R.) — a name that endures.' },
+  { zh: '诺曼·奥斯本的绿魔人格源于自家血清实验，滑翔机、南瓜炸弹与分裂人格成为他的标志。', en: 'Norman\'s Goblin split from his own serum — glider, pumpkin bombs, fractured mind his signature.' },
+  { zh: '他是蜘蛛侠最著名的‘镜像反派’：天才、财富与自负，只差一次更坏的抉择。', en: 'Spider-Man\'s sharpest mirror-foe — genius, wealth, hubris, one worse choice away.' },
+  { zh: '从 Raimi 三部曲到《英雄无归》，绿魔的每一次登场都在拷问‘被拯救的资格’。', en: 'Raimi trilogy to No Way Home, his returns keep asking who deserves saving.' },
 ]);
 
 bio('mnt-doctor-octopus', [
@@ -582,6 +600,9 @@ bio('mnt-doctor-octopus', [
     en: 'The mantle is intellect and arms: four tentacles, genius, villainous pride — Spider-Man\'s intellectual equal.' },
   { zh: '《无路可归》中的奥托获得救赎结局，漫画线中他仍以章鱼博士之名行走。',
     en: 'No Way Home gives Otto redemption; comics keep Doc Ock scheming.' },
+  { zh: '章鱼博士的四条机械臂由神经直连，力量与精密并存，也反噬了他的理智。', en: 'Doc Ock\'s neural-linked arms combine power and precision — and consume his sanity.' },
+  { zh: '他是险恶六人组的创始脑，漫画中甚至短暂占据蜘蛛侠身体成为‘至尊蜘蛛侠’。', en: 'Sinister Six founder, he once stole Peter\'s body as the Superior Spider-Man.' },
+  { zh: '从科学天才到悲剧反派，奥托的堕落始终是‘被自己的造物反噬’的寓言。', en: 'Genius to tragic villain, Otto\'s fall stays a fable of being undone by one\'s own creation.' },
 ]);
 
 bio('mnt-electro', [
@@ -672,6 +693,9 @@ bio('mnt-mysterio', [
     en: 'The mantle weaponizes illusion: smoke, projections, props — no powers needed to warp reality.' },
   { zh: 'MCU 的贝克在《无路可归》后留下神秘遗产，漫画中神秘客多次以"英雄"伪装登场。',
     en: 'Beck\'s MCU legacy lingers after No Way Home; comics often fake-hero under the name.' },
+  { zh: '神秘客没有超能力，靠特效、灯光与心理学制造‘魔法’，是漫威对视觉欺骗的终极致敬。', en: 'No powers — just VFX, lights, and psychology faking sorcery: Marvel\'s ultimate ode to the illusion.' },
+  { zh: '漫画里他屡败屡战只为被认可；MCU 版昆汀·贝克则骗走钢铁侠遗产并嫁祸蜘蛛侠。', en: 'Comics\' Beck craves recognition; the MCU\'s steals Tony\'s legacy and frames Peter.' },
+  { zh: '他的存在提醒观众：英雄叙事本身也是一种精心编排的‘神秘客’。', en: 'He reminds us hero myth itself is a well-staged Mysterio.' },
 ]);
 
 bio('mnt-red-skull', [
@@ -705,6 +729,9 @@ bio('mnt-mr-fantastic', [
     en: 'The mantle is science as power: elasticity, boundless intellect, the family\'s anchor.' },
   { zh: '《奇异博士2》光照会版本短暂登场，MCU《神奇四侠》新片正在制作。',
     en: 'An Illuminati Reed dies in MoM; the MCU Fantastic Four film is in production.' },
+  { zh: '里德的弹性来自宇宙辐射，能拉伸至分子级并变形成任意结构，是物理学的狂欢。', en: 'Cosmic rays make Reed stretch to molecular scales and reshape at will — physics having fun.' },
+  { zh: '作为漫威最聪明的科学家之一，他屡次承担‘文明级难题’的解法，也常因‘大局’做出冷酷决定。', en: 'One of Marvel\'s smartest, he solves civilization-scale problems — and makes cold calls for the greater good.' },
+  { zh: '神奇四侠的领袖、两个孩子的父亲、光照会的成员，他的多重身份本身就像一场实验。', en: 'FF leader, father of two, Illuminati member — his identities are their own experiment.' },
 ]);
 
 bio('mnt-invisible-woman', [
@@ -716,6 +743,9 @@ bio('mnt-invisible-woman', [
     en: 'The mantle is unseen might: stealth and force fields — among the FF\'s strongest fighters.' },
   { zh: '漫画中苏曾短暂担任团队领袖，MCU 重启后她将以核心角色登场。',
     en: 'Sue has led the FF in comics; the MCU reboot centers her.' },
+  { zh: '苏的力场既能防御也能切割，隐形让战术无法预测——里德公认她是四侠中最具潜力者。', en: 'Sue\'s fields defend or cut and invisibility defies prediction — Reed calls her the Four\'s greatest potential.' },
+  { zh: '她是团队的黏合剂与情感重心，用耐心平衡四位天才的自负。', en: 'The team\'s glue and heart, her patience balances four towering egos.' },
+  { zh: '从 60 年代漫画到多元宇宙电影，隐形女始终是女性超级英雄的奠基性形象。', en: '1960s comics to the multiverse films, she remains a foundational heroine.' },
 ]);
 
 bio('mnt-human-torch', [
@@ -727,6 +757,9 @@ bio('mnt-human-torch', [
     en: 'The mantle is burning youth: flame control, flight, and the signature "flame on."' },
   { zh: '漫画中约翰尼亦与蜘蛛侠、死侍等交好，MCU 重启在即。',
     en: 'Johnny buddies with Spider-Man and Deadpool in comics; the MCU reboot looms.' },
+  { zh: '约翰尼能全身燃焰并飞行，是四侠中最耀眼的火力点，张扬之下是对家人的忠诚。', en: 'Johnny blazes and flies as the Four\'s flashiest asset — beneath the fire, fierce family loyalty.' },
+  { zh: '与石头人‘日常互怼’的兄弟情是神奇四侠的喜剧心脏。', en: 'His bickering brotherhood with the Thing is the Four\'s comic heart.' },
+  { zh: '新《初露锋芒》电影以复古美学重塑霹雳火，让名号在 828 宇宙重生。', en: 'First Steps reimagines him in retro-mod style — the Torch reborn on Earth-828.' },
 ]);
 
 bio('mnt-thing', [
@@ -749,6 +782,9 @@ bio('mnt-silver-surfer', [
     en: 'The mantle is cosmic romance: power cosmic, light-speed gliding, love for Earth — Marvel\'s poet.' },
   { zh: '漫画中银影侠多次回归吞星者线，MCU 重启有望让其正式登场。',
     en: 'The Surfer keeps returning to the Galactus saga; MCU debut is anticipated.' },
+  { zh: '诺林·拉多以母星泽恩-拉为代价成为行星吞噬者的使者，银甲赋予他宇宙级力量。', en: 'Norrin Radd sold Zenn-La for the Surfer\'s power — cosmic might wrapped in living silver.' },
+  { zh: '他最终挣脱奴役投奔地球，在自由与救赎间反复徘徊，是漫威最悲悯的宇宙骑士。', en: 'Breaking free to side with Earth, he wanders between freedom and penance — the cosmos\' most sorrowful knight.' },
+  { zh: '《初露锋芒》电影宇宙引入女性银影侠莎拉·巴尔，让名号在多元宇宙延续。', en: 'First Steps\' Shalla-Bal carries the mantle across the new cinematic universe.' },
 ]);
 
 bio('mnt-doctor-doom', [
