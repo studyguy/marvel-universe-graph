@@ -12,6 +12,9 @@ bio('mnt-captain-america', [
     en: 'The mantle means conviction over power: not superpowers but a serum-perfected body, tactical genius, and an unbreakable will defending what is right.' },
   { zh: '进入现代主线后，山姆·威尔逊仍以美国队长之名行走，史蒂夫则以顾问与老兵身份回归，星条盾牌的传承成为漫威最动人的接力之一。',
     en: 'In modern continuity Sam Wilson continues as Captain America while Steve returns as advisor and veteran — one of Marvel\'s most moving relays of a shield.' },
+  { zh: '冰封七十年后苏醒的美队，是时间错位的理想主义者：他用老派价值观一次次纠正新世界的方向。', en: 'A man out of time, Cap wakes from the ice to steer a cynical new world with old-fashioned values.' },
+  { zh: '内战中选择不签协议、终局之战喊出‘复仇者集结’——他的每一次站队都在回答‘自由与安全如何取舍’。', en: 'Refusing the Accords, shouting \'Avengers assemble\' — every stance answers how to balance liberty and security.' },
+  { zh: '盾牌既是武器也是图腾：从二战到传给山姆，美国队长证明真正的不朽是价值观的传递。', en: 'Shield as weapon and icon, from WWII to Sam Wilson — Cap\'s true legacy is passing the creed on.' },
 ]);
 
 bio('mnt-iron-man', [
@@ -23,6 +26,9 @@ bio('mnt-iron-man', [
     en: 'The mantle is the mortal genius in a battlefield of gods: no powers, only intellect, reactors and an armor industry holding up the Avengers.' },
   { zh: '托尼谢幕后，莉莉·威廉姆斯以"钢铁之心"继承精神衣钵（衍生名号），而多元宇宙的无数钢铁侠变体仍在延续这个黄金名字。',
     en: 'After Tony\'s farewell, Riri Williams carries the spirit as Ironheart, while countless Iron Man variants across the multiverse keep the golden name alive.' },
+  { zh: '名场面战史：纽约之战扛核弹进虫洞、索科维亚单挑奥创军团、终局之战打响无限响指——托尼的三次‘以一换一’定义了复联的代价。', en: 'Iconic battles: the nuke through the wormhole, Ultron alone, and the Snap in Endgame — three one-for-one trades that define the Avengers.' },
+  { zh: '战甲从山洞里锤出的马克1 迭代到纳米装甲：每一代都记录着他的技术执念，也记录着他离‘人’越来越远的边界。', en: 'From the cave-forged Mark I to nanotech, each suit logs his technical obsession — and the shrinking line around the man.' },
+  { zh: '小罗伯特·唐尼的演绎让钢铁侠成为 MCU 当之无愧的台柱，他的牺牲也让‘我是钢铁侠’成为整个宇宙最重的一句台词。', en: 'Downey\'s Tony anchors the MCU; his death makes \'I am Iron Man\' the saga\'s heaviest line.' },
 ]);
 
 bio('mnt-war-machine', [
@@ -45,6 +51,9 @@ bio('mnt-thor', [
     en: 'The mantle is thunder and divinity: lightning, flight, Asgardian might — and worthiness: the hammer yields only to the deserving.' },
   { zh: '现代主线中托尔同时是阿斯加德之王与复仇者，风暴战斧替代旧锤；女雷神与少年洛基等变体让这一名号持续丰盈。',
     en: 'In modern continuity Thor is king of Asgard and Avenger, Stormbreaker his new tool; the Mighty Thor and variants keep the name rich.' },
+  { zh: '仙宫覆灭、灭霸当面刺杀海姆达尔、斧劈风暴——雷神的每次重生都先经历一次失去。', en: 'Asgard\'s fall, Heimdall killed before him, Stormbreaker\'s vengeance — every rebirth follows a loss.' },
+  { zh: '雷神之锤的咒语‘配得上者方能举起’把品格量化为物理规则，也让美队与雷神的关系多了一层敬意。', en: 'Mjolnir\'s worthiness enchantment makes character a law of physics — and deepens Cap and Thor\'s mutual respect.' },
+  { zh: '从傲慢王子到‘胖雷神’再到爱与雷霆的父亲，克里斯·海姆斯沃斯让神学会了哭与笑，完成了 MCU 最完整的角色弧之一。', en: 'Arrogant prince to \'Bro Thor\' to a father in Love and Thunder — Hemsworth\'s god learns to weep and laugh, one of the MCU\'s fullest arcs.' },
 ]);
 
 bio('mnt-black-widow', [
@@ -56,6 +65,9 @@ bio('mnt-black-widow', [
     en: 'The mantle is the hero in shadow: elite combat, disguise, espionage — and an obsession with redemption.' },
   { zh: '终局之战娜塔莎为灵魂宝石牺牲后，叶莲娜继承其精神（MCU《黑寡妇》与后续），黑寡妇之名进入新一代。',
     en: 'After Natasha\'s sacrifice for the Soul Stone, Yelena carries her spirit in the MCU — a new generation for the name.' },
+  { zh: '红房子的洗脑、芭蕾与暗杀训练让娜塔莎成为无国籍的武器，她的一生都在偿还这份‘红账’。', en: 'The Red Room\'s conditioning made Natasha a stateless weapon — her life a ledger of red owed.' },
+  { zh: '复仇者联盟里她是黏合剂：安抚浩克、说服众人、在沃米尔为灵魂宝石纵身一跃，把‘家人’付诸行动。', en: 'The team\'s glue — calming the Hulk, holding them together, then the Vormir dive that made \'family\' literal.' },
+  { zh: '她的个人电影补全了身世，也把叶莲娜与新一代黑寡妇推向台前：英雄会谢幕，衣钵会接力。', en: 'Her solo film fills the origin and passes the mantle to Yelena — heroes retire, legacies run on.' },
 ]);
 
 bio('mnt-hawkeye', [
@@ -78,6 +90,9 @@ bio('mnt-scarlet-witch', [
     en: 'The mantle is chaos at reality\'s edge: telekinesis, energy shaping, probability and reality revision — dangerous when grief drives it.' },
   { zh: '现代主线中万达在多元宇宙灾变后隐退修复自我，漫画《审判之日》后仍以混沌法师身份归来。',
     en: 'In modern continuity Wanda retreats to heal after multiversal catastrophes, returning as chaos sorceress after Trials of X.' },
+  { zh: '混沌魔法让她能改写现实，也从一开始就是漫威最危险的能力：她的爱与崩溃都足以重塑世界。', en: 'Chaos magic rewrites reality — Marvel\'s most dangerous power from the start, her love and grief reshaping worlds.' },
+  { zh: '漫画里的‘M 日’以一句‘再无变种人’抹去数百万人口，是旺达力量最惊悚的一次失控。', en: 'In comics, House of M\'s \'No more mutants\' erases millions — Wanda\'s most terrifying loss of control.' },
+  { zh: '《旺达幻视》到《奇异博士2》，MCU 让这位‘悲剧女巫’终于获得主角位：她的故事始终关于失去与放手。', en: 'WandaVision to Multiverse of Madness finally stars the tragedy witch — her tale forever about loss and letting go.' },
 ]);
 
 bio('mnt-quicksilver', [
@@ -111,6 +126,9 @@ bio('mnt-ant-man', [
     en: 'The mantle is greatness in smallness: shrink to sneak, grow to smash, speak with ants — micro and macro as one.' },
   { zh: 'MCU 中斯科特·朗与霍普（黄蜂女）双人搭档活跃于量子领域冒险；漫画蚁人体系包含埃里克·奥格雷迪等历任。',
     en: 'In the MCU Scott and Hope the Wasp adventure through the quantum realm; comics list Eric O\'Grady among the Ant-Men.' },
+  { zh: '皮姆粒子让蚁人能自由缩放，也把战场从纽约街头延伸到亚原子与量子领域。', en: 'Pym particles shrink and grow the hero — extending his war from street level to the Quantum Realm.' },
+  { zh: '《终局之战》的时间劫持方案源于他的量子理论，一个‘小偷’成了拯救一半宇宙的关键支点。', en: 'His quantum theory seeds Endgame\'s time heist — a thief pivots half the universe\'s salvation.' },
+  { zh: '斯科特的喜剧基调与‘普通人英雄’设定，让蚁人系列成为 MCU 家庭戏与特效奇观结合的范本。', en: 'Scott\'s everyman comedy makes Ant-Man the template where MCU family drama meets effects spectacle.' },
 ]);
 
 bio('mnt-wasp', [
@@ -190,6 +208,9 @@ bio('mnt-hulk', [
     en: 'The mantle is anger unbound: strength scaling with rage, near-immortal healing — Earth\'s strongest physical being.' },
   { zh: '《不朽浩克》时代揭示其力量与"底线之门"的宇宙联系，班纳在现代主线与多重人格和解共处。',
     en: 'The Immortal Hulk era revealed his cosmic ties to the Below-Place; modern Banner makes peace with his many selves.' },
+  { zh: '伽马能量让浩克越愤怒越强大，也把班纳困在‘怪物与救世主’的一体两面里数十年。', en: 'Gamma rage makes the Hulk stronger angrier — and traps Banner between monster and savior for decades.' },
+  { zh: 'MCU 给了他罕见的温柔弧：从失控的野兽到打响指救回一半宇宙，再到与表妹珍的律政日常。', en: 'The MCU grants him a tender arc: rampaging beast, Snap-hero, and cousin Jennifer\'s legal day-job.' },
+  { zh: '李安、诺顿到鲁法洛的三代演绎让浩克成为‘多重人格’最直白的超英隐喻，也一直是特效史的试金石。', en: 'Three actors, three films — the Hulk stays superhero cinema\'s bluntest metaphor for fractured self and an FX benchmark.' },
 ]);
 
 bio('mnt-red-hulk', [
@@ -212,6 +233,9 @@ bio('mnt-black-panther', [
     en: 'The mantle is tech-and-tradition kingship: herb-boosted senses, vibranium suit, and the mind of a king.' },
   { zh: '查德维克·博斯曼的饰演让该名号成为文化符号；苏睿继任后瓦坎达迎来新王时代。',
     en: 'Chadwick Boseman\'s portrayal made the name iconic; Shuri\'s succession opens a new Wakandan era.' },
+  { zh: '振金王国瓦坎达是漫威最完整的‘乌托邦工程’：科技、传统与孤立主义在其中反复角力。', en: 'Vibranium Wakanda is Marvel\'s fullest utopia project — technology, tradition, and isolationism in constant tension.' },
+  { zh: '特查拉在《黑豹》中选择开放瓦坎达，又在无限战争挺身挡在灭霸面前——王者的责任超越国界。', en: 'T\'Challa opens Wakanda in his solo film, then stands before Thanos — a king whose duty outruns borders.' },
+  { zh: '《黑豹》作为首部黑人超级英雄巨制，改写了票房与文化话语；查德维克·博斯曼的谢幕让王座多了一层真实的悼念。', en: 'Black Panther rewrote blockbuster culture; Chadwick Boseman\'s farewell layered real grief onto the throne.' },
 ]);
 
 bio('mnt-captain-marvel', [
@@ -223,6 +247,9 @@ bio('mnt-captain-marvel', [
     en: 'The mantle is cosmic might: energy absorption and projection, light-speed flight, Kree-human physiology — the Avengers\' cosmic ace.' },
   { zh: '卡罗尔以《惊奇队长2》与"联合团"延续传奇，名号在多元宇宙线中亦有变体（如惊奇少女的传承）。',
     en: 'Carol continues in The Marvels; the name echoes through variants and Ms. Marvel\'s legacy.' },
+  { zh: '卡罗尔的力量源于宇宙能量与克里基因的双重觉醒，让她成为复联面对宇宙级威胁时的头号重火力。', en: 'Cosmic energy and Kree DNA awaken Carol into the Avengers\' first-line cosmic firepower.' },
+  { zh: '从失忆的战士到‘更高、更远、更快’的自我确认，她的成长主线是挣脱一切定义她的标签。', en: 'Amnesiac soldier to \'higher, further, faster\' selfhood — her arc is shedding every label others pinned on her.' },
+  { zh: '作为漫威首位领衔单人电影的 MCU 女英雄，她与莫妮卡、卡玛拉的接力构成新一代传承叙事。', en: 'The MCU\'s first female-led hero, her relay with Monica and Kamala builds a new legacy line.' },
 ]);
 
 bio('mnt-spectrum', [
@@ -256,6 +283,9 @@ bio('mnt-doctor-strange', [
     en: 'The mantle is mystic guardianship: sling-ring portals, mirror dimensions, astral projection, the Eye of Agamotto.' },
   { zh: '《疯狂多元宇宙》中斯特兰奇直面多元宇宙的代价；漫画主线中他仍是地球的至尊法师。',
     en: 'After Multiverse of Madness\'s costs, Strange remains Earth\'s Sorcerer Supreme in comics.' },
+  { zh: '至尊法师守护的不是一座城而是整个维度：卡玛泰姬、三大圣所与时间宝石构成地球抵御异维入侵的防线。', en: 'The Sorcerer Supreme guards a dimension, not a city — Kamar-Taj, the Sanctums, and the Time Stone shield Earth.' },
+  { zh: '终局之战前他看过 1400 万种结局并选择唯一胜算，又在《奇异博士2》直面自己‘必要之恶’的代价。', en: 'He saw 14,000,605 futures and chose the one win; Multiverse of Madness charges him for \'necessary evils\'.' },
+  { zh: '悬戒画圈、镜像维度、时间循环——他的战斗是漫威视觉想象力的试验场，也是魔法与科学界限的探针。', en: 'Sling-ring portals, Mirror Dimension, time loops — his fights test Marvel\'s visual imagination and the magic-science line.' },
 ]);
 
 bio('mnt-sorcerer-supreme', [
@@ -467,6 +497,9 @@ bio('mnt-spider-man', [
     en: 'The mantle is the friendly neighborhood hero: webs, spider-sense, agility — the most relatable great hero.' },
   { zh: 'MCU 三版蜘蛛侠同框于《无路可归》，多元宇宙的蜘蛛家族让名号空前繁盛。',
     en: 'Three Spider-Men met in No Way Home; the Spider-Verse family flourishes across the multiverse.' },
+  { zh: '他不用拳头解决一切：蛛网装置的发明、对反派的‘治愈优先’，让彼得始终是漫威最像‘邻居’的英雄。', en: 'He solves more than he punches — web-tech inventions and cure-over-kill make Peter Marvel\'s friendliest hero.' },
+  { zh: '漫画史的关键坐标：格温之死、共生体战衣、内战站队与‘仅剩一日’的代价，都为‘责任’写下不同注脚。', en: 'Comic landmarks — Gwen\'s fall, the symbiote suit, Civil War, One More Day — each gloss the cost of responsibility.' },
+  { zh: '从动画、游戏到三代真人电影，蜘蛛侠是漫威最具跨媒介生命力的符号，也始终是青少年成长的寓言。', en: 'Animation, games, three film generations — Spider-Man is Marvel\'s most cross-media icon and a coming-of-age fable.' },
 ]);
 
 bio('mnt-spider-gwen', [
@@ -735,6 +768,9 @@ bio('mnt-wolverine', [
     en: 'The mantle is feral discipline: claws, animal senses, a century of memory — the X-Men\'s blade.' },
   { zh: '《罗根》谢幕后多元宇宙金刚狼（含女金刚狼劳拉）延续名号。',
     en: 'After Logan, multiversal Wolverines (Laura the clone-daughter) carry the name.' },
+  { zh: '艾德曼合金骨骼与自愈因子让罗根近乎不死，百年记忆却让他比谁都清楚‘活着’的代价。', en: 'Adamantium bones and healing make Logan near-immortal; a century of memory prices every year he lives.' },
+  { zh: '从武器 X 的试验品到 X 战警的兄长，他的野兽本能与道德拉扯是变种人故事最锋利的一根线。', en: 'Weapon X subject to X-Men elder, his beast-versus-conscience tension cuts deepest in mutant lore.' },
+  { zh: '《金刚狼3》以最‘不超级’的方式为他送终，也让‘金刚狼’从名号变成可以被继承的遗产。', en: 'Logan buries him in the least super way — turning the name into a legacy others can carry.' },
 ]);
 
 bio('mnt-cyclops', [
