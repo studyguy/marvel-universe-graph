@@ -40,6 +40,9 @@ bio('mnt-war-machine', [
     en: 'The mantle means war and duty: heavier firepower than Iron Man, more soldier than inventor — full weapons systems, exosuit artillery, tactical command.' },
   { zh: 'MCU 中罗德自《钢铁侠2》起常驻，历经无限战争与终局，是复仇者中坚；漫画线则有多位后继者短暂接装。',
     en: 'In the MCU Rhodes has served since Iron Man 2 through Infinity War and Endgame; in comics several successors briefly wore the armor.' },
+  { zh: '战争机器是‘军人的钢铁侠’：全身外挂武器、重火力优先，与铁人的科技路线互为表里。', en: 'War Machine is the soldier\'s Iron Man — external ordnance and firepower-first, the mirror of Tony\'s tech path.' },
+  { zh: '罗迪从《钢铁侠》到《秘密入侵》始终是最稳的副手与军旅桥梁，MCU 忠诚的活招牌。', en: 'Rhodey, Iron Man to Secret Invasion, stays the steadiest second and soldier-bridge — loyalty incarnate.' },
+  { zh: '战争机器战甲多次迭代（含《装甲战争》前奏），承载‘军人与英雄如何同体’的命题。', en: 'His armors keep iterating toward Armor Wars — the ongoing question of soldier and hero in one.' },
 ]);
 
 bio('mnt-thor', [
@@ -79,6 +82,9 @@ bio('mnt-hawkeye', [
     en: 'The mantle is mortal craft: trick arrows, peak archery, street smarts — no serum, just ten thousand hours.' },
   { zh: 'MCU 中克林特历经《鹰眼》剧集将名号交棒凯特；漫画中师徒二人长期双鹰眼并存。',
     en: 'In the MCU\'s Hawkeye series Clint hands the name to Kate; in comics the two share the mantle.' },
+  { zh: '他不用超能力，靠箭术与战术立足神明战场：爆炸箭、声波箭、绳索箭轮番上阵，是复仇者最可靠的后手。', en: 'No powers — arrows and tactics on a god-tier field: trick arrows and cool aim make him the Avengers\' surest backup.' },
+  { zh: '《鹰眼》剧集让这位‘被低估的复仇者’获得主角位，也把衣钵交给了凯特·毕肖普与新一代。', en: 'The Hawkeye series finally stars the underrated Avenger — and passes the bow to Kate Bishop.' },
+  { zh: '浪人时期的黑化与家人的回归，赋予这个角色 MCU 少见的‘退休与家庭’弧光。', en: 'The Ronin detour and return to family give Clint one of the MCU\'s rare retirement-and-home arcs.' },
 ]);
 
 bio('mnt-scarlet-witch', [
@@ -115,6 +121,9 @@ bio('mnt-vision', [
     en: 'The mantle is the soul in a machine: a synthezoid asking what it means to be human — "who am I" his eternal question.' },
   { zh: '《旺达幻视》后，白幻视以"无情感重启"的形态在多元宇宙线中延续，漫画则有白幻视与未来线变体。',
     en: 'After WandaVision, the White Vision continues in the multiverse; comics feature White Vision and future-line variants.' },
+  { zh: '幻视由心灵宝石与奥创遗产铸成，能飞行、穿物、额头发射光束——是‘人造神明’的具象。', en: 'Forged from the Mind Stone and Ultron\'s legacy, Vision flies, phases, and fires his mind-beam — a machine god.' },
+  { zh: '他与旺达的爱情探讨‘机器人能否爱人’，也让《旺达幻视》成为 MCU 最反类型的情感剧。', en: 'His love with Wanda asks whether a machine can love — WandaVision the saga\'s most un-superheroic romance.' },
+  { zh: '白幻视的归来与《幻视探索》的铺垫，让他从‘工具’走向‘自我定义’的下一个阶段。', en: 'White Vision\'s return and VisionQuest set him on the next step — from tool to self-defined.' },
 ]);
 
 bio('mnt-ant-man', [
@@ -140,6 +149,9 @@ bio('mnt-wasp', [
     en: 'The mantle is elegance in battle: micro-scale agility, flight, stingers — the Avengers\' most nimble founding hero.' },
   { zh: 'MCU 中霍普成为全新一代黄蜂女，与蚁人并肩探索量子领域；漫画黄蜂女体系亦有纳迪娅·皮姆等新篇。',
     en: 'Hope is the new Wasp in the MCU, exploring the quantum realm with Ant-Man; comics add Nadia Pym\'s Wasp lineage.' },
+  { zh: '黄蜂女是漫威最早的女性超级英雄之一：缩小飞行、以‘蜂刺’制敌，优雅与火力并存。', en: 'One of Marvel\'s first heroines — the Wasp shrinks, flies, and stings with equal grace and firepower.' },
+  { zh: '初代珍妮特困于量子领域三十年，二代霍普接棒后让名号在 MCU 重新发光。', en: 'Janet\'s thirty years in the Quantum Realm yield to Hope\'s suit — the mantle shining again in the MCU.' },
+  { zh: '从复联创会成员到时间劫持，黄蜂女证明‘小尺度’也能撬动宇宙级的胜负。', en: 'Founding Avenger to time heist, the Wasp proves small scale can tip cosmic stakes.' },
 ]);
 
 bio('mnt-yellowjacket', [
@@ -308,6 +320,9 @@ bio('mnt-daredevil', [
     en: 'The mantle is street justice: sonar senses, master boxing, pain threshold — Hell\'s Kitchen\'s night guardian.' },
   { zh: '《夜魔侠：重生》将名号带回 MCU 正史，马特继续在法律与夜行之间走钢索。',
     en: 'Daredevil: Born Again returns him to MCU canon, still walking the wire between law and night.' },
+  { zh: '夜魔侠失明却拥有‘雷达感官’，地狱厨房的教堂与屋顶都是他的战场。', en: 'Blind yet radar-sensed, Daredevil claims Hell\'s Kitchen\'s rooftops and church spires.' },
+  { zh: '律师与义警的双重身份让马特始终在‘法律’与‘正义’之间走钢丝，是漫威最黑暗也最深刻的街头英雄。', en: 'Lawyer by day, vigilante by night, Matt walks law-versus-justice — Marvel\'s darkest, deepest street hero.' },
+  { zh: 'Netflix 系列与《重生》让‘马律师’成为超英剧集的写实标杆，也让他与金并的对决成为传奇。', en: 'Netflix and Born Again make Matt TV\'s grittiest hero — his war with Kingpin the stuff of legend.' },
 ]);
 
 bio('mnt-punisher', [
@@ -319,6 +334,9 @@ bio('mnt-punisher', [
     en: 'The mantle is war on crime: military combat, firearms mastery, zero mercy — the grey zone between hero and villain.' },
   { zh: '惩罚者骷髅标志已成为流行文化符号；现代主线中弗兰克以"战争机器"战甲短暂升级后回归本色。',
     en: 'The skull emblem is pop-culture icon; Frank briefly upgraded as War Machine, then returned to his war.' },
+  { zh: '惩罚者把‘以暴制暴’推到极致：凡手上沾血者皆为标靶，他的方法论简单到令人不安。', en: 'The Punisher takes vengeance to its end — bloodied hands make targets, his method unsettlingly simple.' },
+  { zh: '军人的训练与家人的惨死让他成为复仇机器，也让‘私刑正义’的争议伴随角色一生。', en: 'Marine training and a family massacre forge a vengeance machine — vigilante justice his lifelong debate.' },
+  { zh: '从漫画到 Netflix，他屡次与夜魔侠正面冲突，是漫威对暴力边界最不回避的提问。', en: 'Comics to Netflix, he clashes with Daredevil — Marvel\'s most unflinching question on violence\'s edge.' },
 ]);
 
 bio('mnt-kingpin', [
@@ -352,6 +370,9 @@ bio('mnt-moon-knight', [
     en: 'The mantle is moonlight and vengeance: lunar healing and might, silver weapons, occult combat.' },
   { zh: 'MCU 剧集揭示其人格与创伤根源；漫画中月光骑士与午夜之子多次并肩对抗超自然威胁。',
     en: 'The MCU series explores his trauma; in comics Moon Knight walks with the Midnight Sons.' },
+  { zh: '孔苏的月光之力让马克在夜晚近乎无敌，但多重人格才是他真正的战场。', en: 'Khonshu\'s moonlight makes Marc nearly unstoppable at night — his alters the true battlefield.' },
+  { zh: '《月光骑士》剧集以 DID 议题与埃及神话双线展开，奥斯卡·伊萨克分饰多人格堪称炫技。', en: 'The series runs DID and Egyptian myth on twin tracks — Oscar Isaac\'s multi-persona turn a showcase.' },
+  { zh: '从街头义警到神之化身，他的故事始终在问：疯狂与信仰，谁在驱动英雄？', en: 'Street vigilante to god\'s avatar — his tale asks whether madness or faith drives the hero.' },
 ]);
 
 bio('mnt-iron-fist', [
@@ -431,6 +452,9 @@ bio('mnt-ghost-rider', [
     en: 'The mantle is vengeance judged: hellfire bike, chain weapon, the stare that burns guilty souls.' },
   { zh: '漫画中恶灵骑士是午夜之子的核心，MCU 正在筹备其独立作品，名号历久弥新。',
     en: 'A Midnight Sons pillar in comics; the MCU is developing its own Ghost Rider project.' },
+  { zh: '复仇之焰只审判有罪之人：恶灵骑士的锁链与地狱机车是漫威超自然线最醒目的意象。', en: 'Hellfire judges only the guilty — chains and the hell-bike the starkest icons of Marvel\'s supernatural line.' },
+  { zh: '从约翰尼·布雷泽到罗比·雷耶斯，多位宿主共享‘与恶魔交易’的原罪底色。', en: 'Blaze to Reyes, every host shares the original sin of trading with a demon.' },
+  { zh: '他的存在让漫威的‘惩罚’有了宗教维度：复仇是恩典还是诅咒，全看骑士的选择。', en: 'He gives Marvel\'s vengeance a religious cast — redemption or curse, decided rider by rider.' },
 ]);
 
 bio('mnt-blade', [
@@ -453,6 +477,9 @@ bio('mnt-star-lord', [
     en: 'The mantle is cosmic charm: twin blasters, jet boots, mixtape soul — Marvel\'s most irreverent hero.' },
   { zh: '《银护3》后奎尔暂别护卫队回地球探亲，名号等待下一段星际旅程。',
     en: 'After Vol. 3 Quill visits Earth on leave — the name awaits its next voyage.' },
+  { zh: '星爵是‘半人半天神’的银河浪子：随身听、口哨与尬舞是他的标志，也是他的铠甲。', en: 'Half-human, half-Celestial, Star-Lord is the galaxy\'s roguish dreamer — mixtape, whistle, and dance as armor.' },
+  { zh: '从《银护》到《终局之战》，他失去卡魔拉又在多元宇宙寻回她，爱始终是他行动的第一因。', en: 'Through Guardians and Endgame he loses Gamora and finds her again — love his prime mover.' },
+  { zh: '他在《银护3》的告别里选择留下当‘父亲’，让这个长不大的角色终于长大。', en: 'Vol. 3\'s farewell has him stay as a father — the boy who never grew up finally does.' },
 ]);
 
 bio('mnt-drax', [
@@ -733,6 +760,9 @@ bio('mnt-doctor-doom', [
     en: 'The mantle is conquest-as-salvation: iron mask, sorcery and science — "Doom answers only to Doom."' },
   { zh: '杜姆是神奇四侠与复仇者的共同宿敌，漫威的"恶之轴心"。',
     en: 'Doom opposes the FF and Avengers alike — the axis of Marvel evil.' },
+  { zh: '杜姆同时登顶科学与魔法的王座，拉托维尼亚在他的铁腕下既是暴政也是秩序。', en: 'Doom masters science and sorcery; under his iron hand Latveria is tyranny and order at once.' },
+  { zh: '他相信只有自己能拯救世界，这份‘救世主执念’让他屡次接近全能又屡次跌落。', en: 'Certain only he can save the world, his messianic drive nears omnipotence and falls every time.' },
+  { zh: '《秘密战争》中他甚至窃取超越神族之力成为全能宇宙的‘上帝’，是漫威最伟大的反派宿命样本。', en: 'Secret Wars even crowns him god of the multiverse — the template of Marvel\'s greatest villain fate.' },
 ]);
 
 bio('mnt-professor-x', [
@@ -744,6 +774,9 @@ bio('mnt-professor-x', [
     en: 'The mantle is the dream of peace: peak telepathy, mutant idealism — forever opposed to Magneto\'s way.' },
   { zh: '克拉科亚时代的建立让泽维尔的"变种人国家"梦想成真（后崩塌），MCU 版在《奇异博士2》亮相。',
     en: 'Krakoa realized Xavier\'s mutant nation (then fell); the MCU version appears in MoM.' },
+  { zh: 'X 教授的心灵感应能连接全世界的大脑，他选择用它建造学院而非武器。', en: 'Charles reads minds across the globe yet builds a school, not a weapon.' },
+  { zh: '轮椅上的他既是变种人的慈父也是战略家，泽维尔学院的‘梦想’承载着整个种族的希望。', en: 'Father-figure and strategist in one chair, his dream for the school carries a species\' hope.' },
+  { zh: '从漫画到《X战警97》再到克拉科时代，查尔斯始终面对同一难题：理想主义能否抵抗现实恶意。', en: 'Comics to X-Men \'97 to Krakoa, Charles keeps facing whether idealism can survive real malice.' },
 ]);
 
 bio('mnt-magneto', [
@@ -755,6 +788,9 @@ bio('mnt-magneto', [
     en: 'The mantle is resistance at any cost: magnetism, metal-flight, "never again" resolve.' },
   { zh: '万磁王与X教授的一生对立又和解，是漫威最深刻的哲学双生子。',
     en: 'Magneto and Xavier\'s lifelong dance is Marvel\'s deepest philosophical pair.' },
+  { zh: '万磁王操控磁场至分子层面，能拉起潜艇、重塑金属，是变种人中最接近‘天灾’的力量。', en: 'Magneto commands magnetism to the molecular — lifting subs, reshaping steel, mutantkind\'s nearest natural disaster.' },
+  { zh: '集中营幸存者的记忆让他永远警惕人类，与 X 教授的路线之争定义了整部变种人史。', en: 'A camp survivor, he never trusts humanity — his feud with Xavier defines all mutant history.' },
+  { zh: '从反派到反英雄再到领袖，埃里克的每一次转向都在追问：被压迫者的自卫何时越过底线。', en: 'Villain to antihero to leader, Erik keeps asking when the oppressed may cross into tyranny.' },
 ]);
 
 /* ============ P1 名号：批 5（X 战警系 14 个） ============ */
