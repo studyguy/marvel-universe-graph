@@ -23,6 +23,8 @@ bio('ev-battle-of-new-york', [
     en: 'The battle proved the point of the team: six very different individuals learned to fight as one.' },
   { zh: '其后果深远：曼哈顿的创伤催生了奥创与索科维亚协议，齐塔瑞之战也让灭霸将目光投向地球。',
     en: 'New York\'s trauma seeded Ultron and the Accords — and alerted Thanos to Earth.' },
+  { zh: '齐塔瑞入侵是地球首次面对外星威胁，洛基的权杖与宇宙魔方开启传送门，神盾局‘复仇者计划’自此正名。', en: 'Earth\'s first alien invasion — Loki\'s scepter and the Tesseract open the portal, vindicating the Avengers Initiative.' },
+  { zh: '复仇者首次集结即分散作战再到空中汇合，那句‘我们是一支团队’确立了系列的合作基调。', en: 'Split, scattered, reassembled mid-air — the \'we\'re a team\' beat sets the saga\'s cooperation tone.' },
 ]);
 
 bio('ev-winter-soldier-reveal', [
@@ -56,6 +58,8 @@ bio('ev-sokovia-accords', [
     en: 'The Accords politicized power: personal heroism versus collective security.' },
   { zh: '协议的裂痕直至无限战争仍未弥合；散落的阵营让英雄们在灭霸到来时措手不及。',
     en: 'The fractured team stayed scattered until Thanos forced a reunion.' },
+  { zh: '协议要求超级英雄接受联合国监管，把‘谁来监督强者’从漫画议题搬上银幕。', en: 'The Accords put heroes under UN oversight — bringing \'who watches the watchmen\' to screen.' },
+  { zh: '它引爆复仇者内战：签署与否的分歧让钢铁侠与美队兵刃相向，也为此后数年埋下裂痕。', en: 'It ignites Civil War — Tony and Steve at odds, a fracture echoing for years.' },
 ]);
 
 bio('ev-dark-elf-invasion', [
@@ -146,6 +150,8 @@ bio('ev-battle-of-earth', [
     en: 'The battle demanded sacrifice: Tony gave his life to win, and Steve finally chose to return to Peggy.' },
   { zh: '终局之战为"无限传奇"画上句号，重塑了 MCU 的英雄阵容，留下永恒的传承。',
     en: 'The Battle of Earth closed the Infinity Saga and reshaped the MCU\'s roster with a lasting legacy.' },
+  { zh: '终局之战的最终集结让历代英雄从传送门涌出，‘复仇者集结’成为十年情绪的顶点。', en: 'Portals open, every hero answers, and \'Avengers assemble\' caps a decade of buildup.' },
+  { zh: '惊奇队长摧毁母舰、绯红女巫撕碎灭霸、托尼的最后一响——这场战役用集体牺牲换回宇宙。', en: 'Carol\'s ship run, Wanda\'s fury, Tony\'s final Snap — collective sacrifice restores the cosmos.' },
 ]);
 
 bio('ev-death-of-stark', [
@@ -311,6 +317,8 @@ bio('ev-snap', [
     en: 'The Snap embodies "balance through slaughter": Thanos saw himself as savior, not tyrant — the most complete villain in Marvel canon.' },
   { zh: '蜘蛛侠、黑豹、奇异博士、猎鹰、旺达与大部分守护者化为灰烬；宇宙进入长达五年的"后响指时代"，幸存者各自背负创伤。',
     en: 'Spider-Man, Black Panther, Strange, Falcon, Wanda and most Guardians dusted away — five years of the post-Snap world, each survivor scarred.' },
+  { zh: '灭霸集齐六颗无限宝石后的响指随机抹去宇宙半数生命，是 MCU 最具冲击力的一幕。', en: 'Thanos\' Snap erases half of all life at random — the MCU\'s single most devastating image.' },
+  { zh: '灰飞烟灭的角色横跨老幼正邪，让‘失去’成为随后五年叙事的底色，也开启《终局之战》的救赎。', en: 'Dusting heroes and civilians alike, the loss colors five years of story before Endgame\'s reckoning.' },
 ]);
 
 bio('ev-battle-of-wakanda', [
@@ -322,6 +330,8 @@ bio('ev-battle-of-wakanda', [
     en: 'The battle embodies effort undone: shields open, blood spilled, then dust — Wakanda\'s might met cosmic inevitability.' },
   { zh: '响指带走国王特查拉与半数卫士，瓦坎达之战的创伤直接延续到《黑豹2》的塔罗坎冲突。',
     en: 'The Snap took King T\'Challa and half the Dora — trauma carried into Wakanda Forever\'s Talokan conflict.' },
+  { zh: '无限战争中瓦坎达敞开边界迎战灭霸军团，振金盾阵与黑豹的‘为我们开路’是全片高光。', en: 'Wakanda opens its borders against the Black Order — vibranium shields and T\'Challa\'s charge the highlight.' },
+  { zh: '幻视与旺达的诀别、雷神斧劈灭霸的悲喜剧，让这场防守战同时承载技术与情感双线。', en: 'Vision and Wanda\'s goodbye plus Thor\'s axe-that-missed carry tech and heart on one field.' },
 ]);
 
 bio('ev-battle-of-titan', [
@@ -355,6 +365,8 @@ bio('ev-time-heist', [
     en: 'The heist is mortal wit against fate: a modified quantum tunnel and people who refused to quit.' },
   { zh: '劫持的代价：黑寡妇永留沃米尔，洛基携宇宙魔方逃入新的时间线——后者直接诞生了《洛基》剧集的 TVA 之旅与多元宇宙的新章。',
     en: 'The heist cost Black Widow permanently to Vormir — and Loki\'s escape with the Tesseract spawned the TVA saga.' },
+  { zh: '终局之战以量子领域重返过去窃取宝石，把‘时间旅行’做成了喜剧、泪点与规则并存的叙事装置。', en: 'Endgame\'s quantum heist revisits the past for the Stones — time travel as comedy, grief, and rules.' },
+  { zh: '各队的‘过去重访’既是致敬也是了结：托尔再见母亲、美队再遇佩吉，为最终选择埋下伏笔。', en: 'Each visit settles old accounts — Thor\'s mother, Cap\'s Peggy — seeding the closing choices.' },
 ]);
 
 bio('ev-blip', [

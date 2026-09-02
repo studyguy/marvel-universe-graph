@@ -50,6 +50,8 @@ bio('item-infinity-gauntlet', [
   { zh: '灭霸用它完成无限响指，抹去半个宇宙；《终局之战》中绿巨人与托尼·斯塔克先后以凡躯戴上同一只手。', en: 'Thanos snapped half of existence with it; in Endgame, Hulk and Stark wore the same metal at terrible cost.' },
   { zh: '手套象征\"绝对力量的代价\"：六枚宝石齐集时，持有者即是宇宙的裁决者——而每一次使用都留下不可逆的伤。', en: 'The Gauntlet is absolute power\'s price: six Stones make one a cosmic judge, and every snap burns.' },
   { zh: '托尼·斯塔克的最后一击以手套为媒介完成——无限手套从此与\"我是钢铁侠\"永远同义。', en: 'Stark\'s final snap made the Gauntlet eternally synonymous with \"I am Iron Man.\"' },
+  { zh: '灭霸以矮人锻造的无限手套承载六颗无限宝石，一声响指即可实现宇宙级的愿望。', en: 'Forged by Nidavellir for Thanos, the Gauntlet holds the six Stones — a Snap to command the cosmos.' },
+  { zh: '托尼用纳米手套复刻响指救回半数生命，也让这件武器同时成为‘拯救’与‘代价’的象征。', en: 'Tony\'s nanotech gauntlet undoes the Snap — the artifact now both salvation and sacrifice.' },
 ]);
 
 bio('item-mjolnir', [
@@ -57,6 +59,8 @@ bio('item-mjolnir', [
   { zh: '托尔的资格考验贯穿其英雄之路：索科维亚之战中幻视证明了自己，终局之战中美队在同一柄锤下迎来高光时刻。', en: 'Worthiness defined Thor\'s arc: Vision proved it at Sokovia; Cap\'s Endgame lift was the saga\'s purest highlight.' },
   { zh: '雷神之锤象征\"资格而非力量\"：它拒绝海拉、拒绝奥创的机械之心——唯有纯粹之心能召来雷霆。', en: 'The hammer is worthiness over strength: it rejected Hela and Ultron\'s machine heart — only a pure heart calls the storm.' },
   { zh: '《雷神3》中它在海拉掌下粉碎，托尔从此以本源雷霆作战——锤子的离去成全了真正的雷神。', en: 'Shattered by Hela in Ragnarök, its loss freed Thor\'s true lightning — the broken hammer made the god whole.' },
+  { zh: '雷神之锤由垂死恒星核心铸成，奥丁以咒语加持：唯有‘配得上者’方能举起，将品格量化为物理法则。', en: 'Forged from a dying star and enchanted by Odin, Mjolnir rises only for the worthy — character as physics.' },
+  { zh: '美队在《复联2》聚餐中撼动锤身的分寸、终局之战中正式举起它迎战灭霸，都成为系列最动容的瞬间。', en: 'Cap nudging it at the party and lifting it against Thanos rank among the saga\'s most stirring beats.' },
 ]);
 
 bio('item-stormbreaker', [
@@ -64,6 +68,8 @@ bio('item-stormbreaker', [
   { zh: '托尔在无限战争中以彩虹桥之力降临瓦坎达，一斧重创灭霸胸口——若非迟了半拍，响指或将不发生。', en: 'Thor descended through the Bifrost at Wakanda and buried the axe in Thanos\'s chest — a heartbeat from undoing the Snap.' },
   { zh: '风暴战斧象征\"复仇的锋刃\"：它比雷神之锤更狠、更专一——为杀一人而铸，也为守住余下宇宙而挥。', en: 'The axe is vengeance\'s edge: forged for one kill, swung to guard everything left.' },
   { zh: '《爱与雷霆》后它仍是阿斯加德的王权信物，托尔以它领导新阿斯加德的流亡子民。', en: 'Post Love & Thunder, it remains Asgard\'s royal relic under which Thor leads his refugees.' },
+  { zh: '风暴战斧由雷神在尼达维利尔以‘启动恒星’为代价铸成，能召唤彩虹桥并克制无限手套。', en: 'Forged at a star\'s cost on Nidavellir, Stormbreaker summons the Bifrost and can beat the Gauntlet.' },
+  { zh: '‘Bring me Thanos’的名场面让它成为雷神复仇意志的延伸，也见证其后的失去与重建。', en: 'Its \'Bring me Thanos\' moment channels Thor\'s vengeance — and later his loss and rebuilding.' },
 ]);
 
 bio('item-gungnir', [
@@ -92,6 +98,8 @@ bio('item-cap-shield', [
   { zh: '盾牌传承了三代：史蒂夫·罗杰斯（二战至终局）、约翰·沃克（短暂）、山姆·威尔逊（正式继任）；《终局之战》中美队持盾举锤的画面成为史诗定格。', en: 'Passed from Steve Rogers to John Walker and finally Sam Wilson; Cap\'s shield-and-Mjolnir moment in Endgame is eternal.' },
   { zh: '盾象征\"守护而非征服\"：它是防御性武器，也是\"不后退\"的宣言——面对灭霸的军团，持盾者先站。', en: 'The shield defends rather than conquers: it declares \"no retreat\" — even against Thanos\'s horde.' },
   { zh: '它被灭霸劈碎于瓦坎达，终局之战中美队握着它的残片仍不后退——破碎的盾反而让信念更完整。', en: 'Thanos shattered it at Wakanda; Cap fought on with the rim — the broken shield made the creed whole.' },
+  { zh: '星条盾以原始振金锻造，能吸收动能、反弹攻击，是美队‘防守即进攻’哲学的具象。', en: 'The vibranium disc absorbs and redirects force — Captain America\'s defense-as-offense creed made metal.' },
+  { zh: '从二战到传给山姆，盾牌始终是‘美国队长’名号的实物凭证与传承信物。', en: 'WWII to Sam Wilson, the shield stays the Captain America mantle\'s physical charter.' },
 ]);
 /* ============ P5 物品：批 2（11 个，战衣/装备/材料） ============ */
 
@@ -121,6 +129,8 @@ bio('item-arc-reactor', [
   { zh: '它在《钢铁侠1》中从车载电池到掌心炮撑起第一代战衣；《钢铁侠2》的钯中毒危机后，新元素反应堆替代旧型。', en: 'It powered the Mark I from a car battery in Iron Man 1; after palladium poisoning in Iron Man 2, the new-element reactor replaced it.' },
   { zh: '反应堆象征"心与能源"：它既是托尼心脏的护甲，也是他"以科技自愈"哲学的具象——胸口的光是第二颗心。', en: 'The reactor is heart and power: chest armor and self-healing philosophy in one — the glowing chest a second heart.' },
   { zh: '《复联3》中托尼以纳米反应堆驱动 Mark L；其遗产延伸至钢铁之心的战衣与斯塔克工业的清洁能源。', en: 'It drove the nanotech Mark L in Infinity War; its legacy powers Ironheart and Stark Industries\' clean energy.' },
+  { zh: '方舟反应堆是托尼的小型冷聚变能源，既驱动战甲也延续他的生命，是‘钢铁之心’。', en: 'Tony\'s miniature reactor powers the suits and keeps him alive — the Iron Man\'s second heart.' },
+  { zh: '从山洞里的第一代到纳米装甲时代的迭代，它的演变记录着托尼科技与性格的双重成长。', en: 'Cave-built first gen to nanotech era, its evolution charts Tony\'s growth as inventor and man.' },
 ]);
 
 bio('item-web-shooters', [
@@ -156,6 +166,8 @@ bio('item-ten-rings', [
   { zh: '文武（徐文武）持十环千年建立十环帮；《尚气》高潮中十环被收入塔罗秘境的龙池，后落入尚气之手。', en: 'Wenwu wielded them for a millennium; after Shang-Chi\'s finale they were drawn from the dragon pool — to Shang-Chi.' },
   { zh: '十环象征"力量的诱惑"：它们能召唤怪兽、扭曲现实（漫画设定），却让持有者陷入孤独与执念。', en: 'The Rings tempt their wielder: summoning beasts and warping reality in comics, while devouring peace of mind.' },
   { zh: 'MCU 中十环的去向成为尚气续作的悬念——它们既是遗产，也是下一场风暴的引信。', en: 'Their fate is Shang-Chi 2\'s dangling thread — legacy and the fuse of the next conflict.' },
+  { zh: '十环帮主的十枚铁环来历成谜，能发射能量、延寿千年，是文武权力的实体来源。', en: 'Wenwu\'s ten rings, of unknown origin, fire energy and grant centuries — the Ten Rings\' power made metal.' },
+  { zh: '《尚气》后十环传至尚气手中，也把漫画‘满大人’的争议底色改写为更复杂的家族遗产。', en: 'Passed to Shang-Chi, the rings recast the comics\' Mandarin baggage as layered family legacy.' },
 ]);
 
 bio('item-heart-shaped-herb', [

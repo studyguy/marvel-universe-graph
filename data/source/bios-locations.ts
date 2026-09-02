@@ -12,6 +12,8 @@ bio('loc-new-york', [
     en: 'The city is heroes\' everyday: Spider-Man\'s Queens, Daredevil\'s Hell\'s Kitchen, Kingpin\'s empire.' },
   { zh: '纽约之战（复仇者联盟1）确立其为漫威电影宇宙的守护中心，此后多次成为多元宇宙危机的现场。',
     en: 'The Battle of New York made it the MCU\'s defended heart, scene of many multiversal crises since.' },
+  { zh: '纽约是 MCU 的心脏：斯塔克大厦、至圣所与无数英雄的地面战场都坐落于此。', en: 'New York is the MCU\'s heart — Stark Tower, the Sanctum, and countless street battles.' },
+  { zh: '纽约之战让这座城成为外星威胁的前线，也让‘守护家园’成为此后所有灾难叙事的坐标。', en: 'The 2012 battle makes the city the invasion frontline — \'protect home\' the saga\'s compass.' },
 ]);
 
 bio('loc-brooklyn', [
@@ -45,6 +47,8 @@ bio('loc-wakanda', [
     en: 'The nation is hidden might: poor on the surface, vibranium-deep — isolation and tradition.' },
   { zh: '无限战争的瓦坎达之战与《黑豹2》的塔洛坎冲突让这个国度成为 MCU 的军事中心。',
     en: 'The Wakanda Battle and the Talokan war made it the MCU\'s martial center.' },
+  { zh: '瓦坎达是振金科技铸就的隐秘王国，长期以‘第三世界农业国’伪装，实为地球最先进文明之一。', en: 'Wakanda hides the world\'s most advanced nation behind a farming-state facade, built on vibranium.' },
+  { zh: '从黑豹到复仇者，它的开放与守护贯穿多部电影，也成为非洲未来主义的银幕图腾。', en: 'From Black Panther to the Avengers, its openness and defense recur — an Afrofuturist icon.' },
 ]);
 
 bio('loc-golden-city', [
@@ -100,6 +104,8 @@ bio('loc-kamar-taj-loc', [
     en: 'The sanctum is magic\'s lineage: sling rings, astral arts, multiversal wisdom — the mystic source.' },
   { zh: '《奇异博士2》后卡玛泰姬在多元宇宙危机中成为枢纽，法师团扩大。',
     en: 'After MoM it became a multiversal hub; the Masters expanded.' },
+  { zh: '卡玛泰姬是喜马拉雅深处的法师圣殿，历代至尊法师在此训练守护维度的法师团。', en: 'Kamar-Taj, high in the Himalayas, trains the sorcerers who guard Earth\'s dimension.' },
+  { zh: '藏书阁、镜像维度的修习与悬戒传送，让这里成为漫威魔法体系的源头与中心。', en: 'Its library, Mirror Dimension training, and sling-ring portals make it the wellspring of Marvel magic.' },
 ]);
 
 bio('loc-westview', [
@@ -144,6 +150,8 @@ bio('loc-asgard', [
     en: 'The realm is myth\'s dignity: Asgardians are long-lived aliens, not gods — "Asgard is its people."' },
   { zh: '诸神黄昏中阿斯加德被苏尔特尔摧毁，幸存者在托尔带领下流亡地球。',
     en: 'Surtur destroyed it in Ragnarok; survivors fled to Earth with Thor.' },
+  { zh: '阿斯加德是九界的王都，彩虹桥连接诸域，金宫之下藏着诸神黄昏的预言。', en: 'Asgard, capital of the Nine Realms, bridges worlds by the Bifrost — Ragnarok\'s prophecy under the gold.' },
+  { zh: '《雷神3》中苏尔特尔毁城、幸存者远航，它的覆灭成为 MCU 神域叙事的分水岭。', en: 'Ragnarok\'s fire and the survivors\' exodus turn Asgard\'s fall into the saga\'s mythic watershed.' },
 ]);
 
 bio('loc-new-asgard', [
@@ -223,6 +231,8 @@ bio('loc-knowhere', [
     en: 'The place is the cosmic bazaar: bars, casinos, aliens — order meets chaos.' },
   { zh: '《复联3》中收藏家的藏品被灭霸洗劫，虚无之地在《银护3》重生为掠夺者家园。',
     en: 'Thanos ransacked it; Vol. 3 rebirthed it as Ravager home.' },
+  { zh: '虚无之地是远古天神头颅改造的星际市集，收藏家与各方势力在此交易宇宙奇珍。', en: 'Knowhere, a dead Celestial\'s head turned space bazaar, hosts the Collector and every species\' trade.' },
+  { zh: '《银护》系列与《复联3》都以它为坐标，见证灭霸夺石与护卫队的聚散。', en: 'A Guardians fixture and Infinity War\'s opening stage — hub of the team\'s comings and goings.' },
 ]);
 
 bio('loc-hala', [
@@ -278,6 +288,8 @@ bio('loc-ta-lo', [
     en: 'The realm is Eastern myth: qilin, fenghuang, dragons — Marvel\'s homage to Chinese lore.' },
   { zh: '塔罗秘境的传送门与守护者线为 MCU 的魔法体系增添东方维度。',
     en: 'Its portals add an Eastern dimension to the MCU\'s mystic system.' },
+  { zh: '塔罗是山海经式的结界秘境，九尾狐、麒麟与神龙栖息于此，镇守着封印噬魂兽的巨门。', en: 'Ta Lo is a mythic pocket realm of qilin and dragons, guarding the gate that seals the Dweller.' },
+  { zh: '《尚气》让十环与龙鳞在此碰撞，也让东方神话第一次成为 MCU 的正式舞台。', en: 'Shang-Chi\'s rings and dragon-scale clash here — Eastern myth entering the MCU proper.' },
 ]);
 
 bio('loc-talokan', [
