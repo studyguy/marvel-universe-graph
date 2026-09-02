@@ -129,7 +129,6 @@ E('ch-surtur', 'ch-hela', 'killed', { when: L2('雷神3：诸神黄昏', 'Ragnar
 E('ch-surtur', 'ev-ragnarok', 'initiated');
 E('ch-jane-foster', 'item-mjolnir', 'wields', { means: L2('获得', 'Acquired'), status: PAST });
 E('ch-jane-foster', 'wk-love-thunder', 'stars-in', { role: LEAD, actor: L2('娜塔莉·波特曼', 'Natalie Portman') });
-E('ch-gorr', 'item-necrosword', 'wields', { status: PAST });
 E('ch-gorr', 'ch-thor', 'nemesis', { since: L2('雷神4：爱与雷霆', 'Love and Thunder'), status: PAST });
 E('ch-gorr', 'ch-zeus', 'killed', { status: PAST });
 E('ch-valkyrie-brunnhilde', 'loc-new-asgard', 'rules', { status: NOW });
@@ -293,7 +292,6 @@ E('ch-janet-van-dyne', 'ch-hope-van-dyne', 'parent-of', { kind: L2('母', 'Mothe
 E('ch-scott-lang', 'ch-hope-van-dyne', 'spouse', { status: NOW });
 E('ch-scott-lang', 'ch-cassie-lang', 'parent-of', { kind: L2('父', 'Father'), status: NOW });
 E('ch-scott-lang', 'item-antman-suit', 'wields', { means: L2('窃取→继承', 'Stolen→Inherited'), status: NOW });
-E('ch-hank-pym', 'item-antman-suit', 'creator-of', { status: NOW });
 E('ch-hank-pym', 'ab-pym-particles', 'has-ability', { level: L2('发现者', 'Discoverer') });
 E('ch-hope-van-dyne', 'wk-antman2', 'stars-in', { role: LEAD, actor: L2('伊万杰琳·莉莉', 'Evangeline Lilly') });
 E('ch-scott-lang', 'wk-antman1', 'stars-in', { role: LEAD, actor: L2('保罗·路德', 'Paul Rudd') });
@@ -311,7 +309,6 @@ for (const m of ['ch-peter-quill', 'ch-gamora', 'ch-nebula', 'ch-drax', 'ch-rock
 E('ch-adam-warlock', 'team-gotg', 'member-of', { status: NOW });
 E('ch-yondu', 'team-ravagers', 'leader-of', { status: PAST });
 E('ch-yondu', 'ch-peter-quill', 'adoptive-parent', { kind: L2('养父', 'Adoptive father'), status: PAST });
-E('ch-yondu', 'item-yaka-arrow', 'wields', { status: PAST });
 E('ch-peter-quill', 'ch-ego', 'parent-of', { kind: L2('父', 'Father'), status: PAST });
 E('ch-peter-quill', 'ch-ego', 'killed', { when: L2('银河护卫队2 (2017)', 'GotG Vol.2') });
 E('ch-mantis', 'ch-peter-quill', 'sibling', { kind: L2('同父异母姐', 'Half-sister'), status: NOW });
@@ -512,3 +509,27 @@ E('wk-inhumans-show', 'loc-attilan', 'set-in', {});
 /* 守卫/归属 */
 E('loc-golden-city', 'loc-wakanda', 'guards', {});
 E('loc-x-mansion', 'loc-new-york', 'located-in-universe', {});
+
+/* ---------- P5 物品关系补全：持有者（wields）/ 制造者（creator-of） ---------- */
+E('mnt-thor', 'item-mjolnir', 'wields', { status: PAST });
+E('mnt-thor', 'item-stormbreaker', 'wields', { status: NOW });
+E('mnt-captain-america', 'item-cap-shield', 'wields', { status: NOW });
+E('mnt-iron-man', 'item-iron-man-armor', 'wields', { status: NOW });
+E('mnt-black-panther', 'item-black-panther-suit', 'wields', { status: NOW });
+E('mnt-ant-man', 'item-antman-suit', 'wields', { status: NOW });
+E('mnt-spider-man', 'item-web-shooters', 'wields', { status: NOW });
+E('mnt-doctor-strange', 'item-sling-ring', 'wields', { status: NOW });
+E('mnt-doctor-strange', 'item-eye-of-agamoto', 'wields', { status: PAST });
+E('mnt-black-panther', 'item-heart-shaped-herb', 'wields', { status: NOW });
+E('mnt-silver-surfer', 'item-silver-board', 'wields', { status: NOW });
+E('mnt-iron-man', 'item-arc-reactor', 'creator-of', { status: NOW });
+
+/* ---------- P5 物品关系：持有者/制造者（无名号人物直连 ch-*） ---------- */
+E('ch-odin', 'item-gungnir', 'wields', { status: PAST });
+E('ch-thanos', 'item-soul-stone', 'wields', { status: PAST });
+E('ch-xu-wenwu', 'item-ten-rings', 'wields', { status: PAST });
+E('ch-yondu', 'item-yaka-arrow', 'wields', { status: PAST });
+E('ch-gorr', 'item-necrosword', 'wields', { status: PAST });
+E('ch-loki', 'item-casket-of-winters', 'wields', { status: PAST });
+E('ch-tony-stark', 'item-arc-reactor', 'creator-of', { status: NOW });
+E('ch-hank-pym', 'item-antman-suit', 'creator-of', { status: NOW });

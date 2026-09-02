@@ -14,3 +14,4 @@ import './bios-mantles';
 import './bios-teams';
 import './bios-locations';
 import './bios-events';
+import './bios-items';
