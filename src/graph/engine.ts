@@ -177,6 +177,9 @@ export class GraphEngine {
   private time = 0;
   private lastT = 0;
   private bg: HTMLCanvasElement | null = null;
+  /** 空图提示锚点（--hint-x / --hint-y 缓存值，避免每帧重复写 style） */
+  private hintX = '';
+  private hintY = '';
   private bgTheme: Theme | null = null;
   private T = CANVAS_THEMES.dark;
   private hoveredId: string | null = null;
@@ -1128,6 +1131,31 @@ export class GraphEngine {
     }
     ctx.globalAlpha = 1;
     ctx.restore();
+    this.updateEmptyHint();
+  }
+
+  /** 空图锚点：中心节点是图上唯一节点时，把它的屏幕坐标同步成 CSS 变量，让提示卡贴着节点下方显示而非盖住它 */
+  private updateEmptyHint() {
+    const el = this.cv.parentElement as HTMLElement | null;
+    const empty = !this.virtual && !!this.projection?.center && this.projection.neighbors.length === 0;
+    if (!empty || !el) {
+      if (this.hintX) {
+        this.hintX = '';
+        this.hintY = '';
+        el?.style.removeProperty('--hint-x');
+        el?.style.removeProperty('--hint-y');
+      }
+      return;
+    }
+    const rn = this.nodes.get('::center');
+    if (!rn) return;
+    const [sx, sy] = this.toScreen(rn.x, rn.y);
+    const rr = rn.r * this.cam.scale;
+    // 中心节点名写在其正下方（nameY = sy+rr+7，行高约 16px）；底部留白防止卡片越出画布
+    const x = sx.toFixed(1);
+    const y = clamp(sy + rr + 48, 0, this.h - 220).toFixed(1);
+    if (x !== this.hintX) { this.hintX = x; el.style.setProperty('--hint-x', x + 'px'); }
+    if (y !== this.hintY) { this.hintY = y; el.style.setProperty('--hint-y', y + 'px'); }
   }
 
   private drawMinimap() {

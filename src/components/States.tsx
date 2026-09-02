@@ -73,13 +73,11 @@ export function EmptyState() {
   const lang = useStore((s) => s.lang);
   const resetFilters = useStore((s) => s.resetFilters);
   return (
-    <div className="center-status" style={{ pointerEvents: 'none' }}>
-      <div className="status-card" style={{ pointerEvents: 'auto' }}>
-        <div style={{ fontSize: 30, marginBottom: 8 }}>🌌</div>
-        {t('emptyResult', lang)}
-        <div style={{ marginTop: 12 }}>
-          <button className="btn-ghost" onClick={resetFilters}>{t('resetFilters', lang)}</button>
-        </div>
+    <div className="empty-state">
+      <div className="empty-card">
+        <div className="ic">🌌</div>
+        <div className="msg">{t('emptyResult', lang)}</div>
+        <button className="btn-ghost" onClick={resetFilters}>{t('resetFilters', lang)}</button>
       </div>
     </div>
   );

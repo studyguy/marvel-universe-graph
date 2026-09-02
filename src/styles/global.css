@@ -343,6 +343,28 @@ button { font-family: inherit; cursor: pointer; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* 空图提示卡：中心节点仍是图上唯一可见内容，卡片贴在节点正下方（锚点由引擎每帧同步 --hint-*） */
+.empty-state {
+  position: absolute;
+  left: var(--hint-x, 50%);
+  top: var(--hint-y, 64%);
+  transform: translateX(-50%);
+  z-index: 16;
+  pointer-events: none;
+}
+.empty-card {
+  pointer-events: auto;
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  max-width: min(360px, calc(100vw - 72px));
+  padding: 14px 26px 16px;
+  background: var(--panel); border: 1px solid var(--panel-border);
+  border-radius: 16px; box-shadow: var(--shadow-float);
+  backdrop-filter: blur(8px); text-align: center;
+  animation: bio-in 0.22s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+.empty-card .ic { font-size: 24px; line-height: 1; }
+.empty-card .msg { font-size: 12.5px; color: var(--text-dim); line-height: 1.7; }
+
 /* ---------- 移动端 ---------- */
 .m-btn { display: none; }
 @media (max-width: 900px) {
