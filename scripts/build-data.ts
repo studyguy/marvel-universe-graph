@@ -22,6 +22,7 @@ import '../data/source/events';
 import '../data/source/works-other';
 import '../data/source/edges-mcu';
 import '../data/source/edges-comics';
+import '../data/source/edges-audit';
 import '../data/source/supplement';
 import '../data/source/mantles';
 import '../data/source/bios';
