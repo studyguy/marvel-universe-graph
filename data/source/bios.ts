@@ -15,3 +15,4 @@ import './bios-teams';
 import './bios-locations';
 import './bios-events';
 import './bios-items';
+import './bios-works';
