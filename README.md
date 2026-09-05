@@ -1,5 +1,7 @@
 # 漫威宇宙全维关系图谱 · Marvel Universe Graph
 
+**简体中文** | [English](README.en.md)
+
 以"节点 + 关系"知识图谱的形式，交互式浏览漫威全内容生态（漫画 / 电影 / 剧集 / 动漫 / 游戏）中一切事物的关联。中心放射 + 逐层下钻，中英双语，**断网完整可用**。
 
 **🌐 在线访问 / Live Demo**：[studyguy.github.io/marvel-universe-graph](https://studyguy.github.io/marvel-universe-graph/)
@@ -101,7 +103,7 @@ data/source → scripts/build-data.ts → public/data/graph.json
 
 ## 数据规模
 
-当前内置演示数据集：**718 节点 / 1259 关系**（含 93 名号与身份节点），覆盖全部 11 大节点类：
+当前内置演示数据集：**718 节点 / 1738 关系**（含 93 名号与身份节点），覆盖全部 11 大节点类：
 MCU 全部电影与剧集、福克斯 X 战警系、索尼 SSU、经典剧集、动画、游戏、漫画重要连载与大事件，以及 616 漫画核心角色与多宇宙蜘蛛侠变体等。数据以 MCU 正史为深度优先，兼容学习与演示用途。
 
 ## 许可与致谢
